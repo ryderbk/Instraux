@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Activity, Zap } from 'lucide-react';
+import { CountdownTimer } from './CountdownTimer';
 
 // Signal trace animation
 const SignalTrace = ({ delay = 0, top = '30%' }: { delay?: number; top?: string }) => (
