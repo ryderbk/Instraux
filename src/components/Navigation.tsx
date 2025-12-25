@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, CircuitBoard } from 'lucide-react';
+import { Button } from './ui/button';
 
 const navItems = [
   { label: 'Home', href: '#hero' },
