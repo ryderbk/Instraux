@@ -2,17 +2,20 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { technicalEvents, nonTechnicalEvents } from '@/data/events';
 
+import { Event } from '@/data/events';
+
 interface EventCardProps {
-  event: typeof technicalEvents[0];
+  event: Event;
   index: number;
   accentColor?: 'red' | 'amber';
 }
 
 const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
-  const ledColor = accentColor === 'red' 
-    ? 'bg-primary shadow-glow-red' 
+  const navigate = useNavigate();
+  const ledColor = accentColor === 'red'
+    ? 'bg-primary shadow-glow-red'
     : 'bg-secondary shadow-glow-amber';
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -23,7 +26,8 @@ const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
         delay: index * 0.08,
         ease: [0.23, 1, 0.32, 1],
       }}
-      className="module-card p-5 group cursor-pointer"
+      onClick={() => navigate(`/event/${event.id}`)}
+      className="module-card p-5 group cursor-pointer hover:scale-105 transition-transform duration-300"
     >
       {/* LED indicator dot - overriding default */}
       <div 
