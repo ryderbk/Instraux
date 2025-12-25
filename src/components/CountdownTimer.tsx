@@ -94,7 +94,7 @@ export const CountdownTimer = () => {
         </motion.div>
 
         {/* Countdown boxes */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-5 mb-10 md:mb-12">
+        <div className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-5 mb-10 md:mb-12">
           <CountdownBox value={countdown.days} label="Days" index={0} />
           <CountdownBox value={countdown.hours} label="Hours" index={1} />
           <CountdownBox value={countdown.minutes} label="Minutes" index={2} />
