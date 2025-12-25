@@ -87,6 +87,9 @@ export const HeroScene = () => {
             A National Level Technical Symposium
           </motion.p>
         </motion.div>
+
+        {/* Countdown Timer Section */}
+        <CountdownTimer />
       </div>
 
       {/* Scroll indicator */}
