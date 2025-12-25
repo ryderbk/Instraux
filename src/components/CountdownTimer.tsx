@@ -71,7 +71,7 @@ export const CountdownTimer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7 }}
-      className="relative z-10 w-full"
+      className="relative z-10 w-full pb-32 md:pb-40"
     >
       <div className="w-full">
         {/* Event details header */}
