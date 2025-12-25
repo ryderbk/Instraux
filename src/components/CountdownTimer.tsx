@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin } from 'lucide-react';
+import { Button } from './ui/button';
 
 interface CountdownValues {
   days: number;
