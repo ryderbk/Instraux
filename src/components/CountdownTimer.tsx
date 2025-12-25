@@ -110,12 +110,13 @@ export const CountdownTimer = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <button
+          <Button
+            variant="premium"
+            size="lg"
             onClick={scrollToRegister}
-            className="btn-industrial-primary px-8 py-3 md:px-12 md:py-4 rounded-chamfer font-bold text-sm md:text-base font-display uppercase tracking-wider"
           >
             Register Now
-          </button>
+          </Button>
         </motion.div>
       </div>
     </motion.div>
