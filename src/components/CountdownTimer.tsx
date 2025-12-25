@@ -70,30 +70,31 @@ export const CountdownTimer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7 }}
-      className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-16 md:py-20"
+      className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16 md:pb-20"
     >
       <div className="max-w-5xl mx-auto">
         {/* Event details header */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 mb-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 md:gap-8 mb-10 md:mb-14"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <div className="flex items-center gap-2 text-sm md:text-base text-muted-foreground">
-            <MapPin className="w-4 h-4 md:w-5 md:h-5 text-accent" />
-            <span>Velammal Engineering College, Surapet, Chennai</span>
+          <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base text-muted-foreground whitespace-nowrap">
+            <MapPin className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
+            <span className="hidden sm:inline">Velammal Engineering College, Surapet, Chennai</span>
+            <span className="sm:hidden">Velammal Engineering College</span>
           </div>
-          <div className="hidden sm:block w-px h-6 bg-accent/30" />
-          <div className="flex items-center gap-2 text-sm md:text-base text-muted-foreground">
-            <Calendar className="w-4 h-4 md:w-5 md:h-5 text-accent" />
+          <div className="hidden sm:block w-px h-5 bg-accent/30" />
+          <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base text-muted-foreground whitespace-nowrap">
+            <Calendar className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
             <span>January 31st, 2026</span>
           </div>
         </motion.div>
 
         {/* Countdown boxes */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-5 mb-10 md:mb-12">
           <CountdownBox value={countdown.days} label="Days" index={0} />
           <CountdownBox value={countdown.hours} label="Hours" index={1} />
           <CountdownBox value={countdown.minutes} label="Minutes" index={2} />
@@ -102,7 +103,7 @@ export const CountdownTimer = () => {
 
         {/* Register button */}
         <motion.div
-          className="flex justify-center"
+          className="flex justify-center pt-2 md:pt-4"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
