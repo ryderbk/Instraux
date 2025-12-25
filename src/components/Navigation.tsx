@@ -104,12 +104,13 @@ export const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <button
-              className="btn-industrial-primary px-6 py-2.5 text-sm"
+            <Button
+              variant="premium"
+              size="sm"
               onClick={() => scrollToSection('#register')}
             >
               Register Now
-            </button>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
