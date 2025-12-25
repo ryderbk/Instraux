@@ -70,9 +70,9 @@ export const CountdownTimer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7 }}
-      className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-8 md:pt-12 pb-16 md:pb-20"
+      className="relative z-10 w-full"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="w-full">
         {/* Event details header */}
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 md:gap-8 mb-10 md:mb-14"
