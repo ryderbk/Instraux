@@ -58,7 +58,7 @@ export const HeroScene = () => {
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-accent/10 blur-[80px] pointer-events-none" />
 
       {/* Main content */}
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-10 md:pt-16">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export const HeroScene = () => {
         >
           {/* Department text */}
           <motion.p
-            className="text-xs md:text-sm lg:text-base font-mono uppercase tracking-widest text-accent mb-2 md:mb-3"
+            className="text-xs md:text-sm lg:text-base font-mono uppercase tracking-widest text-accent mb-3 md:mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
