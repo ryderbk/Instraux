@@ -9,14 +9,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-glass-panel backdrop-blur-md border border-accent/30 text-foreground hover:border-accent/50 hover:bg-glass-panel/80 hover:shadow-lg hover:shadow-accent/15",
+        default: "[background:rgba(15,15,18,0.65)] backdrop-blur-[14px] border border-accent/30 text-foreground hover:border-accent/50 hover:[background:rgba(15,15,18,0.75)] hover:shadow-lg hover:shadow-accent/15",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-accent/40 bg-background/40 backdrop-blur-sm text-foreground hover:bg-accent/10 hover:border-accent/60 hover:text-accent-foreground",
+        outline: "border border-accent/40 [background:rgba(15,15,18,0.4)] backdrop-blur-sm text-foreground hover:[background:rgba(15,15,18,0.5)] hover:border-accent/60 hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent/10 hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        glass: "bg-glass-panel backdrop-blur-[14px] border border-accent/30 text-foreground hover:border-accent/50 hover:bg-glass-panel/80 hover:shadow-lg hover:shadow-accent/20 transition-all",
-        premium: "bg-glass-panel backdrop-blur-[14px] border border-accent/40 text-accent font-bold hover:border-accent/60 hover:bg-glass-panel/90 hover:shadow-lg hover:shadow-accent/30 hover:scale-[1.02] uppercase tracking-wider",
+        glass: "[background:rgba(15,15,18,0.65)] backdrop-blur-[14px] border border-accent/30 text-foreground hover:border-accent/50 hover:[background:rgba(15,15,18,0.75)] hover:shadow-lg hover:shadow-accent/20 transition-all",
+        premium: "[background:rgba(15,15,18,0.65)] backdrop-blur-[14px] border border-accent/40 text-accent font-bold hover:border-accent/60 hover:[background:rgba(15,15,18,0.8)] hover:shadow-lg hover:shadow-accent/30 hover:scale-[1.02] uppercase tracking-wider",
       },
       size: {
         default: "h-10 px-6 py-2",
