@@ -63,11 +63,11 @@ export const HeroScene = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-5xl mx-auto text-center"
         >
           {/* Main title */}
           <motion.h1
-            className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight"
+            className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-4 md:mb-6 tracking-tight"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -79,17 +79,17 @@ export const HeroScene = () => {
 
           {/* Subtitle */}
           <motion.p
-            className="text-xl md:text-2xl text-muted-foreground mb-10 font-light"
+            className="text-lg md:text-2xl text-muted-foreground mb-6 md:mb-8 font-light"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             A National Level Technical Symposium
           </motion.p>
-        </motion.div>
 
-        {/* Countdown Timer Section */}
-        <CountdownTimer />
+          {/* Countdown Timer Section */}
+          <CountdownTimer />
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
