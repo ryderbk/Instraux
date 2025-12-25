@@ -53,12 +53,12 @@ export const CountdownTimer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glass-panel p-6 md:p-8 rounded-chamfer flex flex-col items-center justify-center border border-accent/30"
+      className="glass-panel p-4 sm:p-6 md:p-7 rounded-chamfer flex flex-col items-center justify-center border border-accent/30 aspect-square"
     >
-      <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-2">
+      <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-1 sm:mb-2 leading-none">
         {String(value).padStart(2, '0')}
       </div>
-      <div className="text-xs md:text-sm font-mono uppercase tracking-widest text-muted-foreground">
+      <div className="text-[10px] sm:text-xs md:text-sm font-mono uppercase tracking-widest text-muted-foreground">
         {label}
       </div>
     </motion.div>
