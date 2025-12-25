@@ -55,7 +55,7 @@ export const AboutSection = () => {
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               INSTRAUX'26 is the flagship techno-cultural symposium by the Department of 
-              Electronics and Instrumentation Engineering at Velammal Engineering College.
+              Electronics and Instrumentation Engineering.
             </p>
           </motion.div>
 

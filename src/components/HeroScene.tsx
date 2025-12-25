@@ -64,30 +64,6 @@ export const HeroScene = () => {
           transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
           className="max-w-4xl mx-auto text-center"
         >
-          {/* Institution label */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm md:text-base font-light text-muted-foreground/70 tracking-wide mb-3"
-          >
-            Velammal Engineering College
-          </motion.p>
-
-          {/* Department badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 mb-10 glass-panel rounded-chamfer"
-          >
-            <Activity className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
-              Electronics & Instrumentation Engineering
-            </span>
-            <Zap className="w-4 h-4 text-accent" />
-          </motion.div>
-
           {/* Main title */}
           <motion.h1
             className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight"
@@ -107,42 +83,8 @@ export const HeroScene = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            A National Technical Symposium
+            A National Level Technical Symposium
           </motion.p>
-
-          {/* Date & Venue pills */}
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <div className="glass-panel px-6 py-3 rounded-chamfer">
-              <span className="font-mono font-semibold text-foreground tracking-wide">
-                31st January 2026
-              </span>
-            </div>
-            <div className="glass-panel px-6 py-3 rounded-chamfer">
-              <span className="text-muted-foreground">
-                Velammal Engineering College
-              </span>
-            </div>
-          </motion.div>
-
-          {/* CTA Button */}
-          <motion.div
-            className="flex justify-center"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <button
-              className="btn-industrial-primary px-10 py-3.5 text-lg"
-              onClick={scrollToEvents}
-            >
-              View Events
-            </button>
-          </motion.div>
         </motion.div>
       </div>
 

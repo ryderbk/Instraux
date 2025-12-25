@@ -16,22 +16,12 @@ export const ClosingSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          {/* College branding */}
           <motion.p
-            className="text-sm text-muted-foreground mb-2 tracking-widest uppercase"
+            className="text-sm text-muted-foreground mb-8 tracking-widest uppercase"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-          >
-            Velammal Engineering College
-          </motion.p>
-          <motion.p
-            className="text-xs text-muted-foreground mb-8"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
           >
             Department of Electronics & Instrumentation Engineering
           </motion.p>

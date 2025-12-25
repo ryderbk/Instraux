@@ -22,8 +22,8 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>INSTRAUX'26 - Techno-Cultural Symposium | Velammal Engineering College</title>
-        <meta name="description" content="INSTRAUX'26 is the flagship techno-cultural symposium by the Department of Electronics and Instrumentation Engineering at Velammal Engineering College. Join us on 31st January 2026." />
+        <title>INSTRAUX'26 - Techno-Cultural Symposium</title>
+        <meta name="description" content="INSTRAUX'26 is the flagship techno-cultural symposium by the Department of Electronics and Instrumentation Engineering. Join us on 31st January 2026." />
       </Helmet>
       
       <main className="relative min-h-screen bg-background overflow-x-hidden">
