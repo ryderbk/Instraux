@@ -1,22 +1,6 @@
 import { motion } from 'framer-motion';
-import { 
-  Code, Lightbulb, Brain, Zap, 
-  Search, Music, Timer, Gamepad2
-} from 'lucide-react';
-
-const technicalEvents = [
-  { id: 1, title: 'Innoscript', subtitle: 'Code Your Vision', icon: Code },
-  { id: 2, title: 'Projectopia', subtitle: 'Build the Future', icon: Lightbulb },
-  { id: 3, title: 'Brain Battle', subtitle: 'Quiz Showdown', icon: Brain },
-  { id: 4, title: "Watt's Wrong", subtitle: 'Circuit Detective', icon: Zap },
-];
-
-const nonTechnicalEvents = [
-  { id: 5, title: 'Hunt for the Hidden', subtitle: 'Treasure Quest', icon: Search },
-  { id: 6, title: 'Aura Unplugged', subtitle: 'Acoustic Magic', icon: Music },
-  { id: 7, title: 'Rush and Survive', subtitle: 'Race Against Time', icon: Timer },
-  { id: 8, title: 'Play to Slay', subtitle: 'Gaming Arena', icon: Gamepad2 },
-];
+import { useNavigate } from 'react-router-dom';
+import { technicalEvents, nonTechnicalEvents } from '@/data/events';
 
 interface EventCardProps {
   event: typeof technicalEvents[0];
