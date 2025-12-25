@@ -95,7 +95,7 @@ export const Navigation = () => {
                 {activeSection === item.href.slice(1) && (
                   <motion.span
                     layoutId="activeSection"
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-accent rounded-full"
+                    className="absolute bottom-1 left-4 right-4 h-0.5 bg-accent rounded-full"
                   />
                 )}
               </motion.button>
