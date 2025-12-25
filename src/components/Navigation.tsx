@@ -179,12 +179,14 @@ export const Navigation = () => {
                   </motion.button>
                 ))}
                 <div className="mt-6 pt-6 border-t border-border/30">
-                  <button
-                    className="btn-industrial-primary w-full py-3 text-base"
+                  <Button
+                    variant="premium"
+                    size="lg"
+                    className="w-full"
                     onClick={() => scrollToSection('#register')}
                   >
                     Register Now
-                  </button>
+                  </Button>
                 </div>
               </div>
             </motion.div>
