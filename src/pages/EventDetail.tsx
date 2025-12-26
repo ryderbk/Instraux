@@ -33,6 +33,10 @@ export default function EventDetail() {
 
   return (
     <>
+      <Helmet>
+        <title>{event.title} | INSTRAUX'26</title>
+        <meta name="description" content={event.description} />
+      </Helmet>
       <Navigation />
       <div className="min-h-screen bg-background pt-20">
         {/* Background overlay */}
