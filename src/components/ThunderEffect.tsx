@@ -1,10 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 
+/**
+ * ThunderEffect: High-fidelity realistic lightning interaction
+ * - Midpoint displacement for natural branching
+ * - Pointer Event tracking (mobile-safe)
+ * - Theme-aware colors
+ * - Performance optimized (30fps cap)
+ */
 const ThunderEffect: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const pointerRef = useRef({ x: 0, y: 0, isActive: false, isDown: false });
-  const arcsRef = useRef<any[]>([]);
-  const lastEmitRef = useRef(0);
+  const activePointers = useRef<Map<number, { x: number, y: number }>>(new Map());
+  const lightningBolts = useRef<any[]>([]);
+  const lastFrameTime = useRef(0);
+  const lastEmitTime = useRef(0);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -19,130 +27,181 @@ const ThunderEffect: React.FC = () => {
     };
 
     window.addEventListener('resize', resize);
+    window.addEventListener('orientationchange', resize);
     resize();
 
     const getThemeColors = () => {
-      const bodyStyles = getComputedStyle(document.body);
-      // Try to get HSL values from shadcn variables
-      const primary = bodyStyles.getPropertyValue('--primary').trim();
-      const accent = bodyStyles.getPropertyValue('--accent').trim();
+      const style = getComputedStyle(document.body);
+      const primary = style.getPropertyValue('--primary').trim();
+      const accent = style.getPropertyValue('--accent').trim();
       
-      // Default to a fallback if not found
+      // Convert HSL variables to usable strings or fallback to defaults
       return {
+        core: '#ffffff',
         primary: primary ? `hsl(${primary})` : '#3b82f6',
-        accent: accent ? `hsl(${accent})` : '#60a5fa'
+        glow: accent ? `hsl(${accent})` : '#60a5fa'
       };
     };
 
-    const createArc = (x: number, y: number, isBurst = false) => {
+    /**
+     * Recursive midpoint displacement for realistic jagged lines
+     */
+    const generateSegments = (x1: number, y1: number, x2: number, y2: number, displacement: number) => {
+      if (displacement < 2) {
+        return [{ x: x1, y: y1 }, { x: x2, y: y2 }];
+      }
+
+      const midX = (x1 + x2) / 2 + (Math.random() - 0.5) * displacement;
+      const midY = (y1 + y2) / 2 + (Math.random() - 0.5) * displacement;
+
+      return [
+        ...generateSegments(x1, y1, midX, midY, displacement / 2),
+        ...generateSegments(midX, midY, x2, y2, displacement / 2).slice(1)
+      ];
+    };
+
+    const createBolt = (x: number, y: number) => {
       const colors = getThemeColors();
-      const count = isBurst ? 8 : 1;
+      const isMobile = 'ontouchstart' in window;
+      const angle = Math.random() * Math.PI * 2;
+      const length = isMobile ? 40 + Math.random() * 40 : 60 + Math.random() * 80;
       
-      for (let i = 0; i < count; i++) {
-        const angle = isBurst ? (i / count) * Math.PI * 2 : Math.random() * Math.PI * 2;
-        const length = isBurst ? 30 + Math.random() * 40 : 15 + Math.random() * 25;
+      const targetX = x + Math.cos(angle) * length;
+      const targetY = y + Math.sin(angle) * length;
+      
+      const segments = generateSegments(x, y, targetX, targetY, length / 1.5);
+      
+      lightningBolts.current.push({
+        segments,
+        life: 1.0,
+        decay: 0.04 + Math.random() * 0.04,
+        color: colors.primary,
+        glow: colors.glow,
+        core: colors.core,
+        width: 2.5 + Math.random() * 2
+      });
+
+      // Chance to branch
+      if (!isMobile && Math.random() > 0.7) {
+        const branchIdx = Math.floor(segments.length * 0.4);
+        const start = segments[branchIdx];
+        const branchAngle = angle + (Math.random() - 0.5) * 1.5;
+        const branchLen = length * 0.5;
+        const bTargetX = start.x + Math.cos(branchAngle) * branchLen;
+        const bTargetY = start.y + Math.sin(branchAngle) * branchLen;
         
-        arcsRef.current.push({
-          x,
-          y,
-          angle,
-          length,
-          segments: Math.floor(3 + Math.random() * 4),
-          life: 1.0,
-          decay: isBurst ? 0.05 : 0.08,
+        lightningBolts.current.push({
+          segments: generateSegments(start.x, start.y, bTargetX, bTargetY, branchLen / 2),
+          life: 0.8,
+          decay: 0.06,
           color: colors.primary,
-          glow: colors.accent,
-          width: isBurst ? 2 : 1.5
+          glow: colors.glow,
+          core: colors.core,
+          width: 1.5
         });
       }
     };
 
-    const handlePointerMove = (e: PointerEvent) => {
-      pointerRef.current.x = e.clientX;
-      pointerRef.current.y = e.clientY;
-      pointerRef.current.isActive = true;
+    const handlePointerDown = (e: PointerEvent) => {
+      activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      createBolt(e.clientX, e.clientY);
+    };
 
+    const handlePointerMove = (e: PointerEvent) => {
+      if (!activePointers.current.has(e.pointerId)) return;
+      
+      activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      
       const now = Date.now();
-      if (now - lastEmitRef.current > 40) {
-        createArc(e.clientX, e.clientY);
-        lastEmitRef.current = now;
+      if (now - lastEmitTime.current > 40) {
+        createBolt(e.clientX, e.clientY);
+        lastEmitTime.current = now;
       }
     };
 
-    const handlePointerDown = (e: PointerEvent) => {
-      createArc(e.clientX, e.clientY, true);
-      pointerRef.current.isDown = true;
+    const handlePointerUp = (e: PointerEvent) => {
+      activePointers.current.delete(e.pointerId);
     };
 
-    const handlePointerUp = () => {
-      pointerRef.current.isDown = false;
-    };
-
-    const handlePointerLeave = () => {
-      pointerRef.current.isActive = false;
-    };
-
-    // Reduced motion check
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (prefersReducedMotion.matches) return;
 
-    window.addEventListener('pointermove', handlePointerMove);
     window.addEventListener('pointerdown', handlePointerDown);
+    window.addEventListener('pointermove', handlePointerMove);
     window.addEventListener('pointerup', handlePointerUp);
-    window.addEventListener('pointerleave', handlePointerLeave);
+    window.addEventListener('pointercancel', handlePointerUp);
 
-    let animationFrame: number;
-    const render = () => {
+    const render = (time: number) => {
+      // Cap redraw to ~30 FPS
+      if (time - lastFrameTime.current < 33) {
+        requestAnimationFrame(render);
+        return;
+      }
+      lastFrameTime.current = time;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Throttle rendering slightly for performance (around 30fps-ish via simple logic if needed, 
-      // but standard rAF is usually fine for these light effects)
-      
-      const arcs = arcsRef.current;
-      for (let i = arcs.length - 1; i >= 0; i--) {
-        const arc = arcs[i];
+      const bolts = lightningBolts.current;
+      for (let i = bolts.length - 1; i >= 0; i--) {
+        const bolt = bolts[i];
         
+        // Draw Glow
         ctx.beginPath();
-        ctx.moveTo(arc.x, arc.y);
+        ctx.lineWidth = bolt.width * 3 * bolt.life;
+        ctx.strokeStyle = bolt.glow;
+        ctx.shadowBlur = 15 * bolt.life;
+        ctx.shadowColor = bolt.glow;
+        ctx.globalAlpha = bolt.life * 0.5;
         
-        let curX = arc.x;
-        let curY = arc.y;
-        const segLen = arc.length / arc.segments;
-        
-        for (let s = 0; s < arc.segments; s++) {
-          const jitter = (Math.random() - 0.5) * 15;
-          curX += Math.cos(arc.angle) * segLen + jitter;
-          curY += Math.sin(arc.angle) * segLen + jitter;
-          ctx.lineTo(curX, curY);
-        }
-
-        ctx.strokeStyle = arc.color;
-        ctx.lineWidth = arc.width * arc.life;
-        ctx.globalAlpha = arc.life;
-        ctx.shadowBlur = 10 * arc.life;
-        ctx.shadowColor = arc.glow;
+        bolt.segments.forEach((pt: any, idx: number) => {
+          if (idx === 0) ctx.moveTo(pt.x, pt.y);
+          else ctx.lineTo(pt.x, pt.y);
+        });
         ctx.stroke();
+
+        // Draw Primary
+        ctx.beginPath();
+        ctx.lineWidth = bolt.width * bolt.life;
+        ctx.strokeStyle = bolt.color;
+        ctx.globalAlpha = bolt.life;
+        ctx.shadowBlur = 0;
         
-        arc.life -= arc.decay;
-        if (arc.life <= 0) {
-          arcs.splice(i, 1);
-        }
+        bolt.segments.forEach((pt: any, idx: number) => {
+          if (idx === 0) ctx.moveTo(pt.x, pt.y);
+          else ctx.lineTo(pt.x, pt.y);
+        });
+        ctx.stroke();
+
+        // Draw Core
+        ctx.beginPath();
+        ctx.lineWidth = (bolt.width / 2) * bolt.life;
+        ctx.strokeStyle = bolt.core;
+        ctx.globalAlpha = bolt.life;
+        
+        bolt.segments.forEach((pt: any, idx: number) => {
+          if (idx === 0) ctx.moveTo(pt.x, pt.y);
+          else ctx.lineTo(pt.x, pt.y);
+        });
+        ctx.stroke();
+
+        bolt.life -= bolt.decay;
+        if (bolt.life <= 0) bolts.splice(i, 1);
       }
 
       ctx.globalAlpha = 1.0;
-      ctx.shadowBlur = 0;
-      animationFrame = requestAnimationFrame(render);
+      requestAnimationFrame(render);
     };
 
-    render();
+    const raf = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener('resize', resize);
-      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('orientationchange', resize);
       window.removeEventListener('pointerdown', handlePointerDown);
+      window.removeEventListener('pointermove', handlePointerMove);
       window.removeEventListener('pointerup', handlePointerUp);
-      window.removeEventListener('pointerleave', handlePointerLeave);
-      cancelAnimationFrame(animationFrame);
+      window.removeEventListener('pointercancel', handlePointerUp);
+      cancelAnimationFrame(raf);
     };
   }, []);
 
