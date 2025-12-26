@@ -102,12 +102,12 @@ export const AboutSection = () => {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="glass-panel p-6 text-center rounded-chamfer"
+                className="glass-panel p-2 sm:p-6 text-center rounded-chamfer"
               >
-                <div className="font-display text-3xl md:text-4xl font-bold text-gradient-copper mb-1">
+                <div className="font-display text-xl sm:text-3xl md:text-4xl font-bold text-gradient-copper mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm text-muted-foreground font-mono uppercase tracking-wider">
+                <div className="text-[10px] sm:text-sm text-muted-foreground font-mono uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>
