@@ -1,16 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 
 /**
- * ThunderEffect: Corrected high-fidelity lightning interaction
- * - Properly handles continuous tracking for desktop mouse
- * - Strictly follows active pointer for mobile touch
- * - Theme-aware colors and performance optimized
+ * ThunderEffect: High-fidelity lightning interaction
+ * - Mobile: Triggers for every touch, drag, and hold.
+ * - Desktop: Continuously follows cursor.
+ * - Theme-aware colors and performance optimized.
  */
 const ThunderEffect: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  // Track active pointers to distinguish between mouse and specific touch fingers
-  const activePointerId = useRef<number | null>(null);
-  const lastPos = useRef({ x: 0, y: 0 });
+  // Using a Map to track multiple simultaneous touch points
+  const activePointers = useRef<Map<number, { x: number, y: number }>>(new Map());
   const lightningBolts = useRef<any[]>([]);
   const lastFrameTime = useRef(0);
   const lastEmitTime = useRef(0);
@@ -80,20 +79,16 @@ const ThunderEffect: React.FC = () => {
     };
 
     const handlePointerDown = (e: PointerEvent) => {
-      // For mouse, we always track. For touch, we track the first finger.
-      activePointerId.current = e.pointerId;
-      lastPos.current = { x: e.clientX, y: e.clientY };
+      activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
       createBolt(e.clientX, e.clientY);
     };
 
     const handlePointerMove = (e: PointerEvent) => {
-      const isMouse = e.pointerType === 'mouse';
-      
-      // If it's a mouse, we always update. 
-      // If it's touch, we only update if it matches the active finger.
-      if (!isMouse && e.pointerId !== activePointerId.current) return;
+      // For mouse, we always track if it's over the window.
+      // For touch, we only update if it's an active touch.
+      if (e.pointerType === 'touch' && !activePointers.current.has(e.pointerId)) return;
 
-      lastPos.current = { x: e.clientX, y: e.clientY };
+      activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
       
       const now = Date.now();
       if (now - lastEmitTime.current > 30) {
@@ -103,9 +98,7 @@ const ThunderEffect: React.FC = () => {
     };
 
     const handlePointerUp = (e: PointerEvent) => {
-      if (e.pointerId === activePointerId.current) {
-        activePointerId.current = null;
-      }
+      activePointers.current.delete(e.pointerId);
     };
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -125,6 +118,15 @@ const ThunderEffect: React.FC = () => {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
+      // Emit bolts for hold state (active pointers not moving)
+      const now = Date.now();
+      if (now - lastEmitTime.current > 100 && activePointers.current.size > 0) {
+        activePointers.current.forEach((pos) => {
+           createBolt(pos.x, pos.y);
+        });
+        lastEmitTime.current = now;
+      }
+
       const bolts = lightningBolts.current;
       for (let i = bolts.length - 1; i >= 0; i--) {
         const bolt = bolts[i];
