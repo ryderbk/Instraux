@@ -1,14 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 
 /**
- * ThunderEffect: High-fidelity lightning interaction
- * - Mobile: Triggers for every touch, drag, and hold.
- * - Desktop: Continuously follows cursor.
- * - Theme-aware colors and performance optimized.
+ * ThunderEffect: Corrected high-fidelity lightning interaction
+ * - Uses touch-action: none to prevent browser interference
+ * - Handles multi-touch for hold, drag, and move
+ * - Theme-aware and performance optimized
  */
 const ThunderEffect: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  // Using a Map to track multiple simultaneous touch points
   const activePointers = useRef<Map<number, { x: number, y: number }>>(new Map());
   const lightningBolts = useRef<any[]>([]);
   const lastFrameTime = useRef(0);
@@ -60,7 +59,7 @@ const ThunderEffect: React.FC = () => {
       const colors = getThemeColors();
       const isMobile = 'ontouchstart' in window;
       const angle = Math.random() * Math.PI * 2;
-      const length = isMobile ? 30 + Math.random() * 30 : 50 + Math.random() * 70;
+      const length = isMobile ? 25 + Math.random() * 25 : 50 + Math.random() * 70;
       
       const targetX = x + Math.cos(angle) * length;
       const targetY = y + Math.sin(angle) * length;
@@ -70,11 +69,11 @@ const ThunderEffect: React.FC = () => {
       lightningBolts.current.push({
         segments,
         life: 1.0,
-        decay: 0.05 + Math.random() * 0.05,
+        decay: 0.06 + Math.random() * 0.06,
         color: colors.primary,
         glow: colors.glow,
         core: colors.core,
-        width: 2 + Math.random() * 1.5
+        width: 1.5 + Math.random() * 1.5
       });
     };
 
@@ -84,7 +83,6 @@ const ThunderEffect: React.FC = () => {
     };
 
     const handlePointerMove = (e: PointerEvent) => {
-      // For mouse, we always track if it's over the window.
       // For touch, we only update if it's an active touch.
       if (e.pointerType === 'touch' && !activePointers.current.has(e.pointerId)) return;
 
@@ -104,7 +102,8 @@ const ThunderEffect: React.FC = () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (prefersReducedMotion.matches) return;
 
-    window.addEventListener('pointerdown', handlePointerDown);
+    // Use specific listeners on the canvas to ensure touch-action: none works correctly
+    canvas.addEventListener('pointerdown', handlePointerDown);
     window.addEventListener('pointermove', handlePointerMove);
     window.addEventListener('pointerup', handlePointerUp);
     window.addEventListener('pointercancel', handlePointerUp);
@@ -118,7 +117,7 @@ const ThunderEffect: React.FC = () => {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Emit bolts for hold state (active pointers not moving)
+      // Continuous emit for active points (hold state)
       const now = Date.now();
       if (now - lastEmitTime.current > 100 && activePointers.current.size > 0) {
         activePointers.current.forEach((pos) => {
@@ -132,11 +131,11 @@ const ThunderEffect: React.FC = () => {
         const bolt = bolts[i];
         
         ctx.beginPath();
-        ctx.lineWidth = bolt.width * 3 * bolt.life;
+        ctx.lineWidth = bolt.width * 2.5 * bolt.life;
         ctx.strokeStyle = bolt.glow;
-        ctx.shadowBlur = 10 * bolt.life;
+        ctx.shadowBlur = 8 * bolt.life;
         ctx.shadowColor = bolt.glow;
-        ctx.globalAlpha = bolt.life * 0.4;
+        ctx.globalAlpha = bolt.life * 0.3;
         
         bolt.segments.forEach((pt: any, idx: number) => {
           if (idx === 0) ctx.moveTo(pt.x, pt.y);
@@ -180,7 +179,7 @@ const ThunderEffect: React.FC = () => {
     return () => {
       window.removeEventListener('resize', resize);
       window.removeEventListener('orientationchange', resize);
-      window.removeEventListener('pointerdown', handlePointerDown);
+      canvas.removeEventListener('pointerdown', handlePointerDown);
       window.removeEventListener('pointermove', handlePointerMove);
       window.removeEventListener('pointerup', handlePointerUp);
       window.removeEventListener('pointercancel', handlePointerUp);
@@ -197,6 +196,7 @@ const ThunderEffect: React.FC = () => {
         pointerEvents: 'none',
         zIndex: 9999,
         display: 'block',
+        touchAction: 'none', // Prevents browser scrolling/gestures from blocking the effect
       }}
     />
   );
