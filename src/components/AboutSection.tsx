@@ -89,7 +89,7 @@ export const AboutSection = () => {
 
           {/* Stats */}
           <motion.div
-            className="mt-16 grid grid-cols-3 gap-4 md:gap-6"
+            className="mt-16 flex flex-row items-stretch justify-center gap-2 sm:gap-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -102,12 +102,12 @@ export const AboutSection = () => {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="glass-panel p-2 sm:p-6 text-center rounded-chamfer"
+                className="glass-panel p-3 sm:p-6 text-center rounded-chamfer flex-1 min-w-0"
               >
-                <div className="font-display text-xl sm:text-3xl md:text-4xl font-bold text-gradient-copper mb-1">
+                <div className="font-display text-xl sm:text-3xl md:text-4xl font-bold text-gradient-copper mb-1 truncate">
                   {stat.value}
                 </div>
-                <div className="text-[10px] sm:text-sm text-muted-foreground font-mono uppercase tracking-wider">
+                <div className="text-[10px] sm:text-sm text-muted-foreground font-mono uppercase tracking-wider truncate">
                   {stat.label}
                 </div>
               </div>
