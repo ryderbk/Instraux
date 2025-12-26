@@ -6,60 +6,72 @@
 
 @layer base {
   :root {
-    /* Dark industrial PCB palette */
-    --background: 220 12% 8%;
-    --foreground: 30 5% 90%;
+    /* Modern Professional Blue Palette */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
 
-    --card: 220 15% 10%;
-    --card-foreground: 30 5% 90%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 220 15% 12%;
-    --popover-foreground: 30 5% 90%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Burnt red / copper accent */
-    --primary: 8 65% 45%;
-    --primary-foreground: 30 5% 95%;
+    /* Premium Navy Blue */
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Muted gold */
-    --secondary: 35 50% 40%;
-    --secondary-foreground: 30 5% 95%;
+    /* Soft Slate Blue */
+    --secondary: 215 25% 27%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 10% 18%;
-    --muted-foreground: 220 5% 55%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Copper accent */
-    --accent: 25 60% 50%;
-    --accent-foreground: 30 5% 95%;
+    /* Electric Cyan Highlight */
+    --accent: 199 89% 48%;
+    --accent-foreground: 222 47% 11%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 30 5% 95%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 30 30% 25%;
-    --input: 220 10% 15%;
-    --ring: 8 65% 45%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 53%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Industrial glass system */
-    --glass-bg: 15 15 18 / 0.65;
-    --glass-border: 255 180 120 / 0.25;
-    --glass-blur: 14px;
+    /* Professional Glass System */
+    --glass-bg: 255 255 255 / 0.75;
+    --glass-border: 221 83% 53% / 0.15;
+    --glass-blur: 12px;
 
-    /* PCB accent colors */
-    --accent-red: 8 65% 45%;
-    --accent-copper: 25 60% 50%;
-    --accent-gold: 40 55% 55%;
-    --accent-amber: 30 70% 50%;
+    /* Theme accent colors */
+    --accent-blue: 221 83% 53%;
+    --accent-cyan: 199 89% 48%;
+    --accent-navy: 222 47% 11%;
+    --accent-slate: 215 25% 27%;
 
-    /* Industrial shadows */
-    --shadow-deep: 0 12px 40px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
-    --shadow-glow-red: 0 0 20px rgba(180, 60, 40, 0.3);
-    --shadow-glow-amber: 0 0 20px rgba(200, 140, 60, 0.25);
+    /* Modern shadows */
+    --shadow-deep: 0 10px 30px -10px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-glow-blue: 0 0 20px rgba(37, 99, 235, 0.2);
+    --shadow-glow-cyan: 0 0 20px rgba(6, 182, 212, 0.15);
   }
 
   .dark {
-    --background: 220 12% 8%;
-    --foreground: 30 5% 90%;
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 11%;
+    
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+    
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
   }
 }
 
@@ -76,13 +88,12 @@
     @apply bg-background text-foreground antialiased;
     font-family: 'Rajdhani', sans-serif;
     overflow-x: hidden;
-    background-color: hsl(220 12% 6%);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Rajdhani', sans-serif;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     text-transform: uppercase;
   }
 
@@ -92,129 +103,139 @@
 }
 
 @layer components {
-  /* Industrial Dark Glass Panel */
+  /* Modern Professional Glass Panel */
   .glass-panel {
-    background: rgba(15, 15, 18, 0.65);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 180, 120, 0.25);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(37, 99, 235, 0.15);
     box-shadow: var(--shadow-deep);
+  }
+
+  .dark .glass-panel {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(59, 130, 246, 0.2);
   }
 
   /* Glass card for larger sections */
   .glass-card {
-    background: rgba(15, 15, 18, 0.75);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 160, 100, 0.2);
-    border-radius: 8px;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    border-radius: 12px;
     box-shadow: var(--shadow-deep);
+  }
+
+  .dark .glass-card {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(59, 130, 246, 0.15);
   }
 
   /* Flowing gradient background */
   .bg-flowing-gradient {
-    background: linear-gradient(135deg, rgba(20, 20, 25, 0.4) 0%, rgba(25, 20, 30, 0.3) 50%, rgba(20, 25, 25, 0.4) 100%);
+    background: linear-gradient(135deg, rgba(239, 246, 255, 0.5) 0%, rgba(219, 234, 254, 0.4) 50%, rgba(239, 246, 255, 0.5) 100%);
   }
 
-  /* Module Card - like soldered component */
+  .dark .bg-flowing-gradient {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.4) 0%, rgba(10, 15, 30, 0.3) 50%, rgba(15, 23, 42, 0.4) 100%);
+  }
+
+  /* Module Card - Modern tech look */
   .module-card {
-    background: rgba(18, 18, 22, 0.75);
+    background: white;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 160, 100, 0.2);
-    border-radius: 4px;
-    box-shadow: 
-      var(--shadow-deep),
-      inset 0 1px 0 rgba(255, 200, 150, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    border-radius: 8px;
+    box-shadow: var(--shadow-deep);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    overflow: hidden;
+  }
+
+  .dark .module-card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(59, 130, 246, 0.1);
   }
 
   .module-card::before {
     content: '';
     position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 6px;
-    height: 6px;
-    background: hsl(8 65% 45%);
-    border-radius: 50%;
-    box-shadow: 0 0 8px hsl(8 65% 45% / 0.6);
-    animation: ledPulse 2s ease-in-out infinite;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: hsl(var(--primary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   .module-card:hover {
-    border-color: rgba(255, 160, 100, 0.4);
-    box-shadow: 
-      var(--shadow-deep),
-      0 0 30px rgba(180, 80, 50, 0.15),
-      inset 0 1px 0 rgba(255, 200, 150, 0.12);
-    transform: translateY(-2px);
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-4px);
   }
 
-  /* Industrial Navigation */
+  .module-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Professional Navigation */
   .nav-industrial {
-    background: rgba(12, 12, 14, 0.85);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 160, 100, 0.15);
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   }
 
-  /* Industrial Button - Glass Style */
+  .dark .nav-industrial {
+    background: rgba(2, 6, 23, 0.85);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+  }
+
+  /* Professional Button */
   .btn-industrial {
-    background: rgba(15, 15, 18, 0.65);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 160, 100, 0.3);
-    color: hsl(30 5% 90%);
+    background: white;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    color: hsl(var(--primary));
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-radius: 4px;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 200, 150, 0.1),
-      0 4px 12px rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
     transition: all 0.2s ease;
   }
 
+  .dark .btn-industrial {
+    background: rgba(15, 23, 42, 0.6);
+    color: hsl(210 40% 98%);
+  }
+
   .btn-industrial:hover {
-    background: rgba(15, 15, 18, 0.75);
-    border-color: rgba(255, 160, 100, 0.5);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 200, 150, 0.15),
-      0 4px 16px rgba(0, 0, 0, 0.5),
-      0 0 20px rgba(200, 160, 100, 0.2);
+    background: rgba(239, 246, 255, 1);
+    border-color: hsl(var(--primary));
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
     transform: translateY(-1px);
   }
 
   .btn-industrial-primary {
-    background: rgba(15, 15, 18, 0.65);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 160, 100, 0.4);
-    color: hsl(25 60% 50%);
+    background: hsl(var(--primary));
+    border: 1px solid transparent;
+    color: white;
     font-family: 'Rajdhani', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    border-radius: 4px;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 200, 150, 0.15),
-      0 4px 16px rgba(0, 0, 0, 0.5),
-      0 0 12px rgba(200, 160, 100, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
     transition: all 0.3s ease;
   }
 
   .btn-industrial-primary:hover {
-    background: rgba(15, 15, 18, 0.8);
-    border-color: rgba(255, 160, 100, 0.6);
-    color: hsl(25 60% 60%);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 200, 150, 0.2),
-      0 6px 20px rgba(0, 0, 0, 0.6),
-      0 0 25px rgba(200, 160, 100, 0.3);
+    background: hsl(221 83% 45%);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.23);
     transform: translateY(-2px);
   }
 
@@ -224,62 +245,66 @@
     z-index: 10;
   }
 
-  /* PCB Grid overlay */
+  /* Tech Grid overlay */
   .pcb-grid {
     background-image: 
-      linear-gradient(rgba(255, 160, 100, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 160, 100, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+      linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
   }
 
-  /* Metallic text effect */
+  /* Modern text effect */
   .text-metallic {
-    background: linear-gradient(180deg, hsl(35 50% 65%) 0%, hsl(25 60% 50%) 50%, hsl(35 50% 65%) 100%);
+    background: linear-gradient(180deg, hsl(221 83% 53%) 0%, hsl(199 89% 48%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-glow-red {
-    text-shadow: 0 0 20px rgba(180, 60, 40, 0.5);
+    text-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
   }
 
   /* Scrollbar styling */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(15, 15, 18, 0.8);
+    background: rgba(239, 246, 255, 1);
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: rgba(2, 6, 23, 1);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 160, 100, 0.3);
-    border-radius: 4px;
+    background: rgba(37, 99, 235, 0.3);
+    border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 160, 100, 0.5);
+    background: rgba(37, 99, 235, 0.5);
   }
 }
 
 @layer utilities {
   .text-gradient-copper {
-    background: linear-gradient(135deg, hsl(25 60% 55%) 0%, hsl(40 55% 60%) 100%);
+    background: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(199 89% 48%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-red {
-    background: linear-gradient(135deg, hsl(8 65% 50%) 0%, hsl(25 60% 55%) 100%);
+    background: linear-gradient(135deg, hsl(215 25% 27%) 0%, hsl(221 83% 53%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .border-metallic {
-    border-color: rgba(255, 180, 120, 0.25);
+    border-color: rgba(37, 99, 235, 0.15);
   }
 }
 

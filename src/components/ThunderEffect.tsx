@@ -36,8 +36,8 @@ const ThunderEffect: React.FC = () => {
       
       return {
         core: '#ffffff',
-        primary: primary ? `hsl(${primary})` : '#3b82f6',
-        glow: accent ? `hsl(${accent})` : '#60a5fa'
+        primary: primary.includes('%') ? `hsl(${primary})` : '#3b82f6',
+        glow: accent.includes('%') ? `hsl(${accent})` : '#60a5fa'
       };
     };
 
