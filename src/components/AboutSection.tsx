@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Cpu, Lightbulb, Users, Target } from 'lucide-react';
-import { LightningHeading } from './LightningHeading';
 
 const features = [
   {
@@ -37,29 +36,28 @@ export const AboutSection = () => {
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <motion.span 
-              className="inline-block px-4 py-2 mb-4 glass-panel rounded-chamfer text-sm font-mono uppercase tracking-widest text-accent"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block px-4 py-2 mb-4 glass-panel rounded-chamfer text-sm font-mono uppercase tracking-widest text-accent">
               About the Symposium
-            </motion.span>
-            <div className="mb-6">
-              <LightningHeading title="Innovation Meets Excellence" />
-            </div>
-            <motion.p 
-              className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <span className="text-foreground">Where </span>
+              <span className="text-gradient-copper">Innovation</span>
+              <br className="md:hidden" />
+              <span className="text-foreground"> Meets </span>
+              <span className="text-gradient-red">Excellence</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               INSTRAUX'26 is the flagship techno-cultural symposium by the Department of 
               Electronics and Instrumentation Engineering.
-            </motion.p>
-          </div>
+            </p>
+          </motion.div>
 
           {/* Feature cards grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
