@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { ChevronDown, Activity, Zap } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { CountdownTimer } from './CountdownTimer';
+import { LightningHeading } from './LightningHeading';
 
 // Signal trace animation
 const SignalTrace = ({ delay = 0, top = '30%' }: { delay?: number; top?: string }) => (
@@ -30,13 +31,6 @@ export const HeroScene = () => {
     }
   };
 
-  const scrollToRegister = () => {
-    const element = document.getElementById('register');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section
       id="hero"
@@ -59,12 +53,7 @@ export const HeroScene = () => {
 
       {/* Main content */}
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-10 md:pt-16">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-          className="max-w-5xl mx-auto text-center"
-        >
+        <div className="max-w-5xl mx-auto text-center">
           {/* Department text */}
           <motion.p
             className="text-xs md:text-sm lg:text-base font-mono uppercase tracking-widest text-accent mb-3 md:mb-4"
@@ -86,16 +75,9 @@ export const HeroScene = () => {
           </motion.p>
 
           {/* Main title */}
-          <motion.h1
-            className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-4 md:mb-6 tracking-tight"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <span className="text-foreground">INSTR</span>
-            <span className="text-gradient-red">AUX</span>
-            <span className="text-metallic">'26</span>
-          </motion.h1>
+          <div className="mb-4 md:mb-6">
+            <LightningHeading title="INSTRAUX'26" isMain={true} />
+          </div>
 
           {/* Subtitle */}
           <motion.p
@@ -109,7 +91,7 @@ export const HeroScene = () => {
 
           {/* Countdown Timer Section */}
           <CountdownTimer />
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}

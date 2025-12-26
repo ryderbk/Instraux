@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Plane, Target, Gauge, Award, Users } from 'lucide-react';
 import { Button } from './ui/button';
+import { LightningHeading } from './LightningHeading';
 
 export const WorkshopSection = () => {
   return (
@@ -14,23 +15,28 @@ export const WorkshopSection = () => {
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="inline-block px-4 py-2 mb-4 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-sm font-medium text-accent-cyan">
+          <div className="text-center mb-12">
+            <motion.span 
+              className="inline-block px-4 py-2 mb-4 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-sm font-medium text-accent-cyan"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
               Featured Workshop
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              <span className="text-gradient-accent">Remote Pilot Training</span>
-            </h2>
-            <p className="text-lg text-muted-foreground">
+            </motion.span>
+            <div className="mb-4">
+              <LightningHeading title="Remote Pilot Training" />
+            </div>
+            <motion.p 
+              className="text-lg text-muted-foreground"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
               Master the Art of Drone Flying
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
 
           {/* Workshop card */}
           <motion.div
