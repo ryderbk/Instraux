@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronLeft, Phone, Clock, Users, Tag } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
 import { Navigation } from '@/components/Navigation';
 import { getEventById } from '@/data/events';
