@@ -6,72 +6,55 @@
 
 @layer base {
   :root {
-    /* Modern Professional Blue Palette */
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-
-    /* Premium Navy Blue */
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
-
-    /* Soft Slate Blue */
-    --secondary: 215 25% 27%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    /* Electric Cyan Highlight */
-    --accent: 199 89% 48%;
-    --accent-foreground: 222 47% 11%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221 83% 53%;
-
-    --radius: 0.75rem;
-
-    /* Professional Glass System */
-    --glass-bg: 255 255 255 / 0.75;
-    --glass-border: 221 83% 53% / 0.15;
-    --glass-blur: 12px;
-
-    /* Theme accent colors */
-    --accent-blue: 221 83% 53%;
-    --accent-cyan: 199 89% 48%;
-    --accent-navy: 222 47% 11%;
-    --accent-slate: 215 25% 27%;
-
-    /* Modern shadows */
-    --shadow-deep: 0 10px 30px -10px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-glow-blue: 0 0 20px rgba(37, 99, 235, 0.2);
-    --shadow-glow-cyan: 0 0 20px rgba(6, 182, 212, 0.15);
-  }
-
-  .dark {
+    /* Modern Professional Dark Blue Palette */
     --background: 222 47% 4%;
     --foreground: 210 40% 98%;
 
     --card: 222 47% 6%;
     --card-foreground: 210 40% 98%;
 
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Premium Blue Accent */
     --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 11%;
-    
+    --primary-foreground: 222 47% 4%;
+
+    /* Deep Slate Blue */
+    --secondary: 215 25% 27%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    /* Electric Cyan Highlight */
     --accent: 199 89% 48%;
     --accent-foreground: 210 40% 98%;
-    
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
     --border: 217 32% 17%;
     --input: 217 32% 17%;
+    --ring: 224.3 76.3% 48%;
+
+    --radius: 0.75rem;
+
+    /* Professional Dark Glass System */
+    --glass-bg: 15 23 42 / 0.75;
+    --glass-border: 59 130 246 / 0.2;
+    --glass-blur: 12px;
+
+    /* Theme accent colors */
+    --accent-blue: 217 91% 60%;
+    --accent-cyan: 199 89% 48%;
+    --accent-navy: 222 47% 11%;
+    --accent-slate: 215 25% 27%;
+
+    /* Modern dark shadows */
+    --shadow-deep: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    --shadow-glow-blue: 0 0 20px rgba(37, 99, 235, 0.2);
+    --shadow-glow-cyan: 0 0 20px rgba(6, 182, 212, 0.15);
   }
 }
 
@@ -88,6 +71,7 @@
     @apply bg-background text-foreground antialiased;
     font-family: 'Rajdhani', sans-serif;
     overflow-x: hidden;
+    background-color: hsl(222 47% 2%);
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -103,60 +87,41 @@
 }
 
 @layer components {
-  /* Modern Professional Glass Panel */
+  /* Modern Professional Dark Glass Panel */
   .glass-panel {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(15, 23, 42, 0.75);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(37, 99, 235, 0.15);
-    box-shadow: var(--shadow-deep);
-  }
-
-  .dark .glass-panel {
-    background: rgba(15, 23, 42, 0.7);
     border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: var(--shadow-deep);
   }
 
   /* Glass card for larger sections */
   .glass-card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.15);
     border-radius: 12px;
     box-shadow: var(--shadow-deep);
   }
 
-  .dark .glass-card {
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid rgba(59, 130, 246, 0.15);
-  }
-
-  /* Flowing gradient background */
+  /* Flowing dark gradient background */
   .bg-flowing-gradient {
-    background: linear-gradient(135deg, rgba(239, 246, 255, 0.5) 0%, rgba(219, 234, 254, 0.4) 50%, rgba(239, 246, 255, 0.5) 100%);
-  }
-
-  .dark .bg-flowing-gradient {
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.4) 0%, rgba(10, 15, 30, 0.3) 50%, rgba(15, 23, 42, 0.4) 100%);
   }
 
   /* Module Card - Modern tech look */
   .module-card {
-    background: white;
+    background: rgba(30, 41, 59, 0.4);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.1);
     border-radius: 8px;
     box-shadow: var(--shadow-deep);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-  }
-
-  .dark .module-card {
-    background: rgba(30, 41, 59, 0.6);
-    border: 1px solid rgba(59, 130, 246, 0.1);
   }
 
   .module-card::before {
@@ -172,8 +137,9 @@
   }
 
   .module-card:hover {
-    border-color: rgba(37, 99, 235, 0.3);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: rgba(59, 130, 246, 0.3);
+    background: rgba(30, 41, 59, 0.6);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
     transform: translateY(-4px);
   }
 
@@ -181,25 +147,20 @@
     opacity: 1;
   }
 
-  /* Professional Navigation */
+  /* Professional Dark Navigation */
   .nav-industrial {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(2, 6, 23, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(37, 99, 235, 0.1);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  }
-
-  .dark .nav-industrial {
-    background: rgba(2, 6, 23, 0.85);
     border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
   }
 
-  /* Professional Button */
+  /* Professional Dark Button */
   .btn-industrial {
-    background: white;
-    border: 1px solid rgba(37, 99, 235, 0.3);
-    color: hsl(var(--primary));
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: hsl(210 40% 98%);
     font-family: 'Rajdhani', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
@@ -208,34 +169,29 @@
     transition: all 0.2s ease;
   }
 
-  .dark .btn-industrial {
-    background: rgba(15, 23, 42, 0.6);
-    color: hsl(210 40% 98%);
-  }
-
   .btn-industrial:hover {
-    background: rgba(239, 246, 255, 1);
+    background: rgba(30, 41, 59, 0.8);
     border-color: hsl(var(--primary));
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
     transform: translateY(-1px);
   }
 
   .btn-industrial-primary {
     background: hsl(var(--primary));
     border: 1px solid transparent;
-    color: white;
+    color: hsl(var(--background));
     font-family: 'Rajdhani', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     border-radius: 6px;
-    box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+    box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.3);
     transition: all 0.3s ease;
   }
 
   .btn-industrial-primary:hover {
-    background: hsl(221 83% 45%);
-    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.23);
+    background: hsl(217 91% 70%);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
     transform: translateY(-2px);
   }
 
@@ -248,21 +204,21 @@
   /* Tech Grid overlay */
   .pcb-grid {
     background-image: 
-      linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 
   /* Modern text effect */
   .text-metallic {
-    background: linear-gradient(180deg, hsl(221 83% 53%) 0%, hsl(199 89% 48%) 100%);
+    background: linear-gradient(180deg, hsl(217 91% 60%) 0%, hsl(199 89% 48%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-glow-red {
-    text-shadow: 0 0 15px rgba(37, 99, 235, 0.3);
+    text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
   }
 
   /* Scrollbar styling */
@@ -271,40 +227,36 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(239, 246, 255, 1);
-  }
-
-  .dark ::-webkit-scrollbar-track {
     background: rgba(2, 6, 23, 1);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(37, 99, 235, 0.3);
+    background: rgba(59, 130, 246, 0.3);
     border-radius: 10px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(37, 99, 235, 0.5);
+    background: rgba(59, 130, 246, 0.5);
   }
 }
 
 @layer utilities {
   .text-gradient-copper {
-    background: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(199 89% 48%) 100%);
+    background: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(199 89% 48%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-red {
-    background: linear-gradient(135deg, hsl(215 25% 27%) 0%, hsl(221 83% 53%) 100%);
+    background: linear-gradient(135deg, hsl(215 25% 47%) 0%, hsl(217 91% 60%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .border-metallic {
-    border-color: rgba(37, 99, 235, 0.15);
+    border-color: rgba(59, 130, 246, 0.15);
   }
 }
 
