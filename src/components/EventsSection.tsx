@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { technicalEvents, nonTechnicalEvents } from '@/data/events';
-
-import { Event } from '@/data/events';
+import { technicalEvents, nonTechnicalEvents, Event } from '@/data/events';
 
 interface EventCardProps {
   event: Event;
