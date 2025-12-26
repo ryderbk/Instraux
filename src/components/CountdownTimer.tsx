@@ -49,20 +49,22 @@ export const CountdownTimer = () => {
   };
 
   const CountdownBox = ({ value, label, index }: { value: number; label: string; index: number }) => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+    <div
       className="glass-panel p-2 sm:p-6 md:p-7 rounded-chamfer flex flex-col items-center justify-center border border-accent/30 aspect-square"
     >
-      <div className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-0.5 sm:mb-2 leading-none">
+      <motion.div 
+        key={value}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.2 }}
+        className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-0.5 sm:mb-2 leading-none"
+      >
         {String(value).padStart(2, '0')}
-      </div>
+      </motion.div>
       <div className="text-[8px] sm:text-xs md:text-sm font-mono uppercase tracking-widest text-muted-foreground">
         {label}
       </div>
-    </motion.div>
+    </div>
   );
 
   return (
