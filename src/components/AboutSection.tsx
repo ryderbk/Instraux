@@ -89,7 +89,7 @@ export const AboutSection = () => {
 
           {/* Stats */}
           <motion.div
-            className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6"
+            className="mt-16 grid grid-cols-3 gap-4 md:gap-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
