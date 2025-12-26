@@ -1,15 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 
 /**
- * ThunderEffect: High-fidelity realistic lightning interaction
- * - Midpoint displacement for natural branching
- * - Pointer Event tracking (mobile-safe)
- * - Theme-aware colors
- * - Performance optimized (30fps cap)
+ * ThunderEffect: Corrected high-fidelity lightning interaction
+ * - Properly handles continuous tracking for desktop mouse
+ * - Strictly follows active pointer for mobile touch
+ * - Theme-aware colors and performance optimized
  */
 const ThunderEffect: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const activePointers = useRef<Map<number, { x: number, y: number }>>(new Map());
+  // Track active pointers to distinguish between mouse and specific touch fingers
+  const activePointerId = useRef<number | null>(null);
+  const lastPos = useRef({ x: 0, y: 0 });
   const lightningBolts = useRef<any[]>([]);
   const lastFrameTime = useRef(0);
   const lastEmitTime = useRef(0);
@@ -35,7 +36,6 @@ const ThunderEffect: React.FC = () => {
       const primary = style.getPropertyValue('--primary').trim();
       const accent = style.getPropertyValue('--accent').trim();
       
-      // Convert HSL variables to usable strings or fallback to defaults
       return {
         core: '#ffffff',
         primary: primary ? `hsl(${primary})` : '#3b82f6',
@@ -43,9 +43,6 @@ const ThunderEffect: React.FC = () => {
       };
     };
 
-    /**
-     * Recursive midpoint displacement for realistic jagged lines
-     */
     const generateSegments = (x1: number, y1: number, x2: number, y2: number, displacement: number) => {
       if (displacement < 2) {
         return [{ x: x1, y: y1 }, { x: x2, y: y2 }];
@@ -64,7 +61,7 @@ const ThunderEffect: React.FC = () => {
       const colors = getThemeColors();
       const isMobile = 'ontouchstart' in window;
       const angle = Math.random() * Math.PI * 2;
-      const length = isMobile ? 40 + Math.random() * 40 : 60 + Math.random() * 80;
+      const length = isMobile ? 30 + Math.random() * 30 : 50 + Math.random() * 70;
       
       const targetX = x + Math.cos(angle) * length;
       const targetY = y + Math.sin(angle) * length;
@@ -74,53 +71,41 @@ const ThunderEffect: React.FC = () => {
       lightningBolts.current.push({
         segments,
         life: 1.0,
-        decay: 0.04 + Math.random() * 0.04,
+        decay: 0.05 + Math.random() * 0.05,
         color: colors.primary,
         glow: colors.glow,
         core: colors.core,
-        width: 2.5 + Math.random() * 2
+        width: 2 + Math.random() * 1.5
       });
-
-      // Chance to branch
-      if (!isMobile && Math.random() > 0.7) {
-        const branchIdx = Math.floor(segments.length * 0.4);
-        const start = segments[branchIdx];
-        const branchAngle = angle + (Math.random() - 0.5) * 1.5;
-        const branchLen = length * 0.5;
-        const bTargetX = start.x + Math.cos(branchAngle) * branchLen;
-        const bTargetY = start.y + Math.sin(branchAngle) * branchLen;
-        
-        lightningBolts.current.push({
-          segments: generateSegments(start.x, start.y, bTargetX, bTargetY, branchLen / 2),
-          life: 0.8,
-          decay: 0.06,
-          color: colors.primary,
-          glow: colors.glow,
-          core: colors.core,
-          width: 1.5
-        });
-      }
     };
 
     const handlePointerDown = (e: PointerEvent) => {
-      activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      // For mouse, we always track. For touch, we track the first finger.
+      activePointerId.current = e.pointerId;
+      lastPos.current = { x: e.clientX, y: e.clientY };
       createBolt(e.clientX, e.clientY);
     };
 
     const handlePointerMove = (e: PointerEvent) => {
-      if (!activePointers.current.has(e.pointerId)) return;
+      const isMouse = e.pointerType === 'mouse';
       
-      activePointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      // If it's a mouse, we always update. 
+      // If it's touch, we only update if it matches the active finger.
+      if (!isMouse && e.pointerId !== activePointerId.current) return;
+
+      lastPos.current = { x: e.clientX, y: e.clientY };
       
       const now = Date.now();
-      if (now - lastEmitTime.current > 40) {
+      if (now - lastEmitTime.current > 30) {
         createBolt(e.clientX, e.clientY);
         lastEmitTime.current = now;
       }
     };
 
     const handlePointerUp = (e: PointerEvent) => {
-      activePointers.current.delete(e.pointerId);
+      if (e.pointerId === activePointerId.current) {
+        activePointerId.current = null;
+      }
     };
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -132,7 +117,6 @@ const ThunderEffect: React.FC = () => {
     window.addEventListener('pointercancel', handlePointerUp);
 
     const render = (time: number) => {
-      // Cap redraw to ~30 FPS
       if (time - lastFrameTime.current < 33) {
         requestAnimationFrame(render);
         return;
@@ -145,13 +129,12 @@ const ThunderEffect: React.FC = () => {
       for (let i = bolts.length - 1; i >= 0; i--) {
         const bolt = bolts[i];
         
-        // Draw Glow
         ctx.beginPath();
         ctx.lineWidth = bolt.width * 3 * bolt.life;
         ctx.strokeStyle = bolt.glow;
-        ctx.shadowBlur = 15 * bolt.life;
+        ctx.shadowBlur = 10 * bolt.life;
         ctx.shadowColor = bolt.glow;
-        ctx.globalAlpha = bolt.life * 0.5;
+        ctx.globalAlpha = bolt.life * 0.4;
         
         bolt.segments.forEach((pt: any, idx: number) => {
           if (idx === 0) ctx.moveTo(pt.x, pt.y);
@@ -159,7 +142,6 @@ const ThunderEffect: React.FC = () => {
         });
         ctx.stroke();
 
-        // Draw Primary
         ctx.beginPath();
         ctx.lineWidth = bolt.width * bolt.life;
         ctx.strokeStyle = bolt.color;
@@ -172,7 +154,6 @@ const ThunderEffect: React.FC = () => {
         });
         ctx.stroke();
 
-        // Draw Core
         ctx.beginPath();
         ctx.lineWidth = (bolt.width / 2) * bolt.life;
         ctx.strokeStyle = bolt.core;
