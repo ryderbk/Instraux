@@ -70,9 +70,6 @@ export const Navigation = () => {
             className="relative group flex items-center gap-3"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="w-9 h-9 rounded-chamfer bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-glow-red">
-              <CircuitBoard className="w-4 h-4 text-foreground" />
-            </div>
             <span className="font-display text-xl font-bold tracking-wider">
               <span className="text-foreground">INSTRAUX</span>
               <span className="text-gradient-copper">'26</span>
