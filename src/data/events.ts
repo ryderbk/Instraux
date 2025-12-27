@@ -22,7 +22,7 @@ export const technicalEvents: Event[] = [
   {
     id: 1,
     title: 'Innoscript',
-    subtitle: 'Paper Presentation',
+    subtitle: 'Code Your Vision',
     icon: Code,
     type: 'technical',
     description: "INNOSCRIPT is a paper presentation competition where teams present research or technical projects. Presentations are evaluated on innovation, technical depth, clarity, and practical relevance.",
@@ -42,7 +42,7 @@ export const technicalEvents: Event[] = [
   {
     id: 2,
     title: 'Projectopia',
-    subtitle: 'Project Expo',
+    subtitle: 'Build the Future',
     icon: Lightbulb,
     type: 'technical',
     description: 'PROJECTOPIA is a project expo where teams showcase working projects and prototypes across domains such as Electronics, Software, AI, IoT, and Robotics.',
@@ -62,7 +62,7 @@ export const technicalEvents: Event[] = [
   {
     id: 3,
     title: 'Brain Battle',
-    subtitle: 'Technical Quiz',
+    subtitle: 'Quiz Showdown',
     icon: Brain,
     type: 'technical',
     description: 'BRAIN BATTLE is a thrilling technical quiz designed to test your knowledge, speed, accuracy, and teamwork across electronics and technology domains.',
@@ -82,7 +82,7 @@ export const technicalEvents: Event[] = [
   {
     id: 4,
     title: "Watt's Wrong",
-    subtitle: 'Circuit Debugging',
+    subtitle: 'Circuit Detective',
     icon: Zap,
     type: 'technical',
     description: "WATT'S WRONG challenges teams to spot and fix circuit errors under pressure — a hands-on test of practical electronics and debugging skills.",
@@ -105,7 +105,7 @@ export const nonTechnicalEvents: Event[] = [
   {
     id: 5,
     title: 'Hunt for the Hidden',
-    subtitle: 'Treasure Hunt',
+    subtitle: 'Treasure Quest',
     icon: MapPin,
     type: 'non-technical',
     description: 'HUNT FOR THE HIDDEN is a campus treasure hunt across two stages: Mind Maze (solve hints) and The Trail of Secrets (race across campus). Strategy and speed win the prize.',
@@ -125,7 +125,7 @@ export const nonTechnicalEvents: Event[] = [
   {
     id: 6,
     title: 'Aura Unplugged',
-    subtitle: 'Music Quiz Night',
+    subtitle: 'Acoustic Magic',
     icon: Mic,
     type: 'non-technical',
     description: "AURA UNPLUGGED puts your memory, rhythm sense, and teamwork to the test — with fun, fast, and thrilling music-based challenges across three rounds: Hidden Harmony, Emoji Symphony and Rewind the Rhythm.",
@@ -145,7 +145,7 @@ export const nonTechnicalEvents: Event[] = [
   {
     id: 7,
     title: 'Rush and Survive',
-    subtitle: 'Gaming Event',
+    subtitle: 'Race Against Time',
     icon: Gamepad2,
     type: 'non-technical',
     description: 'RUSH AND SURVIVE brings intense Free Fire action where strategy, teamwork, and survival decide the champions across two rounds: Battle Royale and Clash Squad.',
@@ -165,7 +165,7 @@ export const nonTechnicalEvents: Event[] = [
   {
     id: 8,
     title: 'Play to Slay',
-    subtitle: 'Cinema Quiz & Memes',
+    subtitle: 'Gaming Arena',
     icon: Film,
     type: 'non-technical',
     description: 'PLAY TO SLAY challenges your cinematic knowledge and creativity with rounds like Meme Template, Connections, and a Cinema-based Quiz to find the ultimate champs.',
