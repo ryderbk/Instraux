@@ -20,8 +20,8 @@
     --primary: 270 80% 65%;
     --primary-foreground: 270 50% 4%;
 
-    /* Matching Bright Amber - Equal Brightness to Primary */
-    --secondary: 39 92% 50%;
+    /* Matching Bright Purple - Equal Brightness to Primary */
+    --secondary: 280 80% 65%;
     --secondary-foreground: 270 20% 98%;
 
     --muted: 270 30% 15%;
