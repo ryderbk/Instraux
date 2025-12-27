@@ -7,14 +7,10 @@ import { TechnicalBackground } from './TechnicalBackground';
 interface EventCardProps {
   event: Event;
   index: number;
-  accentColor?: 'red' | 'amber';
 }
 
-const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
+const EventCard = ({ event, index }: EventCardProps) => {
   const navigate = useNavigate();
-  const ledColor = accentColor === 'red'
-    ? 'bg-primary shadow-glow-red'
-    : 'bg-secondary shadow-glow-amber';
 
   return (
     <motion.div
@@ -27,28 +23,22 @@ const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
         ease: [0.23, 1, 0.32, 1],
       }}
       onClick={() => navigate(`/event/${event.id}`)}
-      className="glass-card p-5 group cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+      className="module-card p-6 group text-center cursor-pointer"
     >
-      {/* LED indicator dot - overriding default */}
-      <div 
-        className={`absolute top-4 right-4 w-2 h-2 rounded-full ${ledColor} animate-led-pulse`}
-        style={{ boxShadow: accentColor === 'red' ? '0 0 8px rgba(180, 60, 40, 0.6)' : '0 0 8px rgba(167, 139, 250, 0.6)' }}
-      />
-      
       {/* Icon */}
-      <div className="w-12 h-12 mb-4 rounded-chamfer bg-accent/15 flex items-center justify-center group-hover:bg-accent/25 transition-colors duration-300 border border-accent/20">
+      <div className="w-14 h-14 mx-auto mb-4 rounded-chamfer bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors duration-300 border border-primary/20">
         {event.icon ? (
-          <event.icon className="w-6 h-6 text-accent" />
+          <event.icon className="w-7 h-7 text-accent" />
         ) : (
-          <DefaultIcon className="w-6 h-6 text-accent" />
+          <DefaultIcon className="w-7 h-7 text-accent" />
         )}
       </div>
 
       {/* Content */}
-      <h3 className="font-display font-semibold text-foreground mb-1 group-hover:text-gradient-copper transition-all duration-300">
+      <h3 className="font-display font-semibold text-foreground mb-2">
         {event.title}
       </h3>
-      <p className="text-sm text-foreground/80 font-mono">
+      <p className="text-sm text-muted-foreground">
         {event.subtitle}
       </p>
     </motion.div>
@@ -110,7 +100,7 @@ export const EventsSection = () => {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
               {technical.length > 0 ? technical.map((event, index) => (
-                <EventCard key={event.id} event={event} index={index} accentColor="red" />
+                <EventCard key={event.id} event={event} index={index} />
               )) : (
                 <div className="col-span-4 text-center py-12 text-muted-foreground">No technical events available.</div>
               )}
@@ -131,7 +121,7 @@ export const EventsSection = () => {
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
               {nonTechnical.length > 0 ? nonTechnical.map((event, index) => (
-                <EventCard key={event.id} event={event} index={index} accentColor="amber" />
+                <EventCard key={event.id} event={event} index={index} />
               )) : (
                 <div className="col-span-4 text-center py-12 text-muted-foreground">No non-technical events available.</div>
               )}
