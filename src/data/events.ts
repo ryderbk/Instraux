@@ -1,4 +1,4 @@
-import { Code, Lightbulb, Brain, Zap, Search, Music, Timer, Gamepad2, Mic, Film, MapPin, LucideIcon } from 'lucide-react';
+import { FileText, Lightbulb, Trophy, Cpu, Search, Music, Timer, Gamepad2, Mic, Film, LucideIcon } from 'lucide-react';
 
 export interface Event {
   id: number;
@@ -23,7 +23,7 @@ export const technicalEvents: Event[] = [
     id: 1,
     title: 'Innoscript',
     subtitle: 'Paper Presentation',
-    icon: Code,
+    icon: FileText,
     type: 'technical',
     description: "INNOSCRIPT provides a professional platform for students to present innovative ideas, research work, and technical solutions across multiple domains.",
     rules: [
@@ -63,7 +63,7 @@ export const technicalEvents: Event[] = [
     id: 3,
     title: 'Brain Battle',
     subtitle: 'Technical Quiz',
-    icon: Brain,
+    icon: Trophy,
     type: 'technical',
     description: 'BRAIN BATTLE is a high-intensity technical quiz that pushes your knowledge, speed, and accuracy to the limit. Designed for competitive minds, this event demands sharp thinking, teamwork, and quick decision-making under pressure.',
     rules: [
@@ -83,7 +83,7 @@ export const technicalEvents: Event[] = [
     id: 4,
     title: "Watt's Wrong",
     subtitle: 'Circuit Debugging Challenge',
-    icon: Zap,
+    icon: Cpu,
     type: 'technical',
     description: "WATT'S WRONG is a technical challenge focused on electronics fundamentals, circuit debugging, and logical problem-solving. Participants must analyze, detect errors, and design efficient circuit solutions under time pressure.",
     rules: [
@@ -106,7 +106,7 @@ export const nonTechnicalEvents: Event[] = [
     id: 5,
     title: 'Hunt for the Hidden',
     subtitle: 'Treasure Hunt',
-    icon: MapPin,
+    icon: Search,
     type: 'non-technical',
     description: 'HUNT FOR THE HIDDEN is an adventurous campus-wide treasure hunt that tests strategy, coordination, and time management. Follow clues, solve puzzles, and race against other teams to uncover the final treasure.',
     rules: [
@@ -126,7 +126,7 @@ export const nonTechnicalEvents: Event[] = [
     id: 6,
     title: 'Aura Unplugged',
     subtitle: 'Music Quiz Night',
-    icon: Mic,
+    icon: Music,
     type: 'non-technical',
     description: "AURA UNPLUGGED is an energetic music quiz night designed for music lovers who can recognize tunes in seconds. This event challenges your musical memory, rhythm sense, and teamwork through fun, fast-paced, and thrilling audio-based rounds. Get ready to listen carefully, think quickly, and vibe with your team.",
     rules: [
@@ -196,20 +196,19 @@ export const allEvents = [...technicalEvents, ...nonTechnicalEvents];
 export type SerializedEvent = Omit<Event, 'icon'> & { iconName: string };
 
 const ICON_MAP: Record<string, LucideIcon> = {
-  Code,
+  FileText,
   Lightbulb,
-  Brain,
-  Zap,
+  Trophy,
+  Cpu,
   Search,
   Music,
   Timer,
   Gamepad2,
   Mic,
   Film,
-  MapPin,
 };
 
-const STORAGE_KEY = 'instraux:events:v3';
+const STORAGE_KEY = 'instraux:events:v4';
 
 function getIconName(icon: LucideIcon): string {
   // Lucide icon components usually have a function name (Code, Lightbulb, ...)
@@ -231,7 +230,7 @@ function reviveEvent(se: SerializedEvent): Event {
   if (!icon || typeof icon !== 'function') {
     // Find the correct icon from allEvents
     const originalEvent = allEvents.find(e => e.id === se.id);
-    icon = originalEvent?.icon || Code;
+    icon = originalEvent?.icon || FileText;
   }
   return { ...se, icon } as Event;
 }
