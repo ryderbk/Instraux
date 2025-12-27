@@ -6,7 +6,6 @@ import { WorkshopSection } from '@/components/WorkshopSection';
 import { RegistrationSection } from '@/components/RegistrationSection';
 import { TeamSection } from '@/components/TeamSection';
 import { ContactSection } from '@/components/ContactSection';
-import { ClosingSection } from '@/components/ClosingSection';
 import { useEffect } from 'react';
 import { initializeEventsStorage } from '@/data/events';
 import { Helmet } from 'react-helmet';
@@ -36,7 +35,6 @@ const Index = () => {
         <RegistrationSection />
         <TeamSection />
         <ContactSection />
-        <ClosingSection />
       </main>
     </>
   );
