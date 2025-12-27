@@ -25,6 +25,26 @@
     --font-size-3xl: 1.875rem;
     --font-size-4xl: 2.25rem;
     --font-size-5xl: 3rem;
+
+    /* Theme Colors */
+    --background: 270 50% 4%;
+    --foreground: 270 20% 98%;
+    --primary: 270 80% 65%;
+    --secondary: 280 80% 65%;
+    --accent: 280 90% 60%;
+    --muted: 270 30% 15%;
+    --muted-foreground: 270 15% 70%;
+    --border: 270 30% 18%;
+    --radius: 0.75rem;
+    --shadow-deep: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
@@ -40,239 +60,73 @@
   h2 { @apply text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight; }
   h3 { @apply text-xl md:text-2xl font-semibold uppercase; }
   p { @apply text-base md:text-lg text-muted-foreground leading-relaxed; }
+
+  code, .mono {
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  /* Hide scrollbars globally but keep scrolling functional */
+  ::-webkit-scrollbar { display: none; }
+  * { scrollbar-width: none; -ms-overflow-style: none; }
 }
 
-/* Optimized Layout Containers */
-.container-px {
-  @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full;
-}
+@layer components {
+  /* Optimized Layout Containers */
+  .container-px {
+    @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full;
+  }
 
-.section-spacing {
-  @apply py-16 md:py-24 lg:py-32;
-}
+  .section-spacing {
+    @apply py-16 md:py-24 lg:py-32;
+  }
 
-.glass-panel {
-  @apply bg-black/90 border border-white/10 rounded-2xl shadow-xl overflow-hidden;
-}
+  .glass-panel {
+    @apply bg-black/95 border border-white/10 rounded-2xl shadow-xl overflow-hidden;
+  }
 
-.glass-card {
-  @apply bg-black/80 border border-white/5 rounded-xl shadow-lg transition-all duration-300;
-}
+  .glass-card {
+    @apply bg-black/90 border border-white/5 rounded-xl shadow-lg transition-all duration-300;
+  }
 
-  /* Flowing dark gradient background */
   .bg-flowing-gradient {
     background: linear-gradient(135deg, rgba(30, 10, 50, 0.4) 0%, rgba(20, 10, 30, 0.3) 50%, rgba(30, 10, 50, 0.4) 100%);
   }
 
-  /* Module Card - Modern tech look */
   .module-card {
-    background: rgba(40, 20, 60, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(139, 92, 246, 0.1);
-    border-radius: 8px;
-    box-shadow: var(--shadow-deep);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .module-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: hsl(var(--primary));
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    @apply bg-black/40 border border-white/5 rounded-lg shadow-lg overflow-hidden transition-all duration-300 relative;
   }
 
   .module-card:hover {
-    border-color: rgba(139, 92, 246, 0.3);
-    background: rgba(40, 20, 60, 0.6);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-    transform: translateY(-4px);
+    @apply border-primary/30 -translate-y-1 bg-black/60 shadow-primary/10;
   }
 
-  .module-card:hover::before {
-    opacity: 1;
-  }
-
-  /* Professional Dark Navigation */
   .nav-industrial {
-    background: rgba(10, 5, 20, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(139, 92, 246, 0.15);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+    @apply bg-black/90 backdrop-blur-md border-b border-white/10 shadow-lg;
   }
-
-  /* Professional Dark Button */
-  .btn-industrial {
-    background: rgba(20, 10, 30, 0.6);
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    color: hsl(270 20% 98%);
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-  }
-
-  .btn-industrial:hover {
-    background: rgba(40, 20, 60, 0.8);
-    border-color: hsl(var(--primary));
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
-    transform: translateY(-1px);
-  }
-
-  .btn-industrial-primary {
-    background: hsl(var(--primary));
-    border: 1px solid transparent;
-    color: hsl(var(--background));
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    border-radius: 6px;
-    box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.3);
-    transition: all 0.3s ease;
-  }
-
-  .btn-industrial-primary:hover {
-    background: hsl(270 80% 75%);
-    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
-    transform: translateY(-2px);
-  }
-
-  /* Section container */
-  .section-container {
-    position: relative;
-    z-index: 10;
-  }
-
-  /* Tech Grid overlay */
-  .pcb-grid {
-    background-image: 
-      linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
-  /* Modern text effect */
-  .text-metallic {
-    background: linear-gradient(180deg, hsl(270 80% 65%) 0%, hsl(280 90% 60%) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-glow-red {
-    text-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
-  }
-
-  /* Hide scrollbars globally but keep scrolling functional */
-  /* WebKit-based browsers */
-  ::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    background: transparent;
-  }
-  ::-webkit-scrollbar-track,
-  ::-webkit-scrollbar-thumb {
-    background: transparent;
-  }
-
-  /* Firefox */
-  html, body, * {
-    scrollbar-width: none; /* hide scrollbar */
-    -ms-overflow-style: none; /* IE and Edge */
-  }
-
-  /* Fallback: hide any scrollbars rendered by custom components */
-  *::-webkit-scrollbar { display: none; }
-
 }
 
 @layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-400 to-accent;
+  }
   .text-gradient-copper {
-    background: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(280 90% 60%) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
   }
-
   .text-gradient-red {
-    background: linear-gradient(135deg, hsl(270 25% 47%) 0%, hsl(270 80% 65%) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .border-metallic {
-    border-color: rgba(139, 92, 246, 0.15);
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary/80 to-primary;
   }
 }
 
-/* Keyframe animations */
 @keyframes ledPulse {
-  0%, 100% { 
-    opacity: 1;
-    box-shadow: 0 0 8px hsl(8 65% 45% / 0.6);
-  }
-  50% { 
-    opacity: 0.5;
-    box-shadow: 0 0 4px hsl(8 65% 45% / 0.3);
-  }
-}
-
-@keyframes signalTrace {
-  0% { 
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.8;
-  }
-  100% { 
-    transform: translateX(200%);
-    opacity: 0;
-  }
-}
-
-@keyframes metallicShimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% { 
-    box-shadow: 0 0 15px rgba(180, 70, 50, 0.2);
-  }
-  50% { 
-    box-shadow: 0 0 25px rgba(180, 70, 50, 0.4);
-  }
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(139, 92, 246, 0.6); }
+  50% { opacity: 0.5; box-shadow: 0 0 4px rgba(139, 92, 246, 0.3); }
 }
 
 .animate-led-pulse {
   animation: ledPulse 2s ease-in-out infinite;
 }
 
-.animate-signal-trace {
-  animation: signalTrace 4s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  animation: metallicShimmer 3s linear infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 3s ease-in-out infinite;
+.technical-grain {
+  @apply fixed inset-0 opacity-[0.02] pointer-events-none z-[9999];
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
