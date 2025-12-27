@@ -220,16 +220,15 @@ export default function EventDetail() {
               transition={{ delay: 0.7 }}
               className="flex gap-4 justify-center"
             >
-              <Button
-                variant="premium"
-                size="lg"
-                onClick={() => {
-                  const element = document.getElementById('register');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                Register Now
-              </Button>
+              <a href={event.registrationLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button
+                  variant="premium"
+                  size="lg"
+                  className="w-full"
+                >
+                  Register Now
+                </Button>
+              </a>
               <Button
                 variant="outline"
                 size="lg"

@@ -11,6 +11,7 @@ export interface Event {
   prizePool: string;
   maxTeamSize: number;
   registrationFee: string;
+  registrationLink: string;
   schedule: string;
   contact: {
     name: string;
@@ -38,6 +39,7 @@ export const technicalEvents: Event[] = [
     maxTeamSize: 3,
     registrationFee: 'TBD',
     schedule: '31 Jan 2026',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform',
     contact: { name: 'Jaylin M S / Keshigaa M', phone: '+91 8148103299 / +91 6385942268' }
   },
   {
@@ -57,6 +59,7 @@ export const technicalEvents: Event[] = [
     maxTeamSize: 5,
     registrationFee: 'TBD',
     schedule: '31 Jan 2026',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform',
     contact: { name: 'Prashanth Krishna / Mohammed Thabeeb', phone: '+91 7550173414 / +91 8122081709' }
   },
   {
@@ -77,6 +80,7 @@ export const technicalEvents: Event[] = [
     maxTeamSize: 4,
     registrationFee: 'TBD',
     schedule: '31 Jan 2026',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform',
     contact: { name: 'Vijayasurya S / Naveen Raj P K', phone: '+91 8148768127 / +91 91506 89955' }
   },
   {
@@ -97,6 +101,7 @@ export const technicalEvents: Event[] = [
     maxTeamSize: 2,
     registrationFee: 'TBD',
     schedule: '31 Jan 2026',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform',
     contact: { name: 'Tharun KM / Logesh K', phone: '+91 8754912685 / +91 63817 63451' }
   }
 ];
@@ -120,6 +125,7 @@ export const nonTechnicalEvents: Event[] = [
     maxTeamSize: 4,
     registrationFee: 'TBD',
     schedule: '31 Jan 2026',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform',
     contact: { name: 'Jane Lydia J / Abisha A', phone: '+91 9363684332 / +91 86681 53302' }
   },
   {
@@ -144,6 +150,7 @@ export const nonTechnicalEvents: Event[] = [
     maxTeamSize: 3,
     registrationFee: 'TBD',
     schedule: '31 Jan 2026',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform',
     contact: { name: 'Saiswetha R / Srilekha S', phone: '+91 99626 46420 / +91 73059 25936' }
   },
   {
@@ -166,6 +173,7 @@ export const nonTechnicalEvents: Event[] = [
     maxTeamSize: 4,
     registrationFee: 'TBD',
     schedule: '31 Jan 2026',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform',
     contact: { name: 'Skandhaguru S / Mohamed Thabeeb M', phone: '+91 9042210909 / +91 81220 81709' }
   },
   {
@@ -186,6 +194,7 @@ export const nonTechnicalEvents: Event[] = [
     maxTeamSize: 4,
     registrationFee: 'TBD',
     schedule: '31 Jan 2026',
+    registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform',
     contact: { name: 'Santhosh Kumar / Charumathi', phone: '+91 82484 19507 / +91 63803 58348' }
   }
 ];
