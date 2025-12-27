@@ -94,9 +94,9 @@ export const HeroScene = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <span className="text-foreground">INSTR</span>
-            <span className="text-gradient-red">AUX</span>
-            <span className="text-metallic">'26</span>
+            <span className="text-foreground glow-icon">INSTR</span>
+            <span className="text-gradient-red glow-icon">AUX</span>
+            <span className="text-metallic glow-icon">'26</span>
           </motion.h1>
 
           {/* Subtitle */}

@@ -14,8 +14,8 @@ const buttonVariants = cva(
         outline: "border border-accent/40 [background:rgba(15,15,18,0.4)] backdrop-blur-sm text-foreground hover:[background:rgba(15,15,18,0.5)] hover:border-accent/60 hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent/10 hover:text-accent-foreground",
-        glass: "[background:rgba(15,15,18,0.65)] backdrop-blur-[14px] border border-accent/30 text-foreground hover:border-accent/50 hover:[background:rgba(15,15,18,0.75)] hover:shadow-lg hover:shadow-accent/20 transition-all",
-        premium: "rounded-full border-2 border-accent [background:rgba(15,15,18,0.4)] backdrop-blur-[10px] text-accent font-bold hover:border-accent hover:[background:rgba(15,15,18,0.6)] hover:shadow-lg hover:shadow-accent/40 hover:scale-[1.02] uppercase tracking-wider transition-all",
+        glass: "[background:rgba(15,15,18,0.65)] backdrop-blur-[14px] border border-accent/30 text-foreground hover:border-accent/50 hover:[background:rgba(15,15,18,0.75)] hover:shadow-lg hover:shadow-accent/20 transition-all glow-primary",
+        premium: "rounded-full border-2 border-accent [background:rgba(15,15,18,0.4)] backdrop-blur-[10px] text-accent font-bold hover:border-accent hover:[background:rgba(15,15,18,0.6)] hover:shadow-lg hover:shadow-accent/40 hover:scale-[1.02] uppercase tracking-wider transition-all glow-primary",
       },
       size: {
         default: "h-10 px-6 py-2",
