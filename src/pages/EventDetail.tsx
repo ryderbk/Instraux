@@ -6,6 +6,10 @@ import { Button } from '@/components/ui/button';
 import { Navigation } from '@/components/Navigation';
 import { getEventById } from '@/data/events';
 
+const navigateToEvents = () => {
+  window.location.href = '/#events';
+};
+
 export default function EventDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -20,7 +24,7 @@ export default function EventDetail() {
           <h1 className="text-3xl font-bold text-foreground mb-4">Event Not Found</h1>
           <Button 
             variant="premium"
-            onClick={() => navigate('/#events')}
+            onClick={navigateToEvents}
           >
             Back to Events
           </Button>
@@ -49,7 +53,7 @@ export default function EventDetail() {
           <motion.button
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            onClick={() => navigate('/#events')}
+            onClick={navigateToEvents}
             className="flex items-center gap-2 text-accent hover:text-accent/80 transition-colors mb-8"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -175,7 +179,7 @@ export default function EventDetail() {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => navigate('/#events')}
+                onClick={navigateToEvents}
               >
                 View All Events
               </Button>
