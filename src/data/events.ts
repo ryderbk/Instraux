@@ -246,7 +246,8 @@ export const loadEventsFromStorage = (): Event[] | null => {
 export const initializeEventsStorage = () => {
   if (!('localStorage' in globalThis)) return;
   const existing = loadEventsFromStorage();
-  if (!existing) {
+  // Only seed defaults if the key is truly missing (null). An empty array is a valid state.
+  if (existing === null) {
     saveEventsToStorage(allEvents);
   }
 };
