@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, Instagram, MapPin } from 'lucide-react';
+import { TechnicalBackground } from './TechnicalBackground';
 
 const contacts = [
   { icon: Phone, label: '+91 8838182119 / +91 9360220424', href: 'tel:+918838182119' },
@@ -10,6 +11,7 @@ const contacts = [
 export const ContactSection = () => {
   return (
     <section id="contact" className="relative py-16 md:py-20 overflow-hidden">
+      <TechnicalBackground />
       {/* Background */}
       <div className="absolute inset-0 bg-flowing-gradient" />
       

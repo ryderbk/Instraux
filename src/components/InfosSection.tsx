@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Clock, CheckCircle, Users, Award, User, Gift, CreditCard, Shirt, Droplet } from 'lucide-react';
+import { TechnicalBackground } from './TechnicalBackground';
 
 export const InfosSection = () => {
   const infos = [
@@ -16,6 +17,7 @@ export const InfosSection = () => {
 
   return (
     <section id="infos" className="relative py-16 md:py-24 overflow-hidden">
+      <TechnicalBackground />
       {/* Background */}
       <div className="absolute inset-0 bg-flowing-gradient opacity-30" />
 

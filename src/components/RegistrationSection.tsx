@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Gift, Award, Clock, Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
+import { TechnicalBackground } from './TechnicalBackground';
 
 export const RegistrationSection = () => {
   return (
@@ -8,6 +9,7 @@ export const RegistrationSection = () => {
       id="register"
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden pb-32 md:pb-20"
     >
+      <TechnicalBackground />
       {/* Background */}
       <div className="absolute inset-0 bg-flowing-gradient" />
 

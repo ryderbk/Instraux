@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronDown, Activity, Zap } from 'lucide-react';
 import { CountdownTimer } from './CountdownTimer';
+import { TechnicalBackground } from './TechnicalBackground';
 
 // Signal trace animation
 const SignalTrace = ({ delay = 0, top = '30%' }: { delay?: number; top?: string }) => (
@@ -42,6 +43,7 @@ export const HeroScene = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
+      <TechnicalBackground section="hero" />
       {/* Dark gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 pointer-events-none" />
       

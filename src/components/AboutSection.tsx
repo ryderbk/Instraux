@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Cpu, Lightbulb, Users, Target } from 'lucide-react';
+import { TechnicalBackground } from './TechnicalBackground';
 
 const features = [
   {
@@ -30,6 +31,7 @@ export const AboutSection = () => {
       id="about"
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
     >
+      <TechnicalBackground />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 pointer-events-none" />
 

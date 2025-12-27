@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, BookOpen, Crown, Star } from 'lucide-react';
+import { TechnicalBackground } from './TechnicalBackground';
 
 const staffMembers = [
   {
@@ -39,6 +40,7 @@ export const TeamSection = () => {
       id="team"
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
     >
+      <TechnicalBackground />
       {/* Background */}
       <div className="absolute inset-0 bg-flowing-gradient" />
 

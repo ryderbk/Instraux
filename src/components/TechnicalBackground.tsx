@@ -25,11 +25,16 @@ export const TechnicalBackground = ({ section = 'default' }: { section?: 'hero' 
       {/* Parallax Container */}
       <motion.div style={{ y }} className="absolute inset-0">
         {/* Grid Structure */}
-        <div 
-          className="absolute inset-0 opacity-[0.05]" 
+        <div className="absolute inset-0 opacity-[0.03]" 
           style={{ 
             backgroundImage: `linear-gradient(to right, #444 1px, transparent 1px), linear-gradient(to bottom, #444 1px, transparent 1px)`,
-            backgroundSize: '40px 40px'
+            backgroundSize: '80px 80px'
+          }} 
+        />
+        <div className="absolute inset-0 opacity-[0.02]" 
+          style={{ 
+            backgroundImage: `linear-gradient(to right, #666 1px, transparent 1px), linear-gradient(to bottom, #666 1px, transparent 1px)`,
+            backgroundSize: '20px 20px'
           }} 
         />
 
@@ -65,9 +70,10 @@ export const TechnicalBackground = ({ section = 'default' }: { section?: 'hero' 
           ))}
         </svg>
 
-        {/* Ambient Glows */}
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent/10 blur-[120px] rounded-full" />
+      {/* Ambient Glows */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full mix-blend-screen" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent/10 blur-[120px] rounded-full mix-blend-screen" />
+      <div className="absolute top-[30%] right-[10%] w-[30%] h-[30%] bg-purple-900/10 blur-[100px] rounded-full mix-blend-screen" />
       </motion.div>
 
       {/* Signal Waves (Hero Section Only) */}

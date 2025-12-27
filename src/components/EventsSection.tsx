@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { getEvents, Event } from '@/data/events';
 import { Code as DefaultIcon } from 'lucide-react';
+import { TechnicalBackground } from './TechnicalBackground';
 
 interface EventCardProps {
   event: Event;
@@ -64,6 +65,7 @@ export const EventsSection = () => {
       id="events"
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
     >
+      <TechnicalBackground />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50 pointer-events-none" />
       
