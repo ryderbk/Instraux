@@ -6,52 +6,33 @@
 
 @layer base {
   :root {
-    /* Modern Professional Dark Purple Palette */
     --background: 270 50% 4%;
     --foreground: 270 20% 98%;
-
     --card: 270 50% 6%;
     --card-foreground: 270 20% 98%;
-
     --popover: 270 50% 8%;
     --popover-foreground: 270 20% 98%;
-
-    /* Premium Purple Accent */
     --primary: 270 80% 65%;
     --primary-foreground: 270 50% 4%;
-
-    /* Matching Bright Purple - Equal Brightness to Primary */
     --secondary: 280 80% 65%;
     --secondary-foreground: 270 20% 98%;
-
     --muted: 270 30% 15%;
     --muted-foreground: 270 15% 70%;
-
-    /* Electric Violet Highlight */
     --accent: 280 90% 60%;
     --accent-foreground: 270 20% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 270 20% 98%;
-
     --border: 270 30% 18%;
     --input: 270 30% 18%;
     --ring: 270 80% 65%;
-
     --radius: 0.75rem;
-
-    /* Professional Dark Glass System */
     --glass-bg: 20 10 30 / 0.75;
     --glass-border: 139 92 246 / 0.2;
     --glass-blur: 12px;
-
-    /* Theme accent colors */
     --accent-purple: 270 80% 65%;
     --accent-violet: 280 90% 60%;
     --accent-indigo: 260 70% 50%;
     --accent-slate: 270 25% 27%;
-
-    /* Modern dark shadows */
     --shadow-deep: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
     --shadow-glow-purple: 0 0 20px rgba(139, 92, 246, 0.2);
     --shadow-glow-violet: 0 0 20px rgba(167, 139, 250, 0.15);
@@ -65,6 +46,8 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
@@ -73,6 +56,7 @@
     overflow-x: hidden;
     background-color: hsl(270 50% 2%);
     background-image: radial-gradient(circle at 50% 50%, rgba(20, 10, 30, 1) 0%, rgba(10, 5, 20, 1) 100%);
+    font-variant-numeric: tabular-nums;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -93,11 +77,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.04;
+  opacity: 0.02;
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 @layer components {
@@ -125,41 +109,43 @@
     filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.7));
   }
 
-  /* Modern Professional Dark Glass Panel */
   .glass-panel {
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    backdrop-filter: blur(6px) saturate(140%);
+    -webkit-backdrop-filter: blur(6px) saturate(140%);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
   }
 
-  /* Glass card for larger sections */
   .glass-card {
     background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(6px) saturate(140%);
+    -webkit-backdrop-filter: blur(6px) saturate(140%);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 20px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
   }
 
-  /* Flowing dark gradient background */
   .bg-flowing-gradient {
     background: linear-gradient(135deg, rgba(30, 10, 50, 0.4) 0%, rgba(20, 10, 30, 0.3) 50%, rgba(30, 10, 50, 0.4) 100%);
   }
 
-  /* Module Card - Modern tech look */
   .module-card {
     background: rgba(40, 20, 60, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(139, 92, 246, 0.1);
     border-radius: 8px;
     box-shadow: var(--shadow-deep);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
   }
 
   .module-card::before {
@@ -178,23 +164,21 @@
     border-color: rgba(139, 92, 246, 0.3);
     background: rgba(40, 20, 60, 0.6);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-    transform: translateY(-4px);
+    transform: translate3d(0, -4px, 0);
   }
 
   .module-card:hover::before {
     opacity: 1;
   }
 
-  /* Professional Dark Navigation */
   .nav-industrial {
     background: rgba(10, 5, 20, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(139, 92, 246, 0.15);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
   }
 
-  /* Professional Dark Button */
   .btn-industrial {
     background: rgba(20, 10, 30, 0.6);
     border: 1px solid rgba(139, 92, 246, 0.3);
@@ -233,13 +217,11 @@
     transform: translateY(-2px);
   }
 
-  /* Section container */
   .section-container {
     position: relative;
     z-index: 10;
   }
 
-  /* Tech Grid overlay */
   .pcb-grid {
     background-image: 
       linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
@@ -247,7 +229,6 @@
     background-size: 50px 50px;
   }
 
-  /* Modern text effect */
   .text-metallic {
     background: linear-gradient(180deg, hsl(270 80% 65%) 0%, hsl(280 90% 60%) 100%);
     -webkit-background-clip: text;
@@ -259,8 +240,6 @@
     text-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
   }
 
-  /* Hide scrollbars globally but keep scrolling functional */
-  /* WebKit-based browsers */
   ::-webkit-scrollbar {
     width: 0;
     height: 0;
@@ -271,15 +250,12 @@
     background: transparent;
   }
 
-  /* Firefox */
   html, body, * {
-    scrollbar-width: none; /* hide scrollbar */
-    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  /* Fallback: hide any scrollbars rendered by custom components */
   *::-webkit-scrollbar { display: none; }
-
 }
 
 @layer utilities {
@@ -302,7 +278,6 @@
   }
 }
 
-/* Keyframe animations */
 @keyframes ledPulse {
   0%, 100% { 
     opacity: 1;
@@ -316,14 +291,14 @@
 
 @keyframes signalTrace {
   0% { 
-    transform: translateX(-100%);
+    transform: translate3d(-100%, 0, 0);
     opacity: 0;
   }
   50% {
     opacity: 0.8;
   }
   100% { 
-    transform: translateX(200%);
+    transform: translate3d(400%, 0, 0);
     opacity: 0;
   }
 }
@@ -348,16 +323,51 @@
 
 .animate-led-pulse {
   animation: ledPulse 2s ease-in-out infinite;
+  will-change: box-shadow;
 }
 
 .animate-signal-trace {
   animation: signalTrace 4s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-shimmer {
   animation: metallicShimmer 3s linear infinite;
+  will-change: background-position;
 }
 
 .animate-pulse-glow {
   animation: pulseGlow 3s ease-in-out infinite;
+  will-change: box-shadow;
+}
+
+/* Performance: Reduce motion on slow devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile performance: Reduce blur on small screens */
+@media (max-width: 768px) {
+  .glass-panel,
+  .glass-card {
+    backdrop-filter: blur(4px) saturate(120%);
+    -webkit-backdrop-filter: blur(4px) saturate(120%);
+  }
+
+  .module-card {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .nav-industrial {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
