@@ -22,82 +22,82 @@ export const technicalEvents: Event[] = [
   {
     id: 1,
     title: 'Innoscript',
-    subtitle: 'Code Your Vision',
+    subtitle: 'Paper Presentation',
     icon: Code,
     type: 'technical',
-    description: "INNOSCRIPT is a paper presentation competition where teams present research or technical projects. Presentations are evaluated on innovation, technical depth, clarity, and practical relevance.",
+    description: "INNOSCRIPT provides a professional platform for students to present innovative ideas, research work, and technical solutions across multiple domains.",
     rules: [
-      'Team size: 1-3 members',
-      'PPT must be submitted before the event',
-      'Report 15 minutes early',
-      'Presentation time: 5 minutes per team',
-      "Judges' decision will be final"
+      'Single-round paper presentation',
+      '5 minutes per team',
+      'PPT submission before the event is mandatory',
+      'All team members must present',
+      "Judges' decision will be final",
+      'Certificates provided to all participants'
     ],
-    prizePool: '₹5000',
+    prizePool: 'Cash Prizes',
     maxTeamSize: 3,
-    registrationFee: '₹150',
+    registrationFee: 'TBD',
     schedule: '31 Jan 2026',
-    contact: { name: 'Jaylin M S', phone: '+91 8148103299' }
+    contact: { name: 'Jaylin M S / Keshigaa M', phone: '+91 8148103299 / +91 6385942268' }
   },
   {
     id: 2,
     title: 'Projectopia',
-    subtitle: 'Build the Future',
+    subtitle: 'Project Expo',
     icon: Lightbulb,
     type: 'technical',
-    description: 'PROJECTOPIA is a project expo where teams showcase working projects and prototypes across domains such as Electronics, Software, AI, IoT, and Robotics.',
+    description: 'PROJECTOPIA is a project exhibition event where participants showcase working models, prototypes, and innovative solutions addressing real-world problems.',
     rules: [
-      'Team size: 1-5 members',
-      'Bring your own demo setup (laptop, components)',
-      'Presentation/demonstration time: 5-7 minutes',
-      'Original work only',
-      'Report 30 minutes before your slot'
+      'Single-round project exhibition and evaluation',
+      '5–7 minutes for demonstration and Q&A',
+      'Participants must bring their own project setup',
+      'Originality is mandatory; plagiarism is strictly prohibited'
     ],
-    prizePool: '₹10000',
+    prizePool: 'Cash Prizes',
     maxTeamSize: 5,
-    registrationFee: '₹300',
+    registrationFee: 'TBD',
     schedule: '31 Jan 2026',
-    contact: { name: 'Prashanth Krishna', phone: '+91 7550173414' }
+    contact: { name: 'Prashanth Krishna / Mohammed Thabeeb', phone: '+91 7550173414 / +91 8122081709' }
   },
   {
     id: 3,
     title: 'Brain Battle',
-    subtitle: 'Quiz Showdown',
+    subtitle: 'Technical Quiz',
     icon: Brain,
     type: 'technical',
-    description: 'BRAIN BATTLE is a thrilling technical quiz designed to test your knowledge, speed, accuracy, and teamwork across electronics and technology domains.',
+    description: 'BRAIN BATTLE is a high-intensity technical quiz that pushes your knowledge, speed, and accuracy to the limit. Designed for competitive minds, this event demands sharp thinking, teamwork, and quick decision-making under pressure.',
     rules: [
-      'Team size: 3-4 members',
-      'Round 1: Paper & Pen – Test your fundamentals',
-      'Round 2: Buzzer Round – Speed meets accuracy',
-      'Round 3: Rapid Fire – Think fast or miss out',
-      'Mobile phones are strictly prohibited'
+      'Round 1: Paper & Pen – Test core technical fundamentals',
+      'Round 2: Buzzer Round – Speed-based accuracy test',
+      'Round 3: Rapid Fire – Fast-thinking technical questions',
+      'Mobile phones are strictly prohibited',
+      'Teams must be prepared for rapid questions and intense competition'
     ],
-    prizePool: '₹3000',
+    prizePool: 'Cash Prizes',
     maxTeamSize: 4,
-    registrationFee: '₹100',
+    registrationFee: 'TBD',
     schedule: '31 Jan 2026',
-    contact: { name: 'Vijayasurya S', phone: '+91 8148768127' }
+    contact: { name: 'Vijayasurya S / Naveen Raj P K', phone: '+91 8148768127 / +91 91506 89955' }
   },
   {
     id: 4,
     title: "Watt's Wrong",
-    subtitle: 'Circuit Detective',
+    subtitle: 'Circuit Debugging Challenge',
     icon: Zap,
     type: 'technical',
-    description: "WATT'S WRONG challenges teams to spot and fix circuit errors under pressure — a hands-on test of practical electronics and debugging skills.",
+    description: "WATT'S WRONG is a technical challenge focused on electronics fundamentals, circuit debugging, and logical problem-solving. Participants must analyze, detect errors, and design efficient circuit solutions under time pressure.",
     rules: [
-      'Team size: 2 members',
-      'Rounds: 3 exciting rounds',
-      'Mobiles & laptops are not allowed',
-      'Safety protocols must be followed',
+      'Round 1: MCQ Round – Core electronics concepts',
+      'Round 2: Error Correction – Identify and fix circuit mistakes',
+      'Round 3: Problem Statement – Design a circuit-based solution',
+      'Mobile phones and laptops are not allowed',
       "Judges' decision will be final"
     ],
-    prizePool: '₹7000',
+    prizePool: 'Cash Prizes',
     maxTeamSize: 2,
-    registrationFee: '₹200',
+    registrationFee: 'TBD',
     schedule: '31 Jan 2026',
-    contact: { name: 'Tharun KM', phone: '+91 8754912685' }
+    contact: { name: 'Tharun KM / Logesh K', phone: '+91 8754912685 / +91 63817 63451' }
   }
 ];
 
@@ -105,81 +105,88 @@ export const nonTechnicalEvents: Event[] = [
   {
     id: 5,
     title: 'Hunt for the Hidden',
-    subtitle: 'Treasure Quest',
+    subtitle: 'Treasure Hunt',
     icon: MapPin,
     type: 'non-technical',
-    description: 'HUNT FOR THE HIDDEN is a campus treasure hunt across two stages: Mind Maze (solve hints) and The Trail of Secrets (race across campus). Strategy and speed win the prize.',
+    description: 'HUNT FOR THE HIDDEN is an adventurous campus-wide treasure hunt that tests strategy, coordination, and time management. Follow clues, solve puzzles, and race against other teams to uncover the final treasure.',
     rules: [
-      'Team size: 3-4 members',
-      'Stage 1 – Mind Maze: Solve a series of hints',
-      'Stage 2 – The Trail of Secrets: Shortlisted teams race across campus',
-      'Use of mobile phones, smartwatches or electronic gadgets is not permitted',
-      'Teams must remain within approved campus locations'
+      'Stage 1: Mind Maze – Solve logical hints to reach the correct solution',
+      'Stage 2: Trail of Secrets – Campus-based search for theme clues',
+      'Use of electronic gadgets is strictly prohibited',
+      'Team members must stay together at all times',
+      'Interfering with other teams will lead to elimination'
     ],
-    prizePool: '₹4000',
+    prizePool: 'Cash Prizes',
     maxTeamSize: 4,
-    registrationFee: '₹150',
+    registrationFee: 'TBD',
     schedule: '31 Jan 2026',
-    contact: { name: 'Jane Lydia J', phone: '+91 9363684332' }
+    contact: { name: 'Jane Lydia J / Abisha A', phone: '+91 9363684332 / +91 86681 53302' }
   },
   {
     id: 6,
     title: 'Aura Unplugged',
-    subtitle: 'Acoustic Magic',
+    subtitle: 'Music Quiz Night',
     icon: Mic,
     type: 'non-technical',
-    description: "AURA UNPLUGGED puts your memory, rhythm sense, and teamwork to the test — with fun, fast, and thrilling music-based challenges across three rounds: Hidden Harmony, Emoji Symphony and Rewind the Rhythm.",
+    description: "AURA UNPLUGGED is an energetic music quiz night designed for music lovers who can recognize tunes in seconds. This event challenges your musical memory, rhythm sense, and teamwork through fun, fast-paced, and thrilling audio-based rounds. Get ready to listen carefully, think quickly, and vibe with your team.",
     rules: [
-      'Team size: Maximum 3 participants',
-      'Each team must have at least one mobile phone with good internet connection',
-      'All team members should register with the same team name',
-      "Organizers' decisions are final",
-      'Any form of misconduct or unfair means will lead to immediate disqualification'
+      'Each team must have at least one mobile phone with a stable internet connection',
+      'All team members must register using the same team name',
+      'The event consists of 3 rounds and a tie-breaker',
+      'Hidden Harmony – Guess the song from background music',
+      'Emoji Symphony – Identify songs using emojis',
+      'Rewind the Rhythm – Recognize reversed songs',
+      "Organizer's decision will be final and binding",
+      'Any form of misconduct or unfair means will result in disqualification',
+      'Cash prizes for winners and E-certificates for all participants'
     ],
-    prizePool: '₹6000',
+    prizePool: 'Cash Prizes',
     maxTeamSize: 3,
-    registrationFee: '₹200',
+    registrationFee: 'TBD',
     schedule: '31 Jan 2026',
-    contact: { name: 'Saiswetha R / Srilekha S', phone: '+91 9962646420 / +91 7305925936' }
+    contact: { name: 'Saiswetha R / Srilekha S', phone: '+91 99626 46420 / +91 73059 25936' }
   },
   {
     id: 7,
     title: 'Rush and Survive',
-    subtitle: 'Race Against Time',
+    subtitle: 'Free Fire Gaming Event',
     icon: Gamepad2,
     type: 'non-technical',
-    description: 'RUSH AND SURVIVE brings intense Free Fire action where strategy, teamwork, and survival decide the champions across two rounds: Battle Royale and Clash Squad.',
+    description: 'RUSH AND SURVIVE is a high-energy Free Fire gaming tournament where strategy, reflexes, and squad coordination decide the champions. Drop in with your squad and fight your way to the top.',
     rules: [
       'Team Mode: Squad only (4 players)',
       'Round 1: Battle Royale — top 4 teams qualify',
-      'Round 2: Clash Squad (2 matches) — top 2 teams win',
-      'All members must register with the same team name',
-      "Organizers' decisions are final"
+      'Round 2: Clash Squad — two matches to determine winners',
+      'All players must register under the same team name',
+      "Organizer's decision is final",
+      'Winners receive cash prizes and certificates',
+      'E-certificates for all participants'
     ],
-    prizePool: '₹5000',
+    prizePool: 'Cash Prizes',
     maxTeamSize: 4,
-    registrationFee: '₹150',
+    registrationFee: 'TBD',
     schedule: '31 Jan 2026',
-    contact: { name: 'Skandhaguru S / Mohamed Thabeeb M', phone: '+91 9042210909 / +91 8122081729' }
+    contact: { name: 'Skandhaguru S / Mohamed Thabeeb M', phone: '+91 9042210909 / +91 81220 81709' }
   },
   {
     id: 8,
     title: 'Play to Slay',
-    subtitle: 'Gaming Arena',
+    subtitle: 'Cinema & Meme Challenge',
     icon: Film,
     type: 'non-technical',
-    description: 'PLAY TO SLAY challenges your cinematic knowledge and creativity with rounds like Meme Template, Connections, and a Cinema-based Quiz to find the ultimate champs.',
+    description: 'PLAY TO SLAY is a fun-packed cinematic event combining movies, memes, and creativity. If you love films, viral moments, and visual puzzles, this event is your stage to showcase quick thinking and pop-culture knowledge.',
     rules: [
-      'Team event',
-      'Mobile phone as buzzer',
-      'E-certificates for all participants',
-      'Report on time and follow round instructions'
+      'Round 1: Meme Template – Guess famous dialogues from meme formats',
+      'Round 2: Connections – Identify names by connecting images',
+      'Round 3: Cinema Quiz – Movie-based quiz round',
+      'Mobile phone will be used as a buzzer',
+      'E-certificates for all participants'
     ],
-    prizePool: '₹8000',
-    maxTeamSize: 3,
-    registrationFee: '₹200',
+    prizePool: 'Cash Prizes',
+    maxTeamSize: 4,
+    registrationFee: 'TBD',
     schedule: '31 Jan 2026',
-    contact: { name: 'Santhosh Kumar / Charumathi', phone: '+91 8248419507 / +91 6380358348' }
+    contact: { name: 'Santhosh Kumar / Charumathi', phone: '+91 82484 19507 / +91 63803 58348' }
   }
 ];
 
@@ -202,7 +209,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   MapPin,
 };
 
-const STORAGE_KEY = 'instraux:events:v2';
+const STORAGE_KEY = 'instraux:events:v3';
 
 function getIconName(icon: LucideIcon): string {
   // Lucide icon components usually have a function name (Code, Lightbulb, ...)
