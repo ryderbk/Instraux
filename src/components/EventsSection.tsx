@@ -31,7 +31,7 @@ const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
       {/* LED indicator dot - overriding default */}
       <div 
         className={`absolute top-4 right-4 w-2 h-2 rounded-full ${ledColor} animate-led-pulse`}
-        style={{ boxShadow: accentColor === 'red' ? '0 0 8px rgba(180, 60, 40, 0.6)' : '0 0 8px rgba(200, 140, 60, 0.6)' }}
+        style={{ boxShadow: accentColor === 'red' ? '0 0 8px rgba(180, 60, 40, 0.6)' : '0 0 8px rgba(255, 157, 77, 0.6)' }}
       />
       
       {/* Icon */}

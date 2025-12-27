@@ -107,7 +107,7 @@ export default {
         "industrial": "0 12px 40px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4)",
         "industrial-hover": "0 16px 50px rgba(0, 0, 0, 0.7), 0 6px 16px rgba(0, 0, 0, 0.5)",
         "glow-red": "0 0 20px rgba(180, 60, 40, 0.3)",
-        "glow-amber": "0 0 20px rgba(200, 140, 60, 0.25)",
+        "glow-amber": "0 0 20px rgba(255, 157, 77, 0.35)",
         "glow-copper": "0 0 25px rgba(200, 100, 60, 0.3)",
       },
     },
