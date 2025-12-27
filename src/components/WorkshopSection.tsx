@@ -102,8 +102,7 @@ export const WorkshopSection = () => {
                   size="lg"
                   className="w-full"
                   onClick={() => {
-                    const element = document.getElementById('register');
-                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                    window.open('https://docs.google.com/forms/d/e/1FAIpQLSd7XjZzsw4wqx7tr2AUnWmNRk73LpDOZ575vcIIFZAUEPF-BA/viewform', '_blank');
                   }}
                 >
                   <Plane className="w-4 h-4 mr-2" />
