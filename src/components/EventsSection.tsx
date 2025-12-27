@@ -63,11 +63,16 @@ export const EventsSection = () => {
   return (
     <section
       id="events"
-      className="relative overflow-hidden"
+      className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
     >
       <TechnicalBackground />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50 pointer-events-none" />
       
-      <div className="relative z-10 container-px">
+      {/* PCB Grid */}
+      <div className="absolute inset-0 pcb-grid opacity-30" />
+
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <motion.div
           className="text-center mb-16"

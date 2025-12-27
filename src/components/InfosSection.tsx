@@ -16,11 +16,13 @@ export const InfosSection = () => {
   ];
 
   return (
-    <section id="infos" className="relative overflow-hidden">
+    <section id="infos" className="relative py-16 md:py-24 overflow-hidden">
       <TechnicalBackground />
+      {/* Background */}
+      <div className="absolute inset-0 bg-flowing-gradient opacity-30" />
 
       {/* Content */}
-      <div className="relative z-10 container-px">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         <motion.div
           className="max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 40 }}

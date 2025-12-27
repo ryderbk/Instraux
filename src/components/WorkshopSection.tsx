@@ -7,11 +7,13 @@ export const WorkshopSection = () => {
   return (
     <section
       id="workshop"
-      className="relative overflow-hidden"
+      className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
     >
       <TechnicalBackground />
+      {/* Background */}
+      <div className="absolute inset-0 bg-flowing-gradient" />
 
-      <div className="relative z-10 container-px">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <motion.div

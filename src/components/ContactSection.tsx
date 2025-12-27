@@ -10,10 +10,12 @@ const contacts = [
 
 export const ContactSection = () => {
   return (
-    <section id="contact" className="relative overflow-hidden">
+    <section id="contact" className="relative py-16 md:py-20 overflow-hidden">
       <TechnicalBackground />
+      {/* Background */}
+      <div className="absolute inset-0 bg-flowing-gradient" />
       
-      <div className="relative z-10 container-px">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           className="text-center mb-12"
