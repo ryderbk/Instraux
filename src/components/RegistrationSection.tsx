@@ -73,6 +73,9 @@ export const RegistrationSection = () => {
                 variant="premium"
                 size="xl"
                 className="w-full sm:w-auto min-w-[280px] animate-pulse-glow"
+                onClick={() => {
+                  window.open('https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform', '_blank');
+                }}
               >
                 Register Now
                 <motion.span
@@ -96,6 +99,9 @@ export const RegistrationSection = () => {
           variant="premium"
           size="lg"
           className="w-full shadow-lg shadow-primary/20"
+          onClick={() => {
+            window.open('https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform', '_blank');
+          }}
         >
           Register Now — ₹150
         </Button>
