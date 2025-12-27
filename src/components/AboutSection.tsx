@@ -29,13 +29,11 @@ export const AboutSection = () => {
   return (
     <section
       id="about"
-      className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
+      className="relative overflow-hidden"
     >
       <TechnicalBackground />
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 pointer-events-none" />
 
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 container-px">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <motion.div

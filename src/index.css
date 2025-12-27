@@ -6,114 +6,58 @@
 
 @layer base {
   :root {
-    /* Modern Professional Dark Purple Palette */
-    --background: 270 50% 4%;
-    --foreground: 270 20% 98%;
+    /* Standardized Spacing Scale */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2.5rem;
+    --spacing-2xl: 4rem;
+    --spacing-3xl: 6rem;
 
-    --card: 270 50% 6%;
-    --card-foreground: 270 20% 98%;
-
-    --popover: 270 50% 8%;
-    --popover-foreground: 270 20% 98%;
-
-    /* Premium Purple Accent */
-    --primary: 270 80% 65%;
-    --primary-foreground: 270 50% 4%;
-
-    /* Matching Bright Purple - Equal Brightness to Primary */
-    --secondary: 280 80% 65%;
-    --secondary-foreground: 270 20% 98%;
-
-    --muted: 270 30% 15%;
-    --muted-foreground: 270 15% 70%;
-
-    /* Electric Violet Highlight */
-    --accent: 280 90% 60%;
-    --accent-foreground: 270 20% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 270 20% 98%;
-
-    --border: 270 30% 18%;
-    --input: 270 30% 18%;
-    --ring: 270 80% 65%;
-
-    --radius: 0.75rem;
-
-    /* Professional Dark Glass System */
-    --glass-bg: 20 10 30 / 0.75;
-    --glass-border: 139 92 246 / 0.2;
-    --glass-blur: 12px;
-
-    /* Theme accent colors */
-    --accent-purple: 270 80% 65%;
-    --accent-violet: 280 90% 60%;
-    --accent-indigo: 260 70% 50%;
-    --accent-slate: 270 25% 27%;
-
-    /* Modern dark shadows */
-    --shadow-deep: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-    --shadow-glow-purple: 0 0 20px rgba(139, 92, 246, 0.2);
-    --shadow-glow-violet: 0 0 20px rgba(167, 139, 250, 0.15);
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  html {
-    scroll-behavior: smooth;
+    /* Normalize Typography Hierarchy */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Rajdhani', sans-serif;
     overflow-x: hidden;
+    line-height: 1.5;
     background-color: hsl(270 50% 2%);
     background-image: radial-gradient(circle at 50% 50%, rgba(20, 10, 30, 1) 0%, rgba(10, 5, 20, 1) 100%);
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
-  }
-
-  code, .mono {
-    font-family: 'Share Tech Mono', monospace;
-  }
+  h1 { @apply text-4xl md:text-6xl lg:text-8xl font-bold uppercase tracking-tight; }
+  h2 { @apply text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight; }
+  h3 { @apply text-xl md:text-2xl font-semibold uppercase; }
+  p { @apply text-base md:text-lg text-muted-foreground leading-relaxed; }
 }
 
-.technical-grain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.02;
-  pointer-events: none;
-  z-index: 9999;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+/* Optimized Layout Containers */
+.container-px {
+  @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full;
 }
 
-@layer components {
-  /* Modern Professional Dark Glass Panel */
-  .glass-panel {
-    background: rgba(20, 10, 30, 0.95);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    box-shadow: var(--shadow-deep);
-  }
+.section-spacing {
+  @apply py-16 md:py-24 lg:py-32;
+}
 
-  /* Glass card for larger sections */
-  .glass-card {
-    background: rgba(20, 10, 30, 0.98);
-    border: 1px solid rgba(139, 92, 246, 0.15);
-    border-radius: 12px;
-    box-shadow: var(--shadow-deep);
-  }
+.glass-panel {
+  @apply bg-black/90 border border-white/10 rounded-2xl shadow-xl overflow-hidden;
+}
+
+.glass-card {
+  @apply bg-black/80 border border-white/5 rounded-xl shadow-lg transition-all duration-300;
+}
 
   /* Flowing dark gradient background */
   .bg-flowing-gradient {

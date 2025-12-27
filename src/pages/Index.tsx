@@ -32,16 +32,32 @@ const Index = () => {
       
       <main className="relative min-h-screen bg-background overflow-x-hidden">
         <Navigation />
-        <HeroScene />
-        <Suspense fallback={<LoadingFallback />}>
-          <AboutSection />
-          <EventsSection />
-          <WorkshopSection />
-          <InfosSection />
-          <RegistrationSection />
-          <TeamSection />
-          <ContactSection />
-        </Suspense>
+        <div className="flex flex-col">
+          <HeroScene />
+          <Suspense fallback={<LoadingFallback />}>
+            <div className="section-spacing">
+              <AboutSection />
+            </div>
+            <div className="section-spacing">
+              <EventsSection />
+            </div>
+            <div className="section-spacing">
+              <WorkshopSection />
+            </div>
+            <div className="section-spacing">
+              <InfosSection />
+            </div>
+            <div className="section-spacing">
+              <RegistrationSection />
+            </div>
+            <div className="section-spacing">
+              <TeamSection />
+            </div>
+            <div className="section-spacing">
+              <ContactSection />
+            </div>
+          </Suspense>
+        </div>
       </main>
     </>
   );
