@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import EventDetail from "./pages/EventDetail";
 import NotFound from "./pages/NotFound";
+import ThunderEffect from "@/components/ThunderEffect";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -13,6 +14,7 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <ThunderEffect />
       <Toaster />
       <Sonner />
       <BrowserRouter>
