@@ -1,13 +1,14 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ChevronDown, Activity, Zap } from 'lucide-react';
 import { CountdownTimer } from './CountdownTimer';
 import { TechnicalBackground } from './TechnicalBackground';
+import { useCallback, memo } from 'react';
 
-// Signal trace animation
-const SignalTrace = ({ delay = 0, top = '30%' }: { delay?: number; top?: string }) => (
+// Signal trace animation - memoized
+const SignalTrace = memo(({ delay = 0, top = '30%' }: { delay?: number; top?: string }) => (
   <div 
     className="absolute left-0 right-0 h-px overflow-hidden pointer-events-none"
-    style={{ top }}
+    style={{ top, willChange: 'transform' }}
   >
     <motion.div
       className="h-full w-40 bg-gradient-to-r from-transparent via-accent/50 to-transparent"
@@ -21,22 +22,43 @@ const SignalTrace = ({ delay = 0, top = '30%' }: { delay?: number; top?: string 
       }}
     />
   </div>
-);
+));
 
-export const HeroScene = () => {
-  const scrollToEvents = () => {
+SignalTrace.displayName = 'SignalTrace';
+
+const HeroSceneComponent = () => {
+  const shouldReduceMotion = useReducedMotion();
+
+  const scrollToEvents = useCallback(() => {
     const element = document.getElementById('events');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, []);
 
-  const scrollToRegister = () => {
+  const scrollToRegister = useCallback(() => {
     const element = document.getElementById('register');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
+  }, []);
+
+  if (shouldReduceMotion) {
+    return (
+      <section
+        id="hero"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      >
+        <TechnicalBackground section="hero" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 pointer-events-none" />
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-10 md:pt-16">
+          <div className="max-w-5xl mx-auto text-center">
+            <CountdownTimer />
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section
