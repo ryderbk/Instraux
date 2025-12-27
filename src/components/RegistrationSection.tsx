@@ -95,19 +95,6 @@ export const RegistrationSection = () => {
         </div>
       </div>
 
-      {/* Mobile sticky CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-gradient-to-t from-background via-background to-transparent p-4 border-t border-border/30">
-        <Button
-          variant="premium"
-          size="lg"
-          className="w-full shadow-lg shadow-primary/20"
-          onClick={() => {
-            window.open('https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform', '_blank');
-          }}
-        >
-          Register Now — ₹150
-        </Button>
-      </div>
     </section>
   );
 };
