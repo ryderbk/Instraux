@@ -17,5 +17,31 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  build: {
+    target: "ES2020",
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "react-vendor": ["react", "react-dom"],
+          "ui-vendor": ["@radix-ui/react-slot", "@radix-ui/react-toast", "@radix-ui/react-tooltip"],
+          "animation": ["framer-motion"],
+          "routing": ["react-router-dom"],
+          "icons": ["lucide-react"],
+        },
+      },
+    },
+    reportCompressedSize: false,
+    cssCodeSplit: true,
+  },
+  optimizeDeps: {
+    include: ["react", "react-dom", "react-router-dom", "framer-motion", "lucide-react"],
   }
 });

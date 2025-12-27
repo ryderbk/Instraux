@@ -2,20 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Instraux</title>
-    <meta name="description" content="Instraux — event website" />
-    <meta name="author" content="Instraux Team" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0214" />
+    <title>INSTRAUX'26 - Technical Symposium</title>
+    <meta name="description" content="INSTRAUX'26 is a National Level Technical Symposium by the Department of Electronics and Instrumentation Engineering at Velammal Engineering College on January 31, 2026." />
+    <meta name="keywords" content="INSTRAUX, technical symposium, engineering, competition, events" />
+    <meta name="author" content="EIE Department, Velammal Engineering College" />
 
-    <meta property="og:title" content="Instraux" />
-    <meta property="og:description" content="Instraux — event website" />
+    <meta property="og:title" content="INSTRAUX'26 - Technical Symposium" />
+    <meta property="og:description" content="A National Level Technical Symposium with technical and non-technical events" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="INSTRAUX'26" />
 
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="INSTRAUX'26" />
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Critical CSS inline would go here for above-the-fold -->
+    <style>
+      /* Prevent layout shift */
+      html { scroll-behavior: smooth; }
+      body { margin: 0; padding: 0; }
+    </style>
   </head>
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx" defer></script>
   </body>
 </html>
