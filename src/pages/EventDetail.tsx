@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, Phone } from 'lucide-react';
 import { Helmet } from 'react-helmet';
@@ -6,15 +7,21 @@ import { Button } from '@/components/ui/button';
 import { Navigation } from '@/components/Navigation';
 import { getEventById } from '@/data/events';
 
-const navigateToEvents = () => {
-  window.location.href = '/#events';
-};
-
 export default function EventDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const idNum = id ? Number(id) : NaN;
   const event = Number.isInteger(idNum) ? getEventById(idNum) : undefined;
+
+  const navigateToEvents = () => {
+    navigate('/');
+    setTimeout(() => {
+      const eventsSection = document.getElementById('events');
+      if (eventsSection) {
+        eventsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 500);
+  };
 
   if (!event) {
     return (
