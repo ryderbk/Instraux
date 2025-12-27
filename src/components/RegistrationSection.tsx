@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { Gift, Award, Clock, Sparkles } from 'lucide-react';
 import { Button } from './ui/button';
 
-export const InfoSection = () => {
+export const RegistrationSection = () => {
   return (
-    <section className="relative py-20 md:py-28 lg:py-32 overflow-hidden">
+    <section
+      id="register"
+      className="relative py-20 md:py-28 lg:py-32 overflow-hidden pb-32 md:pb-20"
+    >
       {/* Background */}
       <div className="absolute inset-0 bg-flowing-gradient" />
 
@@ -63,13 +66,13 @@ export const InfoSection = () => {
               </div>
             </motion.div>
 
+
             {/* CTA */}
             <div className="text-center">
               <Button
                 variant="premium"
                 size="xl"
                 className="w-full sm:w-auto min-w-[280px] animate-pulse-glow"
-                onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform', '_blank')}
               >
                 Register Now
                 <motion.span
@@ -93,7 +96,6 @@ export const InfoSection = () => {
           variant="premium"
           size="lg"
           className="w-full shadow-lg shadow-primary/20"
-          onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLScakvUK_Ngcz54gzUCiub_QDrAE9nfKVIacUoGgfKKo69nsHQ/viewform', '_blank')}
         >
           Register Now — ₹150
         </Button>
