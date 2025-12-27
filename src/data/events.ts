@@ -1,4 +1,4 @@
-import { FileText, Lightbulb, BookOpen, Cpu, Search, Music, Timer, Gamepad2, Mic, Film, LucideIcon } from 'lucide-react';
+import { FileText, Lightbulb, Brain, Cpu, Search, Music, Timer, Gamepad2, Mic, Film, LucideIcon } from 'lucide-react';
 
 export interface Event {
   id: number;
@@ -63,7 +63,7 @@ export const technicalEvents: Event[] = [
     id: 3,
     title: 'Brain Battle',
     subtitle: 'Technical Quiz',
-    icon: BookOpen,
+    icon: Brain,
     type: 'technical',
     description: 'BRAIN BATTLE is a high-intensity technical quiz that pushes your knowledge, speed, and accuracy to the limit. Designed for competitive minds, this event demands sharp thinking, teamwork, and quick decision-making under pressure.',
     rules: [
@@ -198,7 +198,7 @@ export type SerializedEvent = Omit<Event, 'icon'> & { iconName: string };
 const ICON_MAP: Record<string, LucideIcon> = {
   FileText,
   Lightbulb,
-  BookOpen,
+  Brain,
   Cpu,
   Search,
   Music,
