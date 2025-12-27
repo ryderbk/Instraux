@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, memo } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin } from 'lucide-react';
 import { Button } from './ui/button';
@@ -10,7 +10,46 @@ interface CountdownValues {
   seconds: number;
 }
 
-export const CountdownTimer = () => {
+const Digit = memo(({ value }: { value: string }) => (
+  <div className="relative h-[1.2em] w-[0.7em] overflow-hidden flex justify-center">
+    <motion.div
+      key={value}
+      initial={{ y: "100%" }}
+      animate={{ y: 0 }}
+      exit={{ y: "-100%" }}
+      transition={{ 
+        type: "spring", 
+        stiffness: 300, 
+        damping: 30,
+        duration: 0.4 
+      }}
+      className="absolute inset-0 flex items-center justify-center"
+    >
+      {value}
+    </motion.div>
+  </div>
+));
+
+Digit.displayName = 'Digit';
+
+const CountdownBox = memo(({ value, label }: { value: number; label: string }) => {
+  const stringValue = String(value).padStart(2, '0');
+  return (
+    <div className="glass-panel p-2 sm:p-6 md:p-7 rounded-chamfer flex flex-col items-center justify-center border border-accent/30 aspect-square" style={{ willChange: 'contents' }}>
+      <div className="flex text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-0.5 sm:mb-2 leading-none overflow-hidden">
+        <Digit value={stringValue[0]} />
+        <Digit value={stringValue[1]} />
+      </div>
+      <div className="text-[8px] sm:text-xs md:text-sm font-mono uppercase tracking-widest text-muted-foreground">
+        {label}
+      </div>
+    </div>
+  );
+});
+
+CountdownBox.displayName = 'CountdownBox';
+
+const CountdownTimerComponent = () => {
   const [countdown, setCountdown] = useState<CountdownValues>({
     days: 0,
     hours: 0,
@@ -20,7 +59,6 @@ export const CountdownTimer = () => {
 
   useEffect(() => {
     const calculateCountdown = () => {
-      // Target date: January 31st, 2026
       const targetDate = new Date('2026-01-31T00:00:00').getTime();
       const currentDate = new Date().getTime();
       const difference = targetDate - currentDate;
@@ -41,53 +79,18 @@ export const CountdownTimer = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const scrollToRegister = () => {
+  const scrollToRegister = useCallback(() => {
     const element = document.getElementById('register');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const Digit = ({ value }: { value: string }) => (
-    <div className="relative h-[1.2em] w-[0.7em] overflow-hidden flex justify-center">
-      <motion.div
-        key={value}
-        initial={{ y: "100%" }}
-        animate={{ y: 0 }}
-        exit={{ y: "-100%" }}
-        transition={{ 
-          type: "spring", 
-          stiffness: 300, 
-          damping: 30,
-          duration: 0.4 
-        }}
-        className="absolute inset-0 flex items-center justify-center"
-      >
-        {value}
-      </motion.div>
-    </div>
-  );
-
-  const CountdownBox = ({ value, label }: { value: number; label: string }) => {
-    const stringValue = String(value).padStart(2, '0');
-    return (
-      <div className="glass-panel p-2 sm:p-6 md:p-7 rounded-chamfer flex flex-col items-center justify-center border border-accent/30 aspect-square">
-        <div className="flex text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-0.5 sm:mb-2 leading-none overflow-hidden">
-          <Digit value={stringValue[0]} />
-          <Digit value={stringValue[1]} />
-        </div>
-        <div className="text-[8px] sm:text-xs md:text-sm font-mono uppercase tracking-widest text-muted-foreground">
-          {label}
-        </div>
-      </div>
-    );
-  };
+  }, []);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: '0px 0px -100px 0px' }}
       transition={{ duration: 0.7 }}
       className="relative z-10 w-full pb-32 md:pb-40"
     >
@@ -97,7 +100,7 @@ export const CountdownTimer = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 md:gap-8 mb-10 md:mb-14"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '0px 0px -50px 0px' }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base text-muted-foreground whitespace-nowrap">
@@ -123,7 +126,7 @@ export const CountdownTimer = () => {
           className="flex justify-center pt-2 md:pt-4"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: '0px 0px -50px 0px' }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
           <Button
@@ -138,3 +141,6 @@ export const CountdownTimer = () => {
     </motion.div>
   );
 };
+
+export const CountdownTimer = memo(CountdownTimerComponent);
+export default CountdownTimer;

@@ -12,6 +12,7 @@ export default defineConfig({
     host: "0.0.0.0",
     port: 5000,
     allowedHosts: true,
+    middlewareMode: false,
   },
   resolve: {
     alias: {
@@ -40,8 +41,10 @@ export default defineConfig({
     },
     reportCompressedSize: false,
     cssCodeSplit: true,
+    sourcemap: false,
   },
   optimizeDeps: {
     include: ["react", "react-dom", "react-router-dom", "framer-motion", "lucide-react"],
+    exclude: ["@vitejs/plugin-react-swc"],
   }
 });

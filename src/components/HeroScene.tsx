@@ -1,10 +1,9 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { ChevronDown, Activity, Zap } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { CountdownTimer } from './CountdownTimer';
 import { TechnicalBackground } from './TechnicalBackground';
 import { useCallback, memo } from 'react';
 
-// Signal trace animation - memoized
 const SignalTrace = memo(({ delay = 0, top = '30%' }: { delay?: number; top?: string }) => (
   <div 
     className="absolute left-0 right-0 h-px overflow-hidden pointer-events-none"
@@ -36,13 +35,6 @@ const HeroSceneComponent = () => {
     }
   }, []);
 
-  const scrollToRegister = useCallback(() => {
-    const element = document.getElementById('register');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, []);
-
   if (shouldReduceMotion) {
     return (
       <section
@@ -66,22 +58,16 @@ const HeroSceneComponent = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       <TechnicalBackground section="hero" />
-      {/* Dark gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 pointer-events-none" />
-      
-      {/* PCB Grid overlay */}
       <div className="absolute inset-0 pcb-grid opacity-50" />
       
-      {/* Animated signal traces */}
       <SignalTrace delay={0} top="20%" />
       <SignalTrace delay={2} top="50%" />
       <SignalTrace delay={4} top="80%" />
 
-      {/* Subtle glow effects */}
-      <div className="absolute top-1/4 left-1/3 w-96 h-96 rounded-full bg-primary/10 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-accent/10 blur-[80px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/3 w-96 h-96 rounded-full bg-primary/10 blur-[100px] pointer-events-none" style={{ willChange: 'transform' }} />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-accent/10 blur-[80px] pointer-events-none" style={{ willChange: 'transform' }} />
 
-      {/* Main content */}
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 pt-10 md:pt-16">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -89,7 +75,6 @@ const HeroSceneComponent = () => {
           transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
           className="max-w-5xl mx-auto text-center"
         >
-          {/* Department text */}
           <motion.p
             className="text-xs md:text-sm lg:text-base font-mono uppercase tracking-widest text-accent mb-3 md:mb-4"
             initial={{ opacity: 0 }}
@@ -99,7 +84,6 @@ const HeroSceneComponent = () => {
             Department of Electronics and Instrumentation
           </motion.p>
 
-          {/* Proudly Presents */}
           <motion.p
             className="text-sm md:text-base lg:text-lg font-light text-muted-foreground mb-6 md:mb-8"
             initial={{ opacity: 0 }}
@@ -109,7 +93,6 @@ const HeroSceneComponent = () => {
             Proudly Presents
           </motion.p>
 
-          {/* Main title */}
           <motion.h1
             className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-4 md:mb-6 tracking-tight"
             initial={{ opacity: 0, scale: 0.95 }}
@@ -121,7 +104,6 @@ const HeroSceneComponent = () => {
             <span className="text-metallic glow-icon">'26</span>
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p
             className="text-lg md:text-2xl text-muted-foreground mb-6 md:mb-8 font-light"
             initial={{ opacity: 0 }}
@@ -131,12 +113,10 @@ const HeroSceneComponent = () => {
             A National Level Technical Symposium
           </motion.p>
 
-          {/* Countdown Timer Section */}
           <CountdownTimer />
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0 }}
@@ -156,10 +136,12 @@ const HeroSceneComponent = () => {
         </motion.button>
       </motion.div>
 
-      {/* Bottom signal trace */}
       <div className="absolute bottom-20 left-0 right-0 h-px overflow-hidden">
         <div className="w-40 h-full bg-gradient-to-r from-transparent via-accent to-transparent animate-signal-trace" />
       </div>
     </section>
   );
 };
+
+export const HeroScene = memo(HeroSceneComponent);
+export default HeroScene;
