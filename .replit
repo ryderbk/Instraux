@@ -1,4 +1,4 @@
-modules = ["nodejs-20"]
+modules = ["nodejs-20", "web"]
 
 [workflows]
 runButton = "Project"
@@ -35,3 +35,6 @@ expertMode = true
 deploymentTarget = "static"
 build = ["npm", "run", "build"]
 publicDir = "dist"
+
+[nix]
+channel = "stable-25_05"
