@@ -69,9 +69,9 @@ export const RegistrationSection = () => {
             {/* Benefits */}
             <div className="space-y-4 mb-10">
               {[
-                { icon: Gift, text: 'Win Exciting Cash Prizes' },
+                { icon: Gift, text: 'Lunch Included for All Participants' },
                 { icon: Award, text: 'Participation Certificates' },
-                { icon: Clock, text: 'Full Day Access to All Events' },
+                { icon: Clock, text: 'Pre-Registration is Mandatory' },
               ].map((benefit, index) => (
                 <motion.div
                   key={index}
@@ -91,14 +91,12 @@ export const RegistrationSection = () => {
               ))}
             </div>
 
-            {/* Important Information */}
+            {/* Important Rules & Guidelines */}
             <div className="mb-10 p-6 rounded-xl bg-accent/5 border border-accent/20">
               <h3 className="font-semibold text-foreground mb-3">Important Information</h3>
               <ul className="text-sm text-muted-foreground space-y-2">
-                <li>• Pre-Registration is Mandatory (No on-spot Registration)</li>
                 <li>• Participants can participate in One Technical and One Non-Technical event</li>
                 <li>• Individual registration is required</li>
-                <li>• Lunch will be provided to all participants</li>
                 <li>• College ID is compulsory</li>
                 <li>• All participants are required to wear formal attire</li>
                 <li>• Participants are requested to carry their own water bottles</li>
