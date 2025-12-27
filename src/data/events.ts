@@ -186,10 +186,82 @@ export const nonTechnicalEvents: Event[] = [
 
 export const allEvents = [...technicalEvents, ...nonTechnicalEvents];
 
+// Serialization-friendly shape used for localStorage
+export type SerializedEvent = Omit<Event, 'icon'> & { iconName: string };
+
+const ICON_MAP: Record<string, LucideIcon> = {
+  Code,
+  Lightbulb,
+  Brain,
+  Zap,
+  Search,
+  Music,
+  Timer,
+  Gamepad2,
+};
+
+const STORAGE_KEY = 'instraux:events';
+
+function getIconName(icon: LucideIcon): string {
+  // Lucide icon components usually have a function name (Code, Lightbulb, ...)
+  // Use a safe typed access to avoid `any` lint rule
+  const maybe: unknown = icon;
+  if (typeof maybe === 'function' && (maybe as { name?: string }).name) {
+    return (maybe as { name?: string }).name as string;
+  }
+  return 'Code';
+}
+
+function serializeEvent(e: Event): SerializedEvent {
+  return { ...e, iconName: getIconName(e.icon) };
+}
+
+function reviveEvent(se: SerializedEvent): Event {
+  const icon = ICON_MAP[se.iconName] || Code;
+  return { ...se, icon } as Event;
+}
+
+export const saveEventsToStorage = (events: Event[]) => {
+  try {
+    const serialized = events.map(serializeEvent);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(serialized));
+  } catch (err) {
+    // fail silently - don't block the app
+    console.warn('Failed to save events to storage', err);
+  }
+};
+
+export const loadEventsFromStorage = (): Event[] | null => {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as SerializedEvent[];
+    return parsed.map(reviveEvent);
+  } catch (err) {
+    console.warn('Failed to parse events from storage', err);
+    return null;
+  }
+};
+
+export const initializeEventsStorage = () => {
+  if (!('localStorage' in globalThis)) return;
+  const existing = loadEventsFromStorage();
+  if (!existing) {
+    saveEventsToStorage(allEvents);
+  }
+};
+
+export const getEvents = (): Event[] => {
+  const loaded = loadEventsFromStorage();
+  return loaded ?? allEvents;
+};
+
 export const getEventById = (id: number): Event | undefined => {
-  return allEvents.find(event => event.id === id);
+  const events = getEvents();
+  return events.find(event => event.id === id);
 };
 
 export const getEventByTitle = (title: string): Event | undefined => {
-  return allEvents.find(event => event.title.toLowerCase() === title.toLowerCase());
+  const events = getEvents();
+  return events.find(event => event.title.toLowerCase() === title.toLowerCase());
 };

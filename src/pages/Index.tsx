@@ -8,15 +8,16 @@ import { TeamSection } from '@/components/TeamSection';
 import { ContactSection } from '@/components/ContactSection';
 import { ClosingSection } from '@/components/ClosingSection';
 import { useEffect } from 'react';
+import { initializeEventsStorage } from '@/data/events';
 import { Helmet } from 'react-helmet';
 
 const Index = () => {
   useEffect(() => {
-    document.documentElement.style.scrollBehavior = 'smooth';
-    
-    return () => {
-      document.documentElement.style.scrollBehavior = 'auto';
-    };
+    // Initialize event storage and ensure no global scroll behavior mutation is left set.
+    initializeEventsStorage();
+
+    // Ensure we start at top on initial load
+    window.scrollTo({ top: 0, left: 0 });
   }, []);
 
   return (

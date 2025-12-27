@@ -9,7 +9,8 @@ import { getEventById } from '@/data/events';
 export default function EventDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const event = id ? getEventById(parseInt(id)) : undefined;
+  const idNum = id ? Number(id) : NaN;
+  const event = Number.isInteger(idNum) ? getEventById(idNum) : undefined;
 
   if (!event) {
     return (
@@ -28,7 +29,7 @@ export default function EventDetail() {
     );
   }
 
-  const EventIcon = event.icon;
+  const EventIcon = event.icon ?? (() => null);
   const isRed = event.type === 'technical';
 
   return (
@@ -77,7 +78,7 @@ export default function EventDetail() {
                       ? 'bg-primary/20 text-primary border border-primary/30'
                       : 'bg-secondary/20 text-secondary border border-secondary/30'
                   }`}>
-                    {event.type.replace('-', ' ')} Event
+                    {(event.type ?? '').replace('-', ' ')} Event
                   </span>
                   <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-2">
                     {event.title}
@@ -88,7 +89,7 @@ export default function EventDetail() {
 
               {/* Description */}
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                {event.description}
+                {event.description ?? 'No description available.'}
               </p>
 
               {/* Quick Info */}
@@ -160,7 +161,7 @@ export default function EventDetail() {
               </h2>
               <div className="glass-panel p-6 rounded-chamfer border border-accent/30">
                 <ul className="space-y-3">
-                  {event.rules.map((rule, index) => (
+                  {(event.rules ?? []).map((rule, index) => (
                     <motion.li
                       key={index}
                       initial={{ opacity: 0, x: -10 }}

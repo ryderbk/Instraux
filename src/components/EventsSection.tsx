@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { technicalEvents, nonTechnicalEvents, Event } from '@/data/events';
+import { getEvents, Event } from '@/data/events';
+import { Code as DefaultIcon } from 'lucide-react';
 
 interface EventCardProps {
   event: Event;
@@ -35,7 +36,11 @@ const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
       
       {/* Icon */}
       <div className="w-12 h-12 mb-4 rounded-chamfer bg-accent/15 flex items-center justify-center group-hover:bg-accent/25 transition-colors duration-300 border border-accent/20">
-        <event.icon className="w-6 h-6 text-accent" />
+        {event.icon ? (
+          <event.icon className="w-6 h-6 text-accent" />
+        ) : (
+          <DefaultIcon className="w-6 h-6 text-accent" />
+        )}
       </div>
 
       {/* Content */}
@@ -50,6 +55,10 @@ const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
 };
 
 export const EventsSection = () => {
+  const events = getEvents();
+  const technical = events.filter(e => e.type === 'technical');
+  const nonTechnical = events.filter(e => e.type === 'non-technical');
+
   return (
     <section
       id="events"
@@ -98,9 +107,11 @@ export const EventsSection = () => {
               <span className="w-2 h-2 rounded-full bg-primary animate-led-pulse" />
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-              {technicalEvents.map((event, index) => (
+              {technical.length > 0 ? technical.map((event, index) => (
                 <EventCard key={event.id} event={event} index={index} accentColor="red" />
-              ))}
+              )) : (
+                <div className="col-span-4 text-center py-12 text-muted-foreground">No technical events available.</div>
+              )}
             </div>
           </motion.div>
 
@@ -117,9 +128,11 @@ export const EventsSection = () => {
               <span className="w-2 h-2 rounded-full bg-secondary animate-led-pulse" />
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-              {nonTechnicalEvents.map((event, index) => (
+              {nonTechnical.length > 0 ? nonTechnical.map((event, index) => (
                 <EventCard key={event.id} event={event} index={index} accentColor="amber" />
-              ))}
+              )) : (
+                <div className="col-span-4 text-center py-12 text-muted-foreground">No non-technical events available.</div>
+              )}
             </div>
           </motion.div>
         </div>

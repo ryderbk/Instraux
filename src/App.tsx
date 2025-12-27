@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import EventDetail from "./pages/EventDetail";
 import NotFound from "./pages/NotFound";
 import ThunderEffect from "@/components/ThunderEffect";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -16,8 +17,7 @@ const App = () => (
       <ThunderEffect />
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <Routes>
+      <BrowserRouter>        <ScrollToTop />        <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/event/:id" element={<EventDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
