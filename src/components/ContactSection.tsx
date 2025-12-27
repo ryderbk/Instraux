@@ -5,7 +5,6 @@ const contacts = [
   { icon: Phone, label: '+91 8838182119 / +91 9360220424', href: 'tel:+918838182119' },
   { icon: Mail, label: 'instraux@gmail.com', href: 'mailto:instraux@gmail.com' },
   { icon: Instagram, label: '@instraux_2k26', href: 'https://instagram.com/instraux_2k26' },
-  { icon: MapPin, label: 'Chennai', href: '#' },
 ];
 
 export const ContactSection = () => {

@@ -101,12 +101,6 @@ export const CountdownTimer = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base text-muted-foreground whitespace-nowrap">
-            <MapPin className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
-            <span className="hidden sm:inline">Velammal Engineering College, Surapet, Chennai</span>
-            <span className="sm:hidden">Velammal Engineering College</span>
-          </div>
-          <div className="hidden sm:block w-px h-5 bg-accent/30" />
-          <div className="flex items-center gap-2 text-xs sm:text-sm md:text-base text-muted-foreground whitespace-nowrap">
             <Calendar className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
             <span>January 31st, 2026</span>
           </div>
