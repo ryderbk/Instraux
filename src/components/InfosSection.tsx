@@ -41,9 +41,9 @@ export const InfosSection = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="flex items-start gap-4 p-4 rounded-xl bg-muted/30 border border-border/50"
+                className="flex items-center gap-4 p-4 rounded-xl bg-muted/30 border border-border/50"
               >
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <info.icon className="w-5 h-5 text-primary" />
                 </div>
                 <span className="font-medium text-foreground">
