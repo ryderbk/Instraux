@@ -47,7 +47,7 @@ const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
       <h3 className="font-display font-semibold text-foreground mb-1 group-hover:text-gradient-copper transition-all duration-300">
         {event.title}
       </h3>
-      <p className="text-sm text-muted-foreground font-mono">
+      <p className="text-sm text-foreground/80 font-mono">
         {event.subtitle}
       </p>
     </motion.div>
@@ -123,7 +123,7 @@ export const EventsSection = () => {
             transition={{ duration: 0.5 }}
           >
             <h3 className="font-display text-xl font-semibold text-foreground mb-6 flex items-center gap-3">
-              <span className="w-8 h-0.5 bg-secondary/60" />
+              <span className="w-8 h-0.5 bg-secondary" />
               Non-Technical Events
               <span className="w-2 h-2 rounded-full bg-secondary animate-led-pulse" />
             </h3>
