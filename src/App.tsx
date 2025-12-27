@@ -17,9 +17,7 @@ const App = () => (
       <ThunderEffect />
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
+      <BrowserRouter>        <ScrollToTop />        <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/event/:id" element={<EventDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

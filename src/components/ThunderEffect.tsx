@@ -41,8 +41,8 @@ const ThunderEffect: React.FC = () => {
       };
     };
 
-    const generateSegments = (x1: number, y1: number, x2: number, y2: number, displacement: number, depth: number = 0) => {
-      if (displacement < 3 || depth > 4) {
+    const generateSegments = (x1: number, y1: number, x2: number, y2: number, displacement: number) => {
+      if (displacement < 2) {
         return [{ x: x1, y: y1 }, { x: x2, y: y2 }];
       }
 
@@ -50,35 +50,30 @@ const ThunderEffect: React.FC = () => {
       const midY = (y1 + y2) / 2 + (Math.random() - 0.5) * displacement;
 
       return [
-        ...generateSegments(x1, y1, midX, midY, displacement / 2.5, depth + 1),
-        ...generateSegments(midX, midY, x2, y2, displacement / 2.5, depth + 1).slice(1)
+        ...generateSegments(x1, y1, midX, midY, displacement / 2),
+        ...generateSegments(midX, midY, x2, y2, displacement / 2).slice(1)
       ];
     };
 
     const createBolt = (x: number, y: number) => {
-      const isMobile = window.innerWidth < 768;
-      
-      if (lightningBolts.current.length > (isMobile ? 4 : 8)) {
-        return;
-      }
-
       const colors = getThemeColors();
+      const isMobile = window.innerWidth < 768;
       const angle = Math.random() * Math.PI * 2;
-      const length = isMobile ? 15 + Math.random() * 15 : 40 + Math.random() * 50;
+      const length = isMobile ? 20 + Math.random() * 20 : 50 + Math.random() * 70;
       
       const targetX = x + Math.cos(angle) * length;
       const targetY = y + Math.sin(angle) * length;
       
-      const segments = generateSegments(x, y, targetX, targetY, length / 2);
+      const segments = generateSegments(x, y, targetX, targetY, length / 1.5);
       
       lightningBolts.current.push({
         segments,
         life: 1.0,
-        decay: 0.1 + Math.random() * 0.1,
+        decay: 0.07 + Math.random() * 0.07,
         color: colors.primary,
         glow: colors.glow,
         core: colors.core,
-        width: 1.0 + Math.random() * 1.2
+        width: 1.2 + Math.random() * 1.5
       });
     };
 
@@ -111,7 +106,7 @@ const ThunderEffect: React.FC = () => {
     window.addEventListener('pointercancel', handlePointerUp);
 
     const render = (time: number) => {
-      if (time - lastFrameTime.current < 50) {
+      if (time - lastFrameTime.current < 33) {
         requestAnimationFrame(render);
         return;
       }
@@ -120,12 +115,12 @@ const ThunderEffect: React.FC = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       const now = Date.now();
-      const isMobile = window.innerWidth < 768;
       
       // Continuous emission while pointer is active
       activePointers.current.forEach((ptr, id) => {
         const lastEmit = lastEmitTime.current.get(id) || 0;
-        const interval = isMobile ? 150 : (ptr.isDown ? 80 : 150);
+        // Faster emission if button is down or it's a touch point
+        const interval = (ptr.isDown || id > 1) ? 40 : 100;
         
         if (now - lastEmit > interval) {
           createBolt(ptr.x, ptr.y);
