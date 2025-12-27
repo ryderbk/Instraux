@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modern Professional Dark Purple Palette */
+    --background: 270 50% 4%;
+    --foreground: 270 20% 98%;
+
+    --card: 270 50% 6%;
+    --card-foreground: 270 20% 98%;
+
+    --popover: 270 50% 8%;
+    --popover-foreground: 270 20% 98%;
+
+    /* Premium Purple Accent */
+    --primary: 270 80% 65%;
+    --primary-foreground: 270 50% 4%;
+
+    /* Deep Slate Purple */
+    --secondary: 270 25% 27%;
+    --secondary-foreground: 270 20% 98%;
+
+    --muted: 270 30% 15%;
+    --muted-foreground: 270 15% 70%;
+
+    /* Electric Violet Highlight */
+    --accent: 280 90% 60%;
+    --accent-foreground: 270 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 270 20% 98%;
+
+    --border: 270 30% 18%;
+    --input: 270 30% 18%;
+    --ring: 270 80% 65%;
+
+    --radius: 0.75rem;
+
+    /* Professional Dark Glass System */
+    --glass-bg: 20 10 30 / 0.75;
+    --glass-border: 139 92 246 / 0.2;
+    --glass-blur: 12px;
+
+    /* Theme accent colors */
+    --accent-purple: 270 80% 65%;
+    --accent-violet: 280 90% 60%;
+    --accent-indigo: 260 70% 50%;
+    --accent-slate: 270 25% 27%;
+
+    /* Modern dark shadows */
+    --shadow-deep: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    --shadow-glow-purple: 0 0 20px rgba(139, 92, 246, 0.2);
+    --shadow-glow-violet: 0 0 20px rgba(167, 139, 250, 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    background-color: hsl(270 50% 2%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+
+  code, .mono {
+    font-family: 'Share Tech Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Modern Professional Dark Glass Panel */
+  .glass-panel {
+    background: rgba(20, 10, 30, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    box-shadow: var(--shadow-deep);
+  }
+
+  /* Glass card for larger sections */
+  .glass-card {
+    background: rgba(20, 10, 30, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+    border-radius: 12px;
+    box-shadow: var(--shadow-deep);
+  }
+
+  /* Flowing dark gradient background */
+  .bg-flowing-gradient {
+    background: linear-gradient(135deg, rgba(30, 10, 50, 0.4) 0%, rgba(20, 10, 30, 0.3) 50%, rgba(30, 10, 50, 0.4) 100%);
+  }
+
+  /* Module Card - Modern tech look */
+  .module-card {
+    background: rgba(40, 20, 60, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    border-radius: 8px;
+    box-shadow: var(--shadow-deep);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .module-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: hsl(var(--primary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .module-card:hover {
+    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(40, 20, 60, 0.6);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .module-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Professional Dark Navigation */
+  .nav-industrial {
+    background: rgba(10, 5, 20, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Professional Dark Button */
+  .btn-industrial {
+    background: rgba(20, 10, 30, 0.6);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: hsl(270 20% 98%);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .btn-industrial:hover {
+    background: rgba(40, 20, 60, 0.8);
+    border-color: hsl(var(--primary));
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .btn-industrial-primary {
+    background: hsl(var(--primary));
+    border: 1px solid transparent;
+    color: hsl(var(--background));
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-industrial-primary:hover {
+    background: hsl(270 80% 75%);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Section container */
+  .section-container {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Tech Grid overlay */
+  .pcb-grid {
+    background-image: 
+      linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Modern text effect */
+  .text-metallic {
+    background: linear-gradient(180deg, hsl(270 80% 65%) 0%, hsl(280 90% 60%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-glow-red {
+    text-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+  }
+
+  /* Hide scrollbars globally but keep scrolling functional */
+  /* WebKit-based browsers */
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  /* Firefox */
+  html, body, * {
+    scrollbar-width: none; /* hide scrollbar */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  /* Fallback: hide any scrollbars rendered by custom components */
+  *::-webkit-scrollbar { display: none; }
+
+}
+
+@layer utilities {
+  .text-gradient-copper {
+    background: linear-gradient(135deg, hsl(270 80% 65%) 0%, hsl(280 90% 60%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-red {
+    background: linear-gradient(135deg, hsl(270 25% 47%) 0%, hsl(270 80% 65%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-metallic {
+    border-color: rgba(139, 92, 246, 0.15);
+  }
+}
+
+/* Keyframe animations */
+@keyframes ledPulse {
+  0%, 100% { 
+    opacity: 1;
+    box-shadow: 0 0 8px hsl(8 65% 45% / 0.6);
+  }
+  50% { 
+    opacity: 0.5;
+    box-shadow: 0 0 4px hsl(8 65% 45% / 0.3);
+  }
+}
+
+@keyframes signalTrace {
+  0% { 
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% { 
+    transform: translateX(200%);
+    opacity: 0;
+  }
+}
+
+@keyframes metallicShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    box-shadow: 0 0 15px rgba(180, 70, 50, 0.2);
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(180, 70, 50, 0.4);
+  }
+}
+
+.animate-led-pulse {
+  animation: ledPulse 2s ease-in-out infinite;
+}
+
+.animate-signal-trace {
+  animation: signalTrace 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: metallicShimmer 3s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
