@@ -202,7 +202,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   MapPin,
 };
 
-const STORAGE_KEY = 'instraux:events';
+const STORAGE_KEY = 'instraux:events:v2';
 
 function getIconName(icon: LucideIcon): string {
   // Lucide icon components usually have a function name (Code, Lightbulb, ...)
