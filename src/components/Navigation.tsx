@@ -49,6 +49,7 @@ export const Navigation = () => {
 
   return (
     <>
+      <div className="technical-grain" />
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}

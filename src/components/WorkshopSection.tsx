@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Plane, Target, Gauge, Award, Users } from 'lucide-react';
 import { Button } from './ui/button';
+import { TechnicalBackground } from './TechnicalBackground';
 
 export const WorkshopSection = () => {
   return (
@@ -8,6 +9,7 @@ export const WorkshopSection = () => {
       id="workshop"
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
     >
+      <TechnicalBackground />
       {/* Background */}
       <div className="absolute inset-0 bg-flowing-gradient" />
 
