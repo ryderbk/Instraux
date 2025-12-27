@@ -125,10 +125,10 @@ export const nonTechnicalEvents: Event[] = [
   {
     id: 6,
     title: 'Aura Unplugged',
-    subtitle: 'Music Quiz Night',
+    subtitle: 'Music Quiz',
     icon: Music,
     type: 'non-technical',
-    description: "AURA UNPLUGGED is an energetic music quiz night designed for music lovers who can recognize tunes in seconds. This event challenges your musical memory, rhythm sense, and teamwork through fun, fast-paced, and thrilling audio-based rounds. Get ready to listen carefully, think quickly, and vibe with your team.",
+    description: "AURA UNPLUGGED is an energetic music quiz designed for music lovers who can recognize tunes in seconds. This event challenges your musical memory, rhythm sense, and teamwork through fun, fast-paced, and thrilling audio-based rounds. Get ready to listen carefully, think quickly, and vibe with your team.",
     rules: [
       'Each team must have at least one mobile phone with a stable internet connection',
       'All team members must register using the same team name',
