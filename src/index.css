@@ -221,23 +221,27 @@
     text-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
   }
 
-  /* Scrollbar styling */
+  /* Hide scrollbars globally but keep scrolling functional */
+  /* WebKit-based browsers */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 0;
+    height: 0;
+    background: transparent;
   }
-
-  ::-webkit-scrollbar-track {
-    background: rgba(10, 5, 20, 1);
-  }
-
+  ::-webkit-scrollbar-track,
   ::-webkit-scrollbar-thumb {
-    background: rgba(139, 92, 246, 0.3);
-    border-radius: 10px;
+    background: transparent;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(139, 92, 246, 0.5);
+  /* Firefox */
+  html, body, * {
+    scrollbar-width: none; /* hide scrollbar */
+    -ms-overflow-style: none; /* IE and Edge */
   }
+
+  /* Fallback: hide any scrollbars rendered by custom components */
+  *::-webkit-scrollbar { display: none; }
+
 }
 
 @layer utilities {
