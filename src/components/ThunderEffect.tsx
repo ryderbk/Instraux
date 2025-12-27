@@ -14,6 +14,11 @@ const ThunderEffect: React.FC = () => {
   const lastEmitTime = useRef(new Map<number, number>());
 
   useEffect(() => {
+    // Disable thunder animation on mobile devices
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
