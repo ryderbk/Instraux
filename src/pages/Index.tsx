@@ -3,7 +3,7 @@ import { HeroScene } from '@/components/HeroScene';
 import { AboutSection } from '@/components/AboutSection';
 import { EventsSection } from '@/components/EventsSection';
 import { WorkshopSection } from '@/components/WorkshopSection';
-import { RegistrationSection } from '@/components/RegistrationSection';
+import { InfoSection } from '@/components/InfoSection';
 import { TeamSection } from '@/components/TeamSection';
 import { ContactSection } from '@/components/ContactSection';
 import { useEffect } from 'react';
@@ -32,7 +32,7 @@ const Index = () => {
         <AboutSection />
         <EventsSection />
         <WorkshopSection />
-        <RegistrationSection />
+        <InfoSection />
         <TeamSection />
         <ContactSection />
       </main>
