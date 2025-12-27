@@ -66,43 +66,6 @@ export const RegistrationSection = () => {
               </div>
             </motion.div>
 
-            {/* Benefits */}
-            <div className="space-y-4 mb-10">
-              {[
-                { icon: Gift, text: 'Lunch Included for All Participants' },
-                { icon: Award, text: 'Participation Certificates' },
-                { icon: Clock, text: 'Pre-Registration is Mandatory' },
-              ].map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-muted/30 border border-border/50"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <span className="font-medium text-foreground">
-                    {benefit.text}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Important Rules & Guidelines */}
-            <div className="mb-10 p-6 rounded-xl bg-accent/5 border border-accent/20">
-              <h3 className="font-semibold text-foreground mb-3">Important Information</h3>
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li>• Participants can participate in One Technical and One Non-Technical event</li>
-                <li>• Individual registration is required</li>
-                <li>• College ID is compulsory</li>
-                <li>• All participants are required to wear formal attire</li>
-                <li>• Participants are requested to carry their own water bottles</li>
-                <li>• Please ensure that all information provided is accurate</li>
-              </ul>
-            </div>
 
             {/* CTA */}
             <div className="text-center">
