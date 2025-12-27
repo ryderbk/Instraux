@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronLeft, Phone, Clock, Users, Tag } from 'lucide-react';
+import { ChevronLeft, Phone } from 'lucide-react';
 import { Helmet } from 'react-helmet';
 import { Button } from '@/components/ui/button';
 import { Navigation } from '@/components/Navigation';
@@ -91,61 +91,6 @@ export default function EventDetail() {
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 {event.description ?? 'No description available.'}
               </p>
-
-              {/* Quick Info */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="glass-panel p-4 rounded-chamfer border border-accent/30"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <Tag className="w-4 h-4 text-accent" />
-                    <span className="text-sm font-mono uppercase text-muted-foreground">Prize Pool</span>
-                  </div>
-                  <p className="text-2xl font-bold text-accent">{event.prizePool}</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.25 }}
-                  className="glass-panel p-4 rounded-chamfer border border-accent/30"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <Clock className="w-4 h-4 text-accent" />
-                    <span className="text-sm font-mono uppercase text-muted-foreground">Schedule</span>
-                  </div>
-                  <p className="text-lg font-semibold text-foreground">{event.schedule}</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="glass-panel p-4 rounded-chamfer border border-accent/30"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <Users className="w-4 h-4 text-accent" />
-                    <span className="text-sm font-mono uppercase text-muted-foreground">Team Size</span>
-                  </div>
-                  <p className="text-lg font-semibold text-foreground">Max {event.maxTeamSize} {event.maxTeamSize === 1 ? 'person' : 'members'}</p>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35 }}
-                  className="glass-panel p-4 rounded-chamfer border border-accent/30"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <Tag className="w-4 h-4 text-accent" />
-                    <span className="text-sm font-mono uppercase text-muted-foreground">Registration</span>
-                  </div>
-                  <p className="text-lg font-semibold text-accent">{event.registrationFee}</p>
-                </motion.div>
-              </div>
             </motion.div>
 
             {/* Rules Section */}
