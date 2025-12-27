@@ -226,7 +226,13 @@ function serializeEvent(e: Event): SerializedEvent {
 }
 
 function reviveEvent(se: SerializedEvent): Event {
-  const icon = ICON_MAP[se.iconName] || Code;
+  let icon = ICON_MAP[se.iconName];
+  // Extra safety: verify the icon is actually a function
+  if (!icon || typeof icon !== 'function') {
+    // Find the correct icon from allEvents
+    const originalEvent = allEvents.find(e => e.id === se.id);
+    icon = originalEvent?.icon || Code;
+  }
   return { ...se, icon } as Event;
 }
 
@@ -263,7 +269,16 @@ export const initializeEventsStorage = () => {
 
 export const getEvents = (): Event[] => {
   const loaded = loadEventsFromStorage();
-  return loaded ?? allEvents;
+  if (loaded) {
+    // Ensure all events have valid icons - if any are missing, reset to defaults
+    const hasValidIcons = loaded.every(e => e.icon && typeof e.icon === 'function');
+    if (hasValidIcons) {
+      return loaded;
+    }
+  }
+  // Reset storage with fresh data if recovery failed
+  saveEventsToStorage(allEvents);
+  return allEvents;
 };
 
 export const getEventById = (id: number): Event | undefined => {
