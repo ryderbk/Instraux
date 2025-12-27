@@ -108,17 +108,7 @@
 
   /* Flowing dark gradient background */
   .bg-flowing-gradient {
-    @apply bg-transparent;
-  }
-
-  @keyframes circuit {
-    from { stroke-dashoffset: 1000; }
-    to { stroke-dashoffset: 0; }
-  }
-
-  .animate-circuit {
-    stroke-dasharray: 500;
-    animation: circuit 20s linear infinite;
+    background: linear-gradient(135deg, rgba(30, 10, 50, 0.4) 0%, rgba(20, 10, 30, 0.3) 50%, rgba(30, 10, 50, 0.4) 100%);
   }
 
   /* Module Card - Modern tech look */
