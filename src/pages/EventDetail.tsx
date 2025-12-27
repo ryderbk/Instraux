@@ -220,15 +220,13 @@ export default function EventDetail() {
               transition={{ delay: 0.7 }}
               className="flex gap-4 justify-center"
             >
-              <a href={event.registrationLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <Button
-                  variant="premium"
-                  size="lg"
-                  className="w-full"
-                >
-                  Register Now
-                </Button>
-              </a>
+              <Button
+                variant="premium"
+                size="lg"
+                onClick={() => window.open(event.registrationLink, '_blank')}
+              >
+                Register Now
+              </Button>
               <Button
                 variant="outline"
                 size="lg"
