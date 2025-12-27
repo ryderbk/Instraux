@@ -19,11 +19,16 @@ export const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let lastScrollTime = 0;
     const handleScroll = () => {
+      const now = Date.now();
+      if (now - lastScrollTime < 100) return;
+      lastScrollTime = now;
+
       setIsScrolled(window.scrollY > 50);
 
-      const sections = navItems.map(item => item.href.slice(1));
-      for (const section of sections.reverse()) {
+      const sections = [...navItems].reverse().map(item => item.href.slice(1));
+      for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -35,7 +40,7 @@ export const Navigation = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
