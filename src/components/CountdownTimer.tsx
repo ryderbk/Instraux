@@ -104,6 +104,10 @@ export const CountdownTimer = () => {
             <Calendar className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
             <span>January 31st, 2026</span>
           </div>
+          <div className="hidden sm:flex items-center gap-2 text-xs sm:text-sm md:text-base text-muted-foreground whitespace-nowrap">
+            <MapPin className="w-4 h-4 md:w-5 md:h-5 text-accent flex-shrink-0" />
+            <span>Velammal Engineering College</span>
+          </div>
         </motion.div>
 
         {/* Countdown boxes */}
