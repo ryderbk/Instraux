@@ -74,6 +74,10 @@ export const TechnicalBackground = React.memo(({ section = 'default' }: { sectio
         ))}
       </svg>
 
+      {/* Ambient Glows - Re-introducing for visual depth */}
+      <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full mix-blend-screen opacity-40" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-accent/10 blur-[120px] rounded-full mix-blend-screen opacity-40" />
+      
       {/* Low-performance cost Glows */}
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
       

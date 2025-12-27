@@ -27,7 +27,7 @@ const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
         ease: [0.23, 1, 0.32, 1],
       }}
       onClick={() => navigate(`/event/${event.id}`)}
-      className="module-card p-5 group cursor-pointer hover:scale-105 transition-transform duration-300"
+      className="glass-card p-5 group cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
     >
       {/* LED indicator dot - overriding default */}
       <div 
