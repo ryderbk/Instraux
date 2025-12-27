@@ -68,23 +68,18 @@ export const HeroScene = () => {
           className="max-w-5xl mx-auto text-center"
         >
           {/* Department text */}
-          <motion.div
+          <motion.p
+            className="text-xs md:text-sm lg:text-base font-mono uppercase tracking-widest text-accent mb-3 md:mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-8 md:mb-12"
           >
-            <p className="text-sm md:text-base lg:text-lg font-mono uppercase tracking-[0.2em] text-accent/90 mb-2">
-              Velammal Engineering College, Surapet, Chennai
-            </p>
-            <p className="text-xs md:text-sm lg:text-base font-mono uppercase tracking-[0.3em] text-accent/70">
-              Department of Electronics and Instrumentation Engineering
-            </p>
-          </motion.div>
+            Department of Electronics and Instrumentation
+          </motion.p>
 
           {/* Proudly Presents */}
           <motion.p
-            className="text-base md:text-lg lg:text-xl font-light text-muted-foreground/80 mb-10 md:mb-16 tracking-widest uppercase"
+            className="text-sm md:text-base lg:text-lg font-light text-muted-foreground mb-6 md:mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -94,7 +89,7 @@ export const HeroScene = () => {
 
           {/* Main title */}
           <motion.h1
-            className="font-display text-7xl md:text-9xl lg:text-[10rem] font-bold mb-8 md:mb-12 tracking-tighter leading-none"
+            className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-4 md:mb-6 tracking-tight"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -106,7 +101,7 @@ export const HeroScene = () => {
 
           {/* Subtitle */}
           <motion.p
-            className="text-xl md:text-3xl text-muted-foreground mb-12 md:mb-20 font-light tracking-[0.1em] uppercase"
+            className="text-lg md:text-2xl text-muted-foreground mb-6 md:mb-8 font-light"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
