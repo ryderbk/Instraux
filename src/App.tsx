@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import EventDetail from "./pages/EventDetail";
 import NotFound from "./pages/NotFound";
 import ThunderEffect from "@/components/ThunderEffect";
+import ModernBackground from "@/components/ModernBackground";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -14,6 +15,7 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <ModernBackground />
       <ThunderEffect />
       <Toaster />
       <Sonner />
