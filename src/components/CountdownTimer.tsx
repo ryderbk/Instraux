@@ -48,24 +48,40 @@ export const CountdownTimer = () => {
     }
   };
 
-  const CountdownBox = ({ value, label, index }: { value: number; label: string; index: number }) => (
-    <div
-      className="glass-panel p-2 sm:p-6 md:p-7 rounded-chamfer flex flex-col items-center justify-center border border-accent/30 aspect-square"
-    >
-      <motion.div 
+  const Digit = ({ value }: { value: string }) => (
+    <div className="relative h-[1.2em] w-[0.7em] overflow-hidden flex justify-center">
+      <motion.div
         key={value}
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.2 }}
-        className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-0.5 sm:mb-2 leading-none"
+        initial={{ y: "100%" }}
+        animate={{ y: 0 }}
+        exit={{ y: "-100%" }}
+        transition={{ 
+          type: "spring", 
+          stiffness: 300, 
+          damping: 30,
+          duration: 0.4 
+        }}
+        className="absolute inset-0 flex items-center justify-center"
       >
-        {String(value).padStart(2, '0')}
+        {value}
       </motion.div>
-      <div className="text-[8px] sm:text-xs md:text-sm font-mono uppercase tracking-widest text-muted-foreground">
-        {label}
-      </div>
     </div>
   );
+
+  const CountdownBox = ({ value, label }: { value: number; label: string }) => {
+    const stringValue = String(value).padStart(2, '0');
+    return (
+      <div className="glass-panel p-2 sm:p-6 md:p-7 rounded-chamfer flex flex-col items-center justify-center border border-accent/30 aspect-square">
+        <div className="flex text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-0.5 sm:mb-2 leading-none overflow-hidden">
+          <Digit value={stringValue[0]} />
+          <Digit value={stringValue[1]} />
+        </div>
+        <div className="text-[8px] sm:text-xs md:text-sm font-mono uppercase tracking-widest text-muted-foreground">
+          {label}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <motion.div
@@ -98,10 +114,10 @@ export const CountdownTimer = () => {
 
         {/* Countdown boxes */}
         <div className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-5 mb-10 md:mb-12">
-          <CountdownBox value={countdown.days} label="Days" index={0} />
-          <CountdownBox value={countdown.hours} label="Hours" index={1} />
-          <CountdownBox value={countdown.minutes} label="Minutes" index={2} />
-          <CountdownBox value={countdown.seconds} label="Seconds" index={3} />
+          <CountdownBox value={countdown.days} label="Days" />
+          <CountdownBox value={countdown.hours} label="Hours" />
+          <CountdownBox value={countdown.minutes} label="Minutes" />
+          <CountdownBox value={countdown.seconds} label="Seconds" />
         </div>
 
         {/* Register button */}
