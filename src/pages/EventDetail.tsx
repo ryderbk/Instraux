@@ -13,6 +13,14 @@ export default function EventDetail() {
   const idNum = id ? Number(id) : NaN;
   const event = Number.isInteger(idNum) ? getEventById(idNum) : undefined;
 
+  // Mark that we should scroll to events when returning to home
+  useEffect(() => {
+    sessionStorage.setItem('scrollToEvents', 'true');
+    return () => {
+      // Cleanup not needed here as we want to keep the flag for back button
+    };
+  }, []);
+
   const navigateToEvents = () => {
     navigate('/');
     setTimeout(() => {

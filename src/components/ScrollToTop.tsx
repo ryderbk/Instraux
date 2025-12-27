@@ -14,8 +14,19 @@ export default function ScrollToTop() {
       }
     }
 
-    // Always reset to top on navigation / reload, including hash changes
-    window.scrollTo({ top: 0, left: 0 });
+    // If returning to home from event detail, scroll to events section
+    if (pathname === '/' && sessionStorage.getItem('scrollToEvents') === 'true') {
+      sessionStorage.removeItem('scrollToEvents');
+      setTimeout(() => {
+        const eventsSection = document.getElementById('events');
+        if (eventsSection) {
+          eventsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    } else {
+      // Otherwise, reset to top on navigation / reload, including hash changes
+      window.scrollTo({ top: 0, left: 0 });
+    }
   }, [pathname, hash, key]);
 
   return null;
