@@ -7,15 +7,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig({
+  base: "/",
   plugins: [react()],
   server: {
     host: "0.0.0.0",
     port: 5000,
     allowedHosts: true,
     middlewareMode: false,
-    headers: {
-      "Cache-Control": "public, max-age=31536000, immutable",
-    },
   },
   resolve: {
     alias: {
