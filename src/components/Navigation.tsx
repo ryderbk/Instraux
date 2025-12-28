@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, CircuitBoard } from 'lucide-react';
 import { Button } from './ui/button';
@@ -17,6 +18,8 @@ export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     let lastScrollTime = 0;
@@ -27,27 +30,44 @@ export const Navigation = () => {
 
       setIsScrolled(window.scrollY > 50);
 
-      const sections = [...navItems].reverse().map(item => item.href.slice(1));
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveSection(section);
-            break;
+      // Only do scroll-based detection on home page
+      if (location.pathname === '/') {
+        const sections = [...navItems].reverse().map(item => item.href.slice(1));
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 150) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
+      } else {
+        // On event detail pages, highlight Events
+        setActiveSection('events');
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const scrollToSection = (href: string) => {
-    const element = document.getElementById(href.slice(1));
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    // If on event detail page, navigate to home first
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(href.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 500);
+    } else {
+      const element = document.getElementById(href.slice(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsMobileMenuOpen(false);
   };

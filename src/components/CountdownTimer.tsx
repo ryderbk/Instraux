@@ -79,8 +79,8 @@ const CountdownTimerComponent = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const scrollToRegister = useCallback(() => {
-    const element = document.getElementById('register');
+  const scrollToEvents = useCallback(() => {
+    const element = document.getElementById('events');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -121,7 +121,7 @@ const CountdownTimerComponent = () => {
           <CountdownBox value={countdown.seconds} label="Seconds" />
         </div>
 
-        {/* Register button */}
+        {/* View Events button */}
         <motion.div
           className="flex justify-center pt-2 md:pt-4"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -132,9 +132,9 @@ const CountdownTimerComponent = () => {
           <Button
             variant="premium"
             size="lg"
-            onClick={scrollToRegister}
+            onClick={scrollToEvents}
           >
-            Register Now
+            View Events
           </Button>
         </motion.div>
       </div>

@@ -166,12 +166,9 @@ export default function EventDetail() {
                   <div>
                     <p className="text-sm font-mono uppercase text-muted-foreground mb-1">Coordinator</p>
                     <p className="font-semibold text-foreground">{event.contact.name}</p>
-                    <a 
-                      href={`tel:${event.contact.phone}`}
-                      className="text-accent hover:text-accent/80 transition-colors"
-                    >
+                    <p className="text-accent">
                       {event.contact.phone}
-                    </a>
+                    </p>
                   </div>
                 </div>
               </div>
