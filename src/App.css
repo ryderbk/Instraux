@@ -1,0 +1,6 @@
+/* Remove default constraints to allow full-width responsive layout */
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
