@@ -24,7 +24,7 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>INSTRAUX'26 - Techno-Cultural Symposium</title>
+        <title>INSTRAUX'26</title>
         <meta name="description" content="INSTRAUX'26 is the flagship techno-cultural symposium by the Department of Electronics and Instrumentation Engineering. Join us on 31st January 2026." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
         <meta charSet="utf-8" />
