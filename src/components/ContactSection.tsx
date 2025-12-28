@@ -3,7 +3,7 @@ import { Phone, Mail, Instagram, MapPin } from 'lucide-react';
 import { TechnicalBackground } from './TechnicalBackground';
 
 const contacts = [
-  { icon: Phone, label: '+91 8838182119 / +91 9360220424', href: 'tel:+918838182119' },
+  { icon: Phone, label: '+91 8838182119 / +91 9360220424' },
   { icon: Mail, label: 'instraux@gmail.com', href: 'mailto:instraux@gmail.com' },
   { icon: Instagram, label: '@instraux_2k26', href: 'https://instagram.com/instraux_2k26' },
 ];
@@ -36,22 +36,38 @@ export const ContactSection = () => {
         {/* Contact items */}
         <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto">
           {contacts.map((contact, index) => (
-            <motion.a
-              key={index}
-              href={contact.href}
-              target={contact.href.startsWith('http') ? '_blank' : undefined}
-              rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="glass-card px-5 py-3 flex items-center gap-3 hover:scale-[1.02] cursor-pointer"
-            >
-              <contact.icon className="w-4 h-4 text-primary flex-shrink-0" />
-              <span className="text-sm font-medium text-foreground">
-                {contact.label}
-              </span>
-            </motion.a>
+            contact.href ? (
+              <motion.a
+                key={index}
+                href={contact.href}
+                target={contact.href.startsWith('http') ? '_blank' : undefined}
+                rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="glass-card px-5 py-3 flex items-center gap-3 hover:scale-[1.02] cursor-pointer"
+              >
+                <contact.icon className="w-4 h-4 text-primary flex-shrink-0" />
+                <span className="text-sm font-medium text-foreground">
+                  {contact.label}
+                </span>
+              </motion.a>
+            ) : (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="glass-card px-5 py-3 flex items-center gap-3"
+              >
+                <contact.icon className="w-4 h-4 text-primary flex-shrink-0" />
+                <span className="text-sm font-medium text-foreground">
+                  {contact.label}
+                </span>
+              </motion.div>
+            )
           ))}
         </div>
       </div>
