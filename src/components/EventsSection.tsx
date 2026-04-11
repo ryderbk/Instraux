@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { getEvents, Event } from '@/data/events';
@@ -10,7 +11,7 @@ interface EventCardProps {
   accentColor?: 'red' | 'amber';
 }
 
-const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
+const EventCard: React.FC<EventCardProps> = ({ event, index, accentColor = 'red' }) => {
   const navigate = useNavigate();
   const ledColor = accentColor === 'red'
     ? 'bg-primary shadow-glow-red'
