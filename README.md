@@ -1,177 +1,95 @@
 # INSTRAUX'26 - National Technical Symposium Website
 
-A modern, responsive website for INSTRAUX'26 - a National Level Technical Symposium organized by the Department of Electronics and Instrumentation Engineering at Velammal Engineering College, Chennai.
+A modern, responsive web application for INSTRAUX'26, a National Level Technical Symposium organized by the Department of Electronics and Instrumentation Engineering at Velammal Engineering College, Chennai.
+
+## Purpose
+This project serves as the official digital gateway for the INSTRAUX'26 symposium. It centralizes event information, workshop details, and registration processes into a high-performance, unified platform, ensuring participants have seamless access to all technical and non-technical event details.
 
 ## 🚀 Features
-
-- **Responsive Design**: Fully responsive across all devices and screen sizes
-- **Modern UI**: Industrial-themed glass-morphism design with smooth animations
-- **Event Management**: Dedicated pages for each of the 8 events with detailed information
-- **Countdown Timer**: Real-time countdown to the event (January 31st, 2026)
-- **Registration Integration**: Seamless registration section with event details
-- **Fast Performance**: Built with Vite for lightning-fast builds and development
+- **Responsive Design**: Optimized for all devices, from mobile phones to high-resolution desktops.
+- **Industrial Aesthetic**: A theme-driven UI featuring glass-morphism and smooth Framer Motion animations.
+- **Event Management**: Dedicated dynamic routing for detailed viewing of 8 distinct symposium events.
+- **Countdown Timer**: A real-time synchronised timer counting down to January 31st, 2026.
+- **Registration Integration**: Direct CTA buttons linking to organized Google Form registration systems.
+- **Performance Optimized**: Built with Vite and React 18 for near-instant load times and efficient rendering.
 
 ## 🛠️ Tech Stack
-
-- **Frontend**: React 18 with TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS with custom glass-morphism components
+- **Framework**: React 18 with TypeScript
+- **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
 - **Routing**: React Router v6
 - **Icons**: Lucide React
-- **Notifications**: Sonner
-- **SEO**: React Helmet
+- **SEO & Meta**: React Helmet
+- **Build Tool**: Vite
 
 ## 📋 Project Structure
-
-```
+```text
 src/
 ├── components/
-│   ├── ui/                      # Reusable UI components (button, toast, tooltip)
-│   ├── Navigation.tsx           # Header navigation
-│   ├── HeroScene.tsx            # Hero section with title and countdown
-│   ├── EventsSection.tsx        # Event grid and cards
-│   ├── AboutSection.tsx         # About the symposium
-│   ├── WorkshopSection.tsx      # Workshop details
-│   ├── TeamSection.tsx          # Team members
-│   ├── RegistrationSection.tsx  # Registration form
-│   ├── ContactSection.tsx       # Contact information
-│   ├── ClosingSection.tsx       # Closing call-to-action
-│   └── CountdownTimer.tsx       # Event countdown display
+│   ├── ui/                # shadcn-based reusable primitives
+│   ├── Navigation.tsx     # Global site navigation
+│   ├── HeroScene.tsx      # Landing section with countdown
+│   ├── EventsSection.tsx  # Dynamic event categories
+│   └── ...                # Other dedicated sections (About, Team, Workshop)
 ├── pages/
-│   ├── Index.tsx                # Landing page
-│   ├── EventDetail.tsx          # Individual event detail pages
-│   └── NotFound.tsx             # 404 page
+│   ├── Index.tsx          # Main landing page
+│   ├── EventDetail.tsx    # Dynamic event information page
+│   └── NotFound.tsx       # Custom 404 handler
 ├── data/
-│   └── events.ts                # Event data and utilities
-├── hooks/
-│   ├── use-mobile.tsx          # Mobile detection hook
-│   └── use-toast.ts            # Toast notification hook
-├── lib/
-│   └── utils.ts                # Utility functions
-├── App.tsx                      # Main app component with routing
-├── main.tsx                     # Application entry point
-└── index.css                    # Global styles
+│   └── events.ts          # Static event data and icon mapping
+├── hooks/                 # Custom React hooks (mobile detection, UI state)
+└── lib/                   # Utility functions and class merging
 ```
 
-## 🚀 Getting Started
+## 🚀 Installation & Setup
 
 ### Prerequisites
-
-- Node.js 16.x or higher
+- Node.js 18.x or higher
 - npm or yarn
 
-### Installation
+### Steps
+1. **Clone the repository**
+   ```bash
+   git clone [repository-url]
+   cd Instraux
+   ```
 
-```bash
-# Install dependencies
-npm install
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Start development server
-npm run dev
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-# Build for production
-npm run build
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
 
-# Preview production build
-npm run preview
-```
+## Usage Instructions
+1. **Explore Events**: Browse the events section and click on any card to view detailed rules, prize pools, and schedules.
+2. **Register**: Click "Register Now" from any event detail page or the main CTA to be redirected to the secure Google Forms for event enrollment.
+3. **Workshop Participation**: Access the dedicated Workshop section for information regarding the Remote Pilot Training session.
+4. **Navigation**: Use the progress-tracking navbar to jump quickly between the Hero, About, and Team sections.
 
-## 📱 Pages and Features
+## 🤝 Future Improvements (Optional)
+- **Backend Integration**: Implement a Node.js/Express backend for real-time registration tracking.
+- **Participant Dashboard**: Create a login system for participants to view their enrolled events.
+- **Payment Gateway**: Integrate Razorpay or similar services for automated fee collection.
 
-### Home / Landing Page
-- Hero section with INSTRAUX'26 branding
-- Live countdown timer
-- Event overview
-- About the symposium
-- Featured events and workshops
-- Team showcase
-- Contact information
-- Registration call-to-action
+## 📝 Contributing
+Contributions are welcome. Please ensure that you:
+1. Maintain the existing industrial design system and styling tokens.
+2. Follow TypeScript best practices and ensure type safety for new data structures.
+3. Test responsiveness across different viewport sizes before submitting a pull request.
 
-### Event Detail Pages
-Dynamic pages for each of the 8 events:
-- **Technical Events**: Innoscript, Projectopia, Brain Battle, Watt's Wrong
-- **Non-Technical Events**: Hunt for the Hidden, Aura Unplugged, Rush and Survive, Play to Slay
+## 📄 License & Credits
+**Department of Electronics and Instrumentation Engineering**, Velammal Engineering College.
 
-Each event page includes:
-- Event description
-- Rules and guidelines
-- Prize pool and registration fees
-- Team size information
-- Event schedule
-- Coordinator contact details
-
-## 🎨 Design System
-
-The website features a unique industrial theme with:
-- Dark PCB-inspired color palette
-- Glass-morphism UI elements
-- Copper/gold accent colors
-- Smooth micro-interactions
-- Responsive breakpoints for mobile, tablet, and desktop
-
-### Color Palette
-- Background: Deep dark navy (`#0F0F12`)
-- Foreground: Light cream (`#E8E8E8`)
-- Primary: Burnt Red (`#B43C28`)
-- Accent: Copper/Gold (`#FFA600`)
-- Secondary: Amber (`#C88C3C`)
-
-## 📦 Dependencies
-
-### Core Dependencies
-- `react` - UI library
-- `react-dom` - DOM rendering
-- `react-router-dom` - Client-side routing
-- `framer-motion` - Animation library
-- `lucide-react` - Icon library
-- `sonner` - Toast notifications
-- `react-helmet` - SEO management
-- `tailwindcss` - Utility-first CSS framework
-
-### Development Dependencies
-- `vite` - Build tool
-- `typescript` - Type safety
-- `eslint` - Code linting
-- `tailwindcss` - CSS utilities
-
-## 🔧 Build & Deployment
-
-### Production Build
-```bash
-npm run build
-```
-
-The output will be in the `dist/` directory, ready for deployment to any static hosting service.
-
-### Deploy to
-- **Netlify**: Connect your repository and select `npm run build` as the build command
-- **Vercel**: Similar process, auto-detects Vite projects
-- **GitHub Pages**: Build locally and push the `dist/` folder
-- **Traditional Hosting**: Build locally and upload `dist/` folder via FTP/SFTP
-
-## 📝 Environment Variables
-
-No environment variables required. The application is fully static.
-
-## 🤝 Contributing
-
-For contributions, please follow these guidelines:
-1. Keep code clean and well-commented
-2. Follow the existing code style and structure
-3. Test changes thoroughly
-4. Ensure no breaking changes to existing functionality
-
-## 📄 License
-
-This project is the property of the Electronics and Instrumentation Engineering Department at Velammal Engineering College.
-
-## 📧 Contact
-
-For event inquiries, please visit the [Contact Section](#contact) on the website or reach out to the respective event coordinators listed on their event pages.
-
----
+For event inquiries or technical support, please refer to the contact section on the live website or reach out to the individual event coordinators.
 
 **Event Date**: January 31st, 2026  
 **Venue**: Velammal Engineering College, Surapet, Chennai

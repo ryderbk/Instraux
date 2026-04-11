@@ -1,11 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
-/**
- * ThunderEffect: High-fidelity lightning interaction
- * - Properly handles continuous emission while active
- * - Distinguishes between mouse and touch
- * - Theme-aware and performance optimized
- */
+// Interactive lightning background effect
+
 const ThunderEffect: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const activePointers = useRef<Map<number, { x: number, y: number, isDown: boolean }>>(new Map());
@@ -14,7 +10,8 @@ const ThunderEffect: React.FC = () => {
   const lastEmitTime = useRef(new Map<number, number>());
 
   useEffect(() => {
-    // Disable thunder animation on mobile devices
+    // Skip on mobile
+
     if (typeof window !== 'undefined' && window.innerWidth < 768) {
       return;
     }
@@ -121,10 +118,12 @@ const ThunderEffect: React.FC = () => {
       
       const now = Date.now();
       
-      // Continuous emission while pointer is active
+      // Handle continuous emission
+
       activePointers.current.forEach((ptr, id) => {
         const lastEmit = lastEmitTime.current.get(id) || 0;
-        // Faster emission if button is down or it's a touch point
+        // Faster emission on click/touch
+
         const interval = (ptr.isDown || id > 1) ? 40 : 100;
         
         if (now - lastEmit > interval) {

@@ -39,13 +39,13 @@ const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
         overflow: 'hidden'
       }}
     >
-      {/* LED indicator dot */}
+
       <div 
         className={`absolute top-4 right-4 w-2 h-2 rounded-full ${ledColor} animate-led-pulse`}
         style={{ boxShadow: accentColor === 'red' ? '0 0 8px rgba(180, 60, 40, 0.6)' : '0 0 8px rgba(167, 139, 250, 0.6)' }}
       />
       
-      {/* Icon */}
+
       <div className="w-12 h-12 mb-4 rounded-chamfer bg-accent/15 flex items-center justify-center group-hover:bg-accent/25 transition-colors duration-300 border border-accent/20">
         {event.icon ? (
           <event.icon className="w-6 h-6 text-accent" />
@@ -54,7 +54,7 @@ const EventCard = ({ event, index, accentColor = 'red' }: EventCardProps) => {
         )}
       </div>
 
-      {/* Content */}
+
       <h3 className="font-display font-semibold text-foreground mb-1 group-hover:text-gradient-copper transition-all duration-300">
         {event.title}
       </h3>
@@ -76,14 +76,14 @@ export const EventsSection = () => {
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
     >
       <TechnicalBackground />
-      {/* Dark overlay */}
+
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50 pointer-events-none" />
       
-      {/* PCB Grid */}
+
       <div className="absolute inset-0 pcb-grid opacity-30" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
+
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -103,9 +103,9 @@ export const EventsSection = () => {
           </p>
         </motion.div>
 
-        {/* Events grid */}
+
         <div className="max-w-5xl mx-auto">
-          {/* Technical Events */}
+
           <motion.div
             className="mb-14"
             initial={{ opacity: 0, x: -20 }}
@@ -127,7 +127,7 @@ export const EventsSection = () => {
             </div>
           </motion.div>
 
-          {/* Non-Technical Events */}
+
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}

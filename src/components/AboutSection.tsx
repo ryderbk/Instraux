@@ -32,12 +32,12 @@ export const AboutSection = () => {
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
     >
       <TechnicalBackground />
-      {/* Dark overlay */}
+
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 pointer-events-none" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          {/* Header */}
+
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -61,7 +61,7 @@ export const AboutSection = () => {
             </p>
           </motion.div>
 
-          {/* Feature cards grid */}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {features.map((feature, index) => (
               <motion.div
@@ -89,7 +89,7 @@ export const AboutSection = () => {
             ))}
           </div>
 
-          {/* Stats */}
+
           <motion.div
             className="mt-16 flex flex-row items-stretch justify-center gap-2 sm:gap-6"
             initial={{ opacity: 0, y: 20 }}

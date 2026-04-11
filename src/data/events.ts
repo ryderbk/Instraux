@@ -201,7 +201,6 @@ export const nonTechnicalEvents: Event[] = [
 
 export const allEvents = [...technicalEvents, ...nonTechnicalEvents];
 
-// Serialization-friendly shape used for localStorage
 export type SerializedEvent = Omit<Event, 'icon'> & { iconName: string };
 
 const ICON_MAP: Record<string, LucideIcon> = {
@@ -220,9 +219,8 @@ const ICON_MAP: Record<string, LucideIcon> = {
 const STORAGE_KEY = 'instraux:events:v5';
 
 function getIconName(icon: LucideIcon): string {
-  // Lucide icon components usually have a function name (Code, Lightbulb, ...)
-  // Use a safe typed access to avoid `any` lint rule
-  const maybe: unknown = icon;
+  const maybe: any = icon;
+
   if (typeof maybe === 'function' && (maybe as { name?: string }).name) {
     return (maybe as { name?: string }).name as string;
   }
@@ -235,9 +233,7 @@ function serializeEvent(e: Event): SerializedEvent {
 
 function reviveEvent(se: SerializedEvent): Event {
   let icon = ICON_MAP[se.iconName];
-  // Extra safety: verify the icon is actually a function
   if (!icon || typeof icon !== 'function') {
-    // Find the correct icon from allEvents
     const originalEvent = allEvents.find(e => e.id === se.id);
     icon = originalEvent?.icon || FileText;
   }
@@ -249,7 +245,6 @@ export const saveEventsToStorage = (events: Event[]) => {
     const serialized = events.map(serializeEvent);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(serialized));
   } catch (err) {
-    // fail silently - don't block the app
     console.warn('Failed to save events to storage', err);
   }
 };
@@ -269,7 +264,6 @@ export const loadEventsFromStorage = (): Event[] | null => {
 export const initializeEventsStorage = () => {
   if (!('localStorage' in globalThis)) return;
   const existing = loadEventsFromStorage();
-  // Only seed defaults if the key is truly missing (null). An empty array is a valid state.
   if (existing === null) {
     saveEventsToStorage(allEvents);
   }
@@ -278,13 +272,11 @@ export const initializeEventsStorage = () => {
 export const getEvents = (): Event[] => {
   const loaded = loadEventsFromStorage();
   if (loaded) {
-    // Ensure all events have valid icons - if any are missing, reset to defaults
     const hasValidIcons = loaded.every(e => e.icon && typeof e.icon === 'function');
     if (hasValidIcons) {
       return loaded;
     }
   }
-  // Reset storage with fresh data if recovery failed
   saveEventsToStorage(allEvents);
   return allEvents;
 };

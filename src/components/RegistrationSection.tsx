@@ -10,12 +10,12 @@ export const RegistrationSection = () => {
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden pb-32 md:pb-20"
     >
       <TechnicalBackground />
-      {/* Background */}
+
       <div className="absolute inset-0 bg-flowing-gradient" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          {/* Header */}
+
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
@@ -42,7 +42,7 @@ export const RegistrationSection = () => {
             </p>
           </motion.div>
 
-          {/* Registration card */}
+
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export const RegistrationSection = () => {
             transition={{ duration: 0.7 }}
             className="glass-card p-8 md:p-12"
           >
-            {/* Fee display */}
+
             <motion.div
               className="text-center mb-10 p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20"
               whileHover={{ scale: 1.01 }}
@@ -69,7 +69,7 @@ export const RegistrationSection = () => {
             </motion.div>
 
 
-            {/* CTA */}
+
             <div className="text-center">
               <Button
                 variant="premium"

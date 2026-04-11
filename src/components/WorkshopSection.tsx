@@ -10,12 +10,12 @@ export const WorkshopSection = () => {
       className="relative py-20 md:py-28 lg:py-32 overflow-hidden"
     >
       <TechnicalBackground />
-      {/* Background */}
+
       <div className="absolute inset-0 bg-flowing-gradient" />
 
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          {/* Header */}
+
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
@@ -34,7 +34,7 @@ export const WorkshopSection = () => {
             </p>
           </motion.div>
 
-          {/* Workshop card */}
+
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ export const WorkshopSection = () => {
             className="glass-card p-8 md:p-12"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
-              {/* Visual */}
+
               <div className="flex justify-center">
                 <motion.div
                   className="relative"
@@ -53,19 +53,19 @@ export const WorkshopSection = () => {
                   <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
                     <Plane className="w-20 h-20 text-primary transform -rotate-45" />
                   </div>
-                  {/* Orbit ring */}
+
                   <div className="absolute inset-0 rounded-full border border-dashed border-primary/20 animate-[spin_20s_linear_infinite]" />
                 </motion.div>
               </div>
 
-              {/* Info */}
+
               <div className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed">
                   Get hands-on experience with professional drone technology. Learn the 
                   fundamentals of remote piloting, flight dynamics, and aerial photography.
                 </p>
                 
-                {/* Features */}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                   {[
                     { icon: Target, label: 'Precision Training' },
@@ -83,7 +83,7 @@ export const WorkshopSection = () => {
                   ))}
                 </div>
 
-                {/* Price */}
+
                 <div className="p-4 rounded-2xl bg-primary/5 border border-primary/20">
                   <div className="flex items-baseline justify-between">
                     <div>
@@ -98,7 +98,7 @@ export const WorkshopSection = () => {
                   </div>
                 </div>
 
-                {/* CTA */}
+
                 <Button
                   variant="premium"
                   size="lg"

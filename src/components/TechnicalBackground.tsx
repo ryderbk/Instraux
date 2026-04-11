@@ -10,7 +10,7 @@ export const TechnicalBackground = React.memo(({ section = 'default' }: { sectio
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-[#0a0a0c]">
-      {/* Grid Structure - Static and optimized */}
+
       <div 
         className="absolute inset-0 opacity-[0.02]" 
         style={{ 
@@ -20,7 +20,7 @@ export const TechnicalBackground = React.memo(({ section = 'default' }: { sectio
         }} 
       />
 
-      {/* Gradient background - Low cost, GPU accelerated */}
+
       <div 
         className="absolute inset-0 bg-gradient-to-br from-primary/3 via-transparent to-accent/3" 
         style={{ 

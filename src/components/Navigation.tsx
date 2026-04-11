@@ -86,7 +86,7 @@ export const Navigation = () => {
         }`}
       >
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo */}
+
           <motion.a
             href="#hero"
             onClick={(e) => {
@@ -102,7 +102,7 @@ export const Navigation = () => {
             </span>
           </motion.a>
 
-          {/* Desktop Navigation */}
+
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <motion.button
@@ -126,7 +126,7 @@ export const Navigation = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
+
           <div className="hidden lg:block">
             <Button
               variant="premium"
@@ -137,7 +137,7 @@ export const Navigation = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+
           <button
             className="lg:hidden relative z-50 p-2 rounded-chamfer hover:bg-muted/30 transition-colors border border-border/30"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -150,7 +150,7 @@ export const Navigation = () => {
           </button>
         </div>
 
-        {/* Progress Indicator */}
+
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-border/20">
           <motion.div
             className="h-full bg-gradient-to-r from-primary via-accent to-secondary"
@@ -162,7 +162,7 @@ export const Navigation = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
+
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
