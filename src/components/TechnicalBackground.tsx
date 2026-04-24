@@ -5,11 +5,12 @@ export const TechnicalBackground = React.memo(({ section = 'default' }: { sectio
   const shouldReduceMotion = useReducedMotion();
 
   if (shouldReduceMotion) {
-    return <div className="fixed inset-0 bg-[#0a0a0c] -z-10" />;
+    return <div className="fixed inset-0 -z-10" />;
   }
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-[#0a0a0c]">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+
 
       <div 
         className="absolute inset-0 opacity-[0.02]" 

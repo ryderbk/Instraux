@@ -10,7 +10,8 @@ const contacts = [
 
 export const ContactSection = () => {
   return (
-    <section id="contact" className="relative py-16 md:py-20 overflow-hidden">
+    <section id="contact" className="relative py-20 md:py-28 lg:py-32 overflow-hidden">
+
       <TechnicalBackground />
       {/* Background */}
       <div className="absolute inset-0 bg-flowing-gradient" />

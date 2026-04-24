@@ -53,7 +53,7 @@ export const TeamSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 mb-4 rounded-full bg-secondary/10 border border-secondary/20 text-sm font-medium text-secondary">
+          <span className="inline-block px-4 py-2 mb-4 glass-panel rounded-chamfer text-sm font-mono uppercase tracking-widest text-accent">
             The Team
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">

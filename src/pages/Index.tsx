@@ -30,7 +30,8 @@ const Index = () => {
         <meta charSet="utf-8" />
       </Helmet>
       
-      <main className="relative min-h-screen bg-background overflow-x-hidden">
+      <main className="relative min-h-screen overflow-x-hidden">
+
         <Navigation />
         <HeroScene />
         <Suspense fallback={<LoadingFallback />}>

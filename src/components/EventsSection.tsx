@@ -28,17 +28,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, index, accentColor = 'red'
         ease: [0.23, 1, 0.32, 1],
       }}
       onClick={() => navigate(`/event/${event.id}`)}
-      className="p-5 group cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
-      style={{
-        background: 'rgba(40, 20, 60, 0.4)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        border: '1px solid rgba(139, 92, 246, 0.1)',
-        borderRadius: '8px',
-        boxShadow: '0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}
+      className="p-5 group cursor-pointer hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 module-card"
     >
 
       <div 

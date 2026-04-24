@@ -24,14 +24,14 @@ export const RegistrationSection = () => {
             transition={{ duration: 0.6 }}
           >
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 mb-4 rounded-full bg-primary/10 border border-primary/20"
+              className="inline-block px-4 py-2 mb-4 glass-panel rounded-chamfer text-sm font-mono uppercase tracking-widest text-accent"
               animate={{ scale: [1, 1.02, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">
-                Registration Open
-              </span>
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-accent" />
+                <span>Registration Open</span>
+              </div>
             </motion.div>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               <span className="text-foreground">Join </span>

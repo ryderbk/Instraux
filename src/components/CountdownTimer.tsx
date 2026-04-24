@@ -40,9 +40,10 @@ const CountdownBox = memo(({ value, label }: { value: number; label: string }) =
         <Digit value={stringValue[0]} />
         <Digit value={stringValue[1]} />
       </div>
-      <div className="text-[8px] sm:text-xs md:text-sm font-mono uppercase tracking-widest text-muted-foreground">
+      <div className="text-[8px] sm:text-xs md:text-sm font-mono uppercase tracking-widest text-accent/80 font-bold">
         {label}
       </div>
+
     </div>
   );
 });

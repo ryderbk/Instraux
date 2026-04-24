@@ -58,8 +58,10 @@ const HeroSceneComponent = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       <TechnicalBackground section="hero" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 pointer-events-none" />
-      <div className="absolute inset-0 pcb-grid opacity-50" />
+      
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/60 pointer-events-none" />
+      <div className="absolute inset-0 pcb-grid opacity-30" />
+
       
       <SignalTrace delay={0} top="20%" />
       <SignalTrace delay={2} top="50%" />
@@ -76,13 +78,14 @@ const HeroSceneComponent = () => {
           className="max-w-5xl mx-auto text-center"
         >
           <motion.p
-            className="text-xs md:text-sm lg:text-base font-mono uppercase tracking-widest text-accent mb-3 md:mb-4"
+            className="text-xs md:text-sm lg:text-base font-mono uppercase tracking-widest text-accent mb-3 md:mb-4 text-glow"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             Department of Electronics and Instrumentation
           </motion.p>
+
 
           <motion.p
             className="text-sm md:text-base lg:text-lg font-light text-muted-foreground mb-6 md:mb-8"
@@ -145,3 +148,4 @@ const HeroSceneComponent = () => {
 
 export const HeroScene = memo(HeroSceneComponent);
 export default HeroScene;
+

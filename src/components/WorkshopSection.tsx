@@ -23,7 +23,7 @@ export const WorkshopSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 mb-4 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-sm font-medium text-accent-cyan">
+            <span className="inline-block px-4 py-2 mb-4 glass-panel rounded-chamfer text-sm font-mono uppercase tracking-widest text-accent">
               Featured Workshop
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
