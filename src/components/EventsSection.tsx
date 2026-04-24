@@ -95,7 +95,7 @@ export const EventsSection = () => {
           <span className="inline-block px-4 py-2 mb-4 glass-panel rounded-chamfer text-sm font-mono uppercase tracking-widest text-accent">
             Explore Events
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="text-foreground">Our </span>
             <span className="text-gradient-copper">Events</span>
           </h2>
@@ -114,7 +114,7 @@ export const EventsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-3">
+            <h3 className="font-display text-xl font-semibold text-foreground mb-6 flex items-center gap-3">
               <span className="w-8 h-0.5 bg-primary/60" />
               Technical Events
               <span className="w-2 h-2 rounded-full bg-primary animate-led-pulse" />
@@ -135,7 +135,7 @@ export const EventsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-3">
+            <h3 className="font-display text-xl font-semibold text-foreground mb-6 flex items-center gap-3">
               <span className="w-8 h-0.5 bg-secondary" />
               Non-Technical Events
               <span className="w-2 h-2 rounded-full bg-secondary animate-led-pulse" />

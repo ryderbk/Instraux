@@ -33,7 +33,7 @@ export default function EventDetail() {
 
   if (!event) {
     return (
-      <div className="min-h-screen bg-transparent flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <Navigation />
         <div className="text-center">
           <h1 className="text-3xl font-bold text-foreground mb-4">Event Not Found</h1>
@@ -58,7 +58,7 @@ export default function EventDetail() {
         <meta name="description" content={event.description} />
       </Helmet>
       <Navigation />
-      <div className="min-h-screen bg-transparent pt-20">
+      <div className="min-h-screen bg-background pt-20">
         {/* Background overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50 pointer-events-none" />
         <div className="absolute inset-0 pcb-grid opacity-30 pointer-events-none" />
@@ -119,7 +119,7 @@ export default function EventDetail() {
               transition={{ delay: 0.4 }}
               className="mb-12"
             >
-              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+              <h2 className="font-display text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                 <span className={`w-1 h-8 rounded-full ${isRed ? 'bg-primary' : 'bg-secondary'}`} />
                 Rules & Guidelines
               </h2>
@@ -150,7 +150,7 @@ export default function EventDetail() {
               transition={{ delay: 0.6 }}
               className="mb-12"
             >
-              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+              <h2 className="font-display text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
                 <span className={`w-1 h-8 rounded-full ${isRed ? 'bg-primary' : 'bg-secondary'}`} />
                 Event Contact
               </h2>

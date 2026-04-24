@@ -26,7 +26,7 @@ export const WorkshopSection = () => {
             <span className="inline-block px-4 py-2 mb-4 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 text-sm font-medium text-accent-cyan">
               Featured Workshop
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               <span className="text-gradient-accent">Remote Pilot Training</span>
             </h2>
             <p className="text-lg text-muted-foreground">
@@ -90,7 +90,7 @@ export const WorkshopSection = () => {
                       <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
                         Workshop Fee
                       </p>
-                      <p className="text-3xl font-bold text-gradient">
+                      <p className="font-display text-3xl font-bold text-gradient">
                         ₹300
                       </p>
                     </div>
