@@ -94,7 +94,7 @@ const HeroSceneComponent = () => {
           </motion.p>
 
           <motion.h1
-            className="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-4 md:mb-6 tracking-tight"
+            className="font-display text-hero font-extrabold mb-4 md:mb-6 tracking-tighter"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}

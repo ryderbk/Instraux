@@ -56,7 +56,7 @@ export const TeamSection = () => {
           <span className="inline-block px-4 py-2 mb-4 rounded-full bg-secondary/10 border border-secondary/20 text-sm font-medium text-secondary">
             The Team
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="text-foreground">Meet Our </span>
             <span className="text-gradient">Organizers</span>
           </h2>
@@ -83,7 +83,7 @@ export const TeamSection = () => {
                 <div className="w-14 h-14 mx-auto rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
                   <member.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-display font-semibold text-foreground mb-1">
+                <h3 className="font-semibold text-foreground mb-1">
                   {member.name}
                 </h3>
                 <p className="text-sm text-primary mb-0.5">
@@ -117,7 +117,7 @@ export const TeamSection = () => {
                     <member.icon className="w-7 h-7 text-accent-cyan" />
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold text-foreground">
+                    <h3 className="font-semibold text-foreground">
                       {member.name}
                     </h3>
                     <p className="text-sm text-accent-cyan">

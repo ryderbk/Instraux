@@ -33,7 +33,7 @@ export const RegistrationSection = () => {
                 Registration Open
               </span>
             </motion.div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               <span className="text-foreground">Join </span>
               <span className="text-gradient">INSTRAUX'26</span>
             </h2>
@@ -59,7 +59,7 @@ export const RegistrationSection = () => {
                 Registration Fee
               </p>
               <div className="flex items-baseline justify-center gap-2">
-                <span className="font-display text-5xl md:text-6xl font-bold text-gradient">
+                <span className="text-5xl md:text-6xl font-bold text-gradient">
                   ₹150
                 </span>
                 <span className="text-muted-foreground">

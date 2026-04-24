@@ -48,7 +48,7 @@ export const AboutSection = () => {
             <span className="inline-block px-4 py-2 mb-4 glass-panel rounded-chamfer text-sm font-mono uppercase tracking-widest text-accent">
               About the Symposium
             </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               <span className="text-foreground">Where </span>
               <span className="text-gradient-copper">Innovation</span>
               <br className="md:hidden" />
@@ -79,7 +79,7 @@ export const AboutSection = () => {
                 <div className="w-14 h-14 mx-auto mb-4 rounded-chamfer bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors duration-300 border border-primary/20">
                   <feature.icon className="w-7 h-7 text-accent" />
                 </div>
-                <h3 className="font-display font-semibold text-foreground mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   {feature.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -106,7 +106,7 @@ export const AboutSection = () => {
                 key={index}
                 className="glass-panel p-3 sm:p-6 text-center rounded-chamfer flex-1 min-w-0"
               >
-                <div className="font-display text-xl sm:text-3xl md:text-4xl font-bold text-gradient-copper mb-1 truncate">
+                <div className="font-display text-hero sm:text-3xl md:text-4xl font-extrabold text-gradient-copper mb-1 truncate">
                   {stat.value}
                 </div>
                 <div className="text-[10px] sm:text-sm text-muted-foreground font-mono uppercase tracking-wider truncate">

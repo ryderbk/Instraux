@@ -36,7 +36,7 @@ const CountdownBox = memo(({ value, label }: { value: number; label: string }) =
   const stringValue = String(value).padStart(2, '0');
   return (
     <div className="glass-panel p-2 sm:p-6 md:p-7 rounded-chamfer flex flex-col items-center justify-center border border-accent/30 aspect-square" style={{ willChange: 'contents' }}>
-      <div className="flex text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-0.5 sm:mb-2 leading-none overflow-hidden">
+      <div className="flex text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-accent mb-0.5 sm:mb-2 leading-none overflow-hidden">
         <Digit value={stringValue[0]} />
         <Digit value={stringValue[1]} />
       </div>

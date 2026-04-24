@@ -14,9 +14,18 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Rajdhani', 'sans-serif'],
-        display: ['Rajdhani', 'sans-serif'],
-        mono: ['Share Tech Mono', 'monospace'],
+        display: ['Syne', 'sans-serif'],
+        heading: ['DM Sans', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'sans-serif'],
+        accent: ['Space Grotesk', 'sans-serif'],
+        mono: ['Space Grotesk', 'monospace'],
+      },
+      fontSize: {
+        'hero': 'var(--text-hero)',
+        'h1': 'var(--text-h1)',
+        'h2': 'var(--text-h2)',
+        'body': 'var(--text-body)',
+        'label': 'var(--text-label)',
       },
       colors: {
         border: "hsl(var(--border))",
